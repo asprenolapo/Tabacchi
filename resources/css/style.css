@@ -1,0 +1,13 @@
+/*Import Font*/
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
+
+/*Header Style */
+.header-img {
+    width: 100% !important;
+    max-height: 500px;
+    transform: scale(1.5,2);
+    object-fit: fill;
+    position: relative;
+    top: 20%;
+    left: 20%;
+}
