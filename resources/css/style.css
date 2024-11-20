@@ -1,11 +1,26 @@
 /*Import Font*/
 @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap');
 
+body {
+    font-family: "Bree Serif", serif;
+}
+
 /*Header Style */
 .header-img {
     width: 100% !important;
     max-height: 500px;
-    transform: scale(1.5,2);
+    transform: scale(1.5, 2);
+    object-fit: fill;
+    position: relative;
+    top: 20%;
+    left: 20%;
+}
+
+/*Section II Img*/
+.section2-img{
+    width: 100% !important;
+    max-height: 500px;
+    transform: scale(1.5, 1.5);
     object-fit: fill;
     position: relative;
     top: 20%;
