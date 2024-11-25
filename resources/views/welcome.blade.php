@@ -29,12 +29,19 @@
     {{-- /SECTION I --}}
 
     {{-- MAIN --}}
-    <main>
+    <main class="container">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 text-center my-5">
                 <h3 class="text-danger">Best Sellers</h3>
                 <p>I più venduti i più apprezzati</p>
             </div>
+        </div>
+        <div class="row justify-content-center gap-4 my-5">
+            @forelse ($cigars as $cigar )
+            <x-card :$cigar/> 
+            @empty
+                <p>non si sono prodotti</p>
+            @endforelse
         </div>
     </main>
     {{-- /MAIN --}}
@@ -44,13 +51,33 @@
         <div class="card text-bg-dark overflow-hidden">
             <img class="section2-img" src="https://images.unsplash.com/photo-1547424450-a69b33b2cdc2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"alt="...">
             <div class="card-img-overlay d-flex flex-column justify-content-center text-center">
-                <h5 class="card-title display-4">Luxury Cigar</h5>
-                <p class="card-text fs-5">Per chi Vuole solo il meglio!</p>
-                <a class="btn text-light" href="">Scopri di più</a>
+                <h5 class="card-title display-4 text-dark">Luxury Cigar</h5>
+                <p class="card-text fs-5 text-dark">Per chi Vuole solo il meglio!</p>
+                <a class="btn text-light text-dark" href="">Scopri di più</a>
             </div>
         </div>
     </section>
     {{-- /SECTION II --}}
+
+    {{-- SECTION III --}}
+    <section class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 text-center my-5">
+                <h3 class="text-danger">New Arrivals</h3>
+                <p>I nuovi arrivi</p>
+            </div>
+        </div>
+        <div class="row justify-content-center gap-4 my-5">
+            @forelse ($cigars as $cigar )
+            <x-card :$cigar/> 
+            @empty
+                <p>non si sono prodotti</p>
+            @endforelse
+        </div>
+    </section>
+    {{-- /SECTION III --}}
+
+
 
 
 </x-layout>

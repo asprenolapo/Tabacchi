@@ -12,8 +12,17 @@ class CigarController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $cigars=Cigar::all();
+
+        return view('welcome', compact('cigars'));
+
     }
+
+    public function sigaripage()
+    {
+        return view('sigari');       
+    }
+
 
     /**
      * Show the form for creating a new resource.
