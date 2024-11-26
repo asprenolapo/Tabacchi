@@ -1,6 +1,4 @@
-
-    {{-- To attain knowledge, add things every day; To attain wisdom, subtract things every day. --}}
-    {{-- Row Filtri --}}
+<div class="col-md-9 p-5">
     <div class="row">
         <div class="col-12 d-flex">
             <div
@@ -18,3 +16,4 @@
             <p>non ci sono prodotti</p>
         @endforelse
     </div>
+</div>

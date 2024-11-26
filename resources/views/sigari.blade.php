@@ -36,9 +36,8 @@
                 {{-- TODO seconda Lista Filtri  --}}
             </div>
             {{-- TODO implementare e aggiustare la visione delle card --}}
-            <div class="col-md-9 p-5">
-                <livewire:sigari/>
-            </div>
+                <livewire:search/>
+
         </div>
     </main>
     {{-- /MAIN --}}
