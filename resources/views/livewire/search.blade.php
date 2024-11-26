@@ -1,8 +1,7 @@
 <div class="col-md-9 p-5">
     <div class="row">
         <div class="col-12 d-flex">
-            <div
-                class="border border-1 border-dark rounded-pill d-flex ms-auto justify-content-center align-items-center p-2">
+            <div class="border w-100 border-1 border-dark rounded-pill d-flex ms-auto justify-content-center align-items-center p-2">
                 <input class="input-search" type="text" placeholder="Search.." wire:model.live="search">
                 <i class="fa-solid fa-magnifying-glass fs-3 ms-2"></i>
             </div>
