@@ -37,8 +37,8 @@
             </div>
             {{-- TODO implementare e aggiustare la visione delle card --}}
                 <livewire:search/>
-
         </div>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </main>
     {{-- /MAIN --}}
 
