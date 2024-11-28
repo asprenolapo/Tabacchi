@@ -14,6 +14,7 @@ Route::get('/sigaro/{cigar}', [CigarController::class, 'show'])->name('dettaglio
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
+    Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
 
 });
 //Pagina Admin

@@ -11,6 +11,7 @@ class Cigar extends Model
         'price',
         'madein',
         'tripa',
-        'description'
+        'description',
+        'img'
     ];
 }

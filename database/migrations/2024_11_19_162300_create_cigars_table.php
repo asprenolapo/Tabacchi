@@ -16,8 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price', 6 , 2);
             $table->string('madein');
-            $table->string('tripa');
+            $table->string('tripa')->nullable();
             $table->longText('description');
+            $table->string('img')->default('/asset/default.jpg');
             $table->timestamps();
         });
     }

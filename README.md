@@ -1,9 +1,11 @@
 0. **Sistemato Search**
     - Su pc => piccolo a dx
     - Su smartphone => grande al centro
+    COMPLETATO
 
 1. **lavoarzione card con link alla pagina di dettaglio** 
     - hover + transizione e shadow aggiunto alla card
+    COMPLETATO
 
 2. **pagina di dettaglio**
     - rotta parametrica implementata in vista, bottone, rotta
@@ -17,14 +19,11 @@
     - *vista admin nascosta (solo uri)*
         - implementato tab con tabella utenti e tipologia di utente
         - aggiunto tab prodotti con widget e form 
-        - *da fare logica crud per l'aggiunta dei prodotti*
-
-4 crud per inserimento prodotti 
 
 5 pagina con mail per contattaci
 
 6. **implementare logica ricerca e filtri per prodotti**
     - ricerca implementato
-    - *filtri ??*
+COMPLETATO
 
 8 implementazione cookies e controllo età 

@@ -14,5 +14,13 @@ function scrollFunction() {
 
 // When the user clicks on the button, scroll to the top of the document
 function topFunction() {
-  document.documentElement.scrollTop = 0; 
+  document.body.scrollTop = 0; 
 }
+
+//ADMIN PAGE 
+//NOTIFICA SUCCESSO
+let msg = document.querySelector('#sessionMSG');
+
+    setTimeout(() => {
+        msg.classList.add('notification');
+    }, 3000);
