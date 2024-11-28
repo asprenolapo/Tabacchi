@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-body-tertiary {{Route::currentRouteName() == 'admin' ? 'd-none' : ''}}">
     <div class="container">
-        <a class="navbar-brand" href="#">Tabaccheria 195</a>
+        <a class="navbar-brand" href="{{route('home')}}">Tabaccheria 195</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -18,8 +18,7 @@
                 </li>
             </ul>
             <div class="navbar-text">
-                <i class="fs-2
-                fa-solid fa-smoking"></i>
+                <i class="fs-2 fa-solid fa-smoking"></i>
             </div>
         </div>
     </div>

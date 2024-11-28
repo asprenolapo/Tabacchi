@@ -1,0 +1,1 @@
+<h1>Sigaro: {{$cigar->name}}</h1>

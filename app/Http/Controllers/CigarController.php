@@ -45,7 +45,7 @@ class CigarController extends Controller
      */
     public function show(Cigar $cigar)
     {
-        //
+        return view('dettaglioSigari',compact('cigar'));
     }
 
     /**
@@ -71,4 +71,5 @@ class CigarController extends Controller
     {
         //
     }
+
 }
