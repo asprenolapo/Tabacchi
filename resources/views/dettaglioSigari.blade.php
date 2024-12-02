@@ -5,7 +5,18 @@
 
             {{-- IMMAGINI --}}
             <div class="col-6 p-5">
-                <img src="https://picsum.photos/500/500" alt="" class="img-fluid">
+                <img src="https://picsum.photos/400/400" alt="" class="img-fluid">
+                <div class="row d-flex justify-between">
+                    <div class="col-2">
+                        <img src="https://picsum.photos/500/501" alt="" class="img-fluid w-100">
+                    </div>
+                    <div class="col-2">
+                        <img src="https://picsum.photos/500/502" alt="" class="img-fluid w-100">
+                    </div>
+                    <div class="col-2">
+                        <img src="https://picsum.photos/500/503" alt="" class="img-fluid w-100">
+                    </div>
+                </div>
             </div>
 
             {{-- CARATTERISTICHE --}}

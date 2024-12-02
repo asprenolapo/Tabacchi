@@ -14,7 +14,7 @@
                     <a class="nav-link" href="{{route('sigari')}}">Sigari</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contattaci</a>
+                    <a class="nav-link" href="{{route('contactus')}}">Contattaci</a>
                 </li>
             </ul>
             <div class="navbar-text">

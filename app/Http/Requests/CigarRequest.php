@@ -49,7 +49,9 @@ class CigarRequest extends FormRequest
             'description.max' => 'La descrizione non può essere più lungo di 150 caratteri',
 
             'img.image' => 'Il file caricato non è un\'immagine',
-            'img.max' => 'La dimensione massima del file caricato è 2MB'
+            'img.max' => 'La dimensione massima del file caricato è 2MB',
+            'img.max'=>'Puoi inserire massimo 4 immagini'
+
         ];
     }
 }

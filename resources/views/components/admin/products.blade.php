@@ -77,14 +77,14 @@
 
                     <div class="mb-3">
                         <label for="img" class="form-label">Foto</label>
-                        <input class="form-control @error('img') is-invalid @enderror" type="file" id="img"
-                            name="img">
+                        <input class="form-control @error('img') is-invalid @enderror" multiple type="file" id="img"
+                            name="img[]">
                         @error('img')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary float-end w-25 my-4">Aggiungi</button>
+                    <button type="submit" class="btn btn-primary float-end w-25 my-4">Aggiungi file</button>
                 </form>
             </div>
         </div>

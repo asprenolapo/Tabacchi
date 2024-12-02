@@ -25,9 +25,14 @@ class AdminController extends Controller
             'madein'=> $request->input('madein'),
             'tripa'=> $request->input('tripa'),
             'description'=> $request->input('description'),
-            'img'=> $request->has('img') ? $request->file('img')->store('products', 'public') : '/asset/default.jpg',
-
+            //'img'=> $request->has('img') ? $request->file('img')->store('products', 'public') : '/asset/default.jpg',
+            if ($request->has('img') {
+                foreach ($request->file('img') as $image) {
+                    
+                }
+            }
         ]);
+           
         return redirect()->back()->with('success', 'Prodotto creato con successo');
     }
 }
