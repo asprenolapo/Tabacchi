@@ -11,14 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cigars', function (Blueprint $table) {
+        Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->decimal('price', 6 , 2);
-            $table->string('madein');
-            $table->string('tripa')->nullable();
-            $table->longText('description');
-            //$table->string('img')->default('/asset/default.jpg');
+            $table->string('path')->nullable();
+            $table->unsignedBigInteger('cigar_id')->nullable();
+            $table->foreign('cigar_id')->references('id')->on('cigars')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cigars');
+        Schema::dropIfExists('images');
     }
 };

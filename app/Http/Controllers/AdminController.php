@@ -26,7 +26,7 @@ class AdminController extends Controller
     {
         
         try {
-            
+
             Cigar::create([
                 'name' => $request->input('name'),
                 'price'=> $request->input('price'),

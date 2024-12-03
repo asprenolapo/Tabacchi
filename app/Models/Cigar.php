@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Image;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Cigar extends Model
 {
@@ -12,6 +14,12 @@ class Cigar extends Model
         'madein',
         'tripa',
         'description',
-        'img'
+        //'img'
     ];
+
+    public function images(){
+
+        return $this->hasMany(Image::class);
+        
+    }
 }
