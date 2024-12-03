@@ -21,14 +21,14 @@ class ProductForm extends Component
     public $madein;
     #[Validate('required|min:5|max:150')]
     public $description;
-    // #[Validate('image|max:2048')]
-    public $img = [];
+    #[Validate('image|max:2048')]
+    public $images = [];
 
 
     public function save()
     {
         $this->validate();
-        Cigar::create([
+        $this->cigar = Cigar::create([
             'name' => $this->name,
             'price' => $this->price,
             'madein' => $this->madein,
@@ -36,9 +36,9 @@ class ProductForm extends Component
             'description' => $this->description,
         ]);
 
-        if (count($this->img) > 0) {
-            foreach ($this->img as $image) {
-                $this->cigar->images()->create(['path' => $image->store('products', 'public')]);
+        if (count($this->images) > 0) {
+            foreach ($this->images as $image) {
+                $this->cigar->images()->create(['path' => $image->store('images', 'public')]);
             }
         }
 
@@ -63,8 +63,8 @@ class ProductForm extends Component
         'description.min' => 'la descrizione deve essere lunga almeno 5 caratteri',
         'description.max' => 'La descrizione non può essere più lungo di 150 caratteri',
 
-        // 'img.image' => 'Il file caricato non è un\'immagine',
-        // 'img.max' => 'La dimensione massima del file caricato è 2MB',
+        'img.image' => 'Il file caricato non è un\'immagine',
+        'img.max' => 'La dimensione massima del file caricato è 2MB',
     ];
 
     public function render()
