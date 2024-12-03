@@ -27,8 +27,8 @@
                 <p class="">Tripa: {{ $cigar->tripa }} </p>
                 <p class="">Descrizione: {{ $cigar->description }} </p>
                 <h3 class="text-danger">DISPONIBILE SOLO IN TABACCHERIA</h3>
-                <p class="text-danger">la vendita online è vietata</p>
-                <p class="text-danger">ai sensi della legge 19DL 6/2016</p>
+                <p class="text-danger">- la vendita online è vietata</p>
+                <p class="text-danger">- ai sensi della legge 19DL 6/2016</p>
             </div>
 
         </div>

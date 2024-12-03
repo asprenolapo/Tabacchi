@@ -84,7 +84,7 @@
                         @enderror
                     </div>
 
-                    <button type="submit" class="btn btn-primary float-end w-25 my-4">Aggiungi file</button>
+                    <button type="submit" class="btn btn-primary float-end w-25 my-4">Aggiungi</button>
                 </form>
             </div>
         </div>
