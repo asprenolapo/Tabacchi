@@ -27,3 +27,23 @@
 COMPLETATO
 
 8 implementazione cookies e controllo età 
+
+
+## Aggiunte 02/12/2024
+
+1. Trovata soluzione per immagine multipla
+    - da fare modello/migrazione e relazioni 1toN
+    - *da fare con Aspreno*
+
+2. Tab di Admin = Admin Area
+
+3. Logica + frontend primi 2 widget
+    - *da renderlo un link*
+    - *Rotta parametrica*
+    - *vista dettaglio con dati*
+
+4. Sistemato immagine card
+    - proporzione immagine
+    - altezza fissa uguale per tutti
+    - *impostare la prima card*
+

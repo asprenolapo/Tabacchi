@@ -1,7 +1,7 @@
-<x-layout>
+<x-layout :$titlePage>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 min-vh-100 p-0 d-flex flex-column justify-content-between">
+            <div class="col-2 min-vh-100 p-0 d-flex flex-column justify-content-between shadow-lg">
                 <a href="{{ route('home') }}" class="p-4 text-decoration-none">
                     <h1 class="fs-4 text-center">Tabaccheria 195</h1>
                     <p class="text-muted text-center">Area Admin</p>
@@ -33,7 +33,7 @@
 
                 <a href="" class="tab-admin">powered by Aspreno</a>
             </div>
-            <div class="col-10 p-0" style="background-color: #F8F8FA">
+            <div class="col-10 p-0 shadow-lg" style="background-color: #F8F8FA">
                 <div class="bg-white" style="height: 70px">
                     <div class="dropdown float-end">
                         <button class="btn btn-white" type="button" data-bs-toggle="dropdown"
@@ -53,7 +53,7 @@
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
                             aria-labelledby="v-pills-home-tab" tabindex="0">
-                            <x-admin.products />
+                            <x-admin.products :$countUser :$countCigar />
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
                             aria-labelledby="v-pills-profile-tab" tabindex="0">

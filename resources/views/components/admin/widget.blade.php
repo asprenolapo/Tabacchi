@@ -1,4 +1,4 @@
-<div class="container-fluid {{$color}} shadow" style="height: 180px; width:250px">
+<div class="container-fluid {{$color}} shadow-lg" style="height: 180px; width:250px">
     <div class="row text-muted">
         <div class="col-7 p-3">
             <h3>{{$title}}</h3>
