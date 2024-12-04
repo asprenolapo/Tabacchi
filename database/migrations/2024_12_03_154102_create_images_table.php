@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('images', function (Blueprint $table) {
             $table->id();
-            $table->string('path')->nullable();
-            $table->unsignedBigInteger('cigar_id')->nullable();
-            $table->foreign('cigar_id')->references('id')->on('cigars')->onDelete('cascade');
+            $table->unsignedBigInteger('cigar_id');
+            $table->string('path');
             $table->timestamps();
+            $table->foreign('cigar_id')->references('id')->on('cigars')->onDelete('cascade');
         });
     }
 

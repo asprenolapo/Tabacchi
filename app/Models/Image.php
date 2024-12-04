@@ -12,9 +12,8 @@ class Image extends Model
         'path'
     ];
 
-    public function cigar()
+    public function cigar(): BelongsTo
     {
-
         return $this->belongsTo(Cigar::class);
     }
 }

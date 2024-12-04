@@ -53,7 +53,7 @@
             <div class="mb-3">
                 <label for="img" class="form-label">Foto</label>
                 <input class="form-control @error('img') is-invalid @enderror" multiple type="file"
-                    id="img" wire:model="img[]">
+                    id="img" wire:model="img">
                 @error('img')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror

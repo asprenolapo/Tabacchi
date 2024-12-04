@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
 
 namespace App\Http\Requests;
 
@@ -25,6 +25,7 @@ class CigarRequest extends FormRequest
             'name' => 'required|min:5|max:40',
             'madein' => 'required|min:3|max:30',
             'price' => 'required|numeric|min:2',
+            'tripa' => 'required|min:5',
             'description' => 'required|min:5|max:150',
             'img' => 'image|max:2048'
         ];
@@ -44,6 +45,10 @@ class CigarRequest extends FormRequest
             'price.numeric' => 'Il prezzo deve essere un numero',
             'price.min' => 'Il prezzo deve essere almeno 2',
 
+
+            'tripa.required' => 'Il campo tripa è obbligatorio',
+            'tripa.min' => 'La tripa deve essere almeno di 5 caratteri',
+
             'description.required' => 'Il campo descrizione è obbligatorio',
             'description.min' => 'la descrizione deve essere lunga almeno 5 caratteri',
             'description.max' => 'La descrizione non può essere più lungo di 150 caratteri',
@@ -53,4 +58,4 @@ class CigarRequest extends FormRequest
 
         ];
     }
-}
+} -->

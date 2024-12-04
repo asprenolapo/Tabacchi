@@ -17,7 +17,7 @@ class Cigar extends Model
         //'img'
     ];
 
-    public function images(){
+    public function images(): HasMany{
 
         return $this->hasMany(Image::class);
         
