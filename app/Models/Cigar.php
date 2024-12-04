@@ -17,15 +17,6 @@ class Cigar extends Model
         //'img'
     ];
 
-<<<<<<< HEAD
-    public function images(): HasMany{
-=======
-    // public function images(){
->>>>>>> 83b0b27db5525fd47f64f252581a6378505866cf
-
-    //     return $this->hasMany(Image::class);
-        
-    // }
 
     public function images() : HasMany
     {

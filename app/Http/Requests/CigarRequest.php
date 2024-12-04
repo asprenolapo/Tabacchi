@@ -58,4 +58,4 @@ class CigarRequest extends FormRequest
 
         ];
     }
-} -->
+} 
