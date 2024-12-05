@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\contactAdmin;
+use App\Mail\contactUser;
 use App\Models\Cigar;
+use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CigarController extends Controller
 {
@@ -72,4 +76,27 @@ class CigarController extends Controller
         //
     }
 
+    public function contactus(){
+        return view('contactus');
+    }
+    
+    public function contactusSubmit(Request $request){
+        
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $body = $request->input('body');
+
+        $userData = compact('name','email','body');
+
+        try {
+            Mail::to($email)->send(new contactUser($userData));
+            Mail::to('admin@tabaccheria195.it')->send(new contactAdmin($userData));
+
+            return redirect()->back()->with('success','Richiesta inviata con successo.. controlla la tua mail');
+
+        } catch (Exception $e) {
+            
+            return redirect()->back()->with('error','errore durante l\'invio mail.. riprova più tardi');
+        }
+    }
 }

@@ -15,6 +15,7 @@ Route::get('/sigaro/{cigar}', [CigarController::class, 'show'])->name('dettaglio
 
 //CONTACT US
 Route::get('/contactus', [CigarController::class, 'contactus'] ) -> name('contactus');
+Route::post('/contactus/submit', [CigarController::class, 'contactusSubmit'] ) -> name('contactus.submit');
 
 //ADMIN PAGE
 Route::middleware(['auth'])->group(function(){
