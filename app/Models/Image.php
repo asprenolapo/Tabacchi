@@ -13,7 +13,8 @@ class Image extends Model
     use HasFactory;
     
     protected $fillable = [
-        'path'
+        'path',
+        'cigar_id'
     ];
 
     public function cigar(): BelongsTo

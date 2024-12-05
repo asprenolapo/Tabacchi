@@ -55,3 +55,9 @@ COMPLETATO
 
 2. Pagina dettaglio
     - implementata navigazione Tabpanel nelle foto del prodotto (il layout può essere cambiato sia con foto piccole a destra ke in basso)
+
+## Aggiunte 05/12/2024 #############################################################################
+1. Immagini fixed
+2. Card prima immagine fixed
+3. Dettaglio Tab immagini fixed *ma a volte da problemi*
+4. MANDRAGATA per le foto senza
