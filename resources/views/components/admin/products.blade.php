@@ -6,7 +6,7 @@
             <i class="fa-solid fa-circle-check display-6 me-4 text-success"></i>
             <div>
                 <p class="text-success fw-bold m-0">Aggiunto</p>
-                <p class="text-muted m-0">{{ session('added') }}</p>
+                <p class="text-muted m-0">{{ session('success') }}</p>
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>

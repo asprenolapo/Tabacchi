@@ -58,6 +58,7 @@ class ProductForm extends Component
     // Funzione per salvare il prodotto
     public function save()
     {
+
         // Validazione dei dati
         $this->validate();
 
@@ -68,16 +69,17 @@ class ProductForm extends Component
             'madein' => $this->madein,
             'tripa' => $this->tripa,
             'description' => $this->description,
+            //'img'=>$this->image,
         ]);
 
         // Associa le immagini, se presenti
-        if (count($this->img) > 0) {
+        // if (count($this->img) > 0) {
             foreach ($this->img as $image) {
-                $path = $image->store('products', 'public');
+                //$path = $image->store('products', 'public');
                 // Salva l'immagine e associa al prodotto
                 $cigar->images()->create(['path' => $image->store('products', 'public')]);
             }
-        }
+        //}
 
         // Flash message di successo
         session()->flash('success', 'Articolo Aggiunto');

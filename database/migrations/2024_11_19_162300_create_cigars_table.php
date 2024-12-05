@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('madein');
             $table->string('tripa')->nullable();
             $table->longText('description');
-            //$table->string('img')->default('/asset/default.jpg');
             $table->timestamps();
         });
     }
