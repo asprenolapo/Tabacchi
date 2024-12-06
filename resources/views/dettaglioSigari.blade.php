@@ -12,8 +12,8 @@
                     <div class="col-9">
                         <div class="tab-content" id="v-pills-tabContent">
                             @if ($cigar->images()->count() == 1)
-                                <div class="tab-pane fade show active" id="v-pills-{{ $cigar->images->id }}"
-                                    role="tabpanel" aria-labelledby="v-pills-{{ $cigar->images->id }}-tab"
+                                <div class="tab-pane fade show active" id="v-pills-{{ $cigar->images()->first()->id }}"
+                                    role="tabpanel" aria-labelledby="v-pills-{{ $cigar->images()->first()->id }}-tab"
                                     tabindex="0">
                                     <img src="{{ Storage::url($cigar->images()->first()->path) }}" alt=""
                                         class="img-fluid w-100">
@@ -53,9 +53,9 @@
                         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
                             aria-orientation="vertical">
                             @if ($cigar->images()->count() == 1)
-                                <button class="nav-link w-100 active" id="v-pills-{{ $cigar->images()->id }}"
-                                    data-bs-toggle="pill" data-bs-target="#v-pills-{{ $cigar->images()->id }}" type="button"
-                                    role="tab" aria-controls="v-pills-{{ $cigar->images()->id }}" aria-selected="true">
+                                <button class="nav-link w-100 active" id="v-pills-{{ $cigar->images()->first()->id }}"
+                                    data-bs-toggle="pill" data-bs-target="#v-pills-{{ $cigar->images()->first()->id }}" type="button"
+                                    role="tab" aria-controls="v-pills-{{ $cigar->images()->first()->id }}" aria-selected="true">
                                     <img src="{{ Storage::url($cigar->images()->first()->path) }}" alt=""
                                         class="img-fluid w-100">
                                 </button>

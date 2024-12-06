@@ -1,12 +1,12 @@
 <x-layout :$titlePage>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-2 bg-white vh-100 position-sticky top-0 p-0 d-flex flex-column justify-content-between">
+            <div class="col-2 min-vh-100 p-0 d-flex flex-column justify-content-between shadow-lg">
                 <a href="{{ route('home') }}" class="p-4 text-decoration-none">
-                    <h1 class="fs-3 text-center">Tabaccheria 195</h1>
-                    {{-- <p class="text-muted text-center">Area Admin</p> --}}
+                    <h1 class="fs-4 text-center">Tabaccheria 195</h1>
+                    <p class="text-muted text-center">Area Admin</p>
                 </a>
-                <div class="d-flex align-items-start p-0 position-sticky">
+                <div class="d-flex align-items-start p-0">
                     <div class=" flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class=" active tab-admin" id="v-pills-home-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
@@ -33,26 +33,22 @@
 
                 <a href="" class="tab-admin">powered by Aspreno</a>
             </div>
-            <div class="col-10 p-0" style="background-color: #F3F5FA">
+            <div class="col-10 p-0 shadow-lg" style="background-color: #F8F8FA">
                 <div class="bg-white" style="height: 70px">
                     <div class="dropdown float-end">
-                        <button class="btn btn-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-white" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             <i class="fa-solid fa-circle-user fs-1"></i>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Aggiungi prodotto</a></li>
                             <li><a class="dropdown-item" href="#">Utenti</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
 
                         </ul>
                     </div>
                 </div>
-
-                <x-admin.hero :$countUser :$countCigar/>
-
                 <div class="p-5">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"

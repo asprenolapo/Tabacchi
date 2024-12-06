@@ -61,3 +61,4 @@ COMPLETATO
 2. Card prima immagine fixed
 3. Dettaglio Tab immagini fixed *ma a volte da problemi*
 4. MANDRAGATA per le foto senza
+**creata un'altra pagina admin supplementare.. se non piace la si cancella e si ripristina l'altra**

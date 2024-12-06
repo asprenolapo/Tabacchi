@@ -1,6 +1,6 @@
 
-<div class="row justify-content-center mt-5">
-    <div class="col-md-12 shadow p-5">
+<div class="row justify-content-center">
+    <div class="col-md-12 shadow p-5 bg-white rounded-4">
         <h2>Aggiungi prodotto</h2>
         <form method="POST" wire:submit.prevent="save"   enctype="multipart/form-data">
             @csrf

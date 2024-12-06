@@ -28,6 +28,13 @@
 
 <div class="container-fluid">
     <div class="row ">
+        <h2 class="mb-4">Widget</h2>
+        <div class="d-flex justify-content-center">
+            <x-admin.widget title='Utenti' data={{$countUser}} icon='fa-regular fa-user' color='bg-primary' />
+            <x-admin.widget title='Prodotti' data={{$countCigar}} icon='fa-solid fa-smoking' color='bg-warning' />
+            <x-admin.widget title='Ordinati' data='2' icon='fa-solid fa-truck-fast' color='bg-info' />
+            <x-admin.widget title='Esauriti' data='5' icon='fa-solid fa-triangle-exclamation' color='bg-danger' />
+        </div>
 
         <livewire:product-form />
 
