@@ -2,7 +2,7 @@
     {{-- HEADER --}}
     <header class="container-fluid p-0 overflow-hidden">
         <div class="card text-bg-dark overflow-hidden">
-            <img src="https://www.lastanzadelte.it/wp-content/uploads/2012/02/sigaro.jpg" class="card-img header-img"
+            <img src="https://images.unsplash.com/photo-1724436281331-68ae2a523d22?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img header-img"
                 alt="...">
             <div class="card-img-overlay d-flex flex-column justify-content-center">
                 <h5 class="card-title display-4">Tabaccheria 195</h5>
@@ -49,11 +49,11 @@
     {{-- SECTION II --}}
     <section class="container-fluid p-0 overflow-hidden">
         <div class="card text-bg-dark overflow-hidden">
-            <img class="section2-img" src="https://images.unsplash.com/photo-1547424450-a69b33b2cdc2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"alt="...">
+            <img class="section2-img img-fluid" src="https://images.unsplash.com/photo-1501786387846-a18210d6e024?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"alt="...">
             <div class="card-img-overlay d-flex flex-column justify-content-center text-center">
-                <h5 class="card-title display-4 text-dark">Luxury Cigar</h5>
-                <p class="card-text fs-5 text-dark">Per chi Vuole solo il meglio!</p>
-                <a class="btn text-light text-dark" href="">Scopri di più</a>
+                <h5 class="card-title display-4">Luxury Cigar</h5>
+                <p class="card-text fs-5">Per chi Vuole solo il meglio!</p>
+                <a class="btn text-light" href="">Scopri di più</a>
             </div>
         </div>
     </section>

@@ -12,9 +12,13 @@ class Cigar extends Model
         'name',
         'price',
         'madein',
+        'vitoladegalera',
+        'cepo',
         'tripa',
+        'intensity',
+        'smoketime',
+        'flavors',
         'description',
-        //'img'
     ];
 
 

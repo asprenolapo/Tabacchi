@@ -1,10 +1,17 @@
 <x-layout :$titlePage>
+
+
+            {{-- @if (session()->has('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif --}}
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 bg-white vh-100 position-sticky top-0 p-0 d-flex flex-column justify-content-between">
                 <a href="{{ route('home') }}" class="p-4 text-decoration-none">
                     <h1 class="fs-3 text-center">Tabaccheria 195</h1>
-                    {{-- <p class="text-muted text-center">Area Admin</p> --}}
                 </a>
                 <div class="d-flex align-items-start p-0 position-sticky">
                     <div class=" flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
