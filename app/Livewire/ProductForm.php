@@ -89,11 +89,11 @@ class ProductForm extends Component
         ]);
 
         // ASSOCIA LE IMMAGINI SE PRESENTI 
-            foreach ($this->img as $image) {
-                //$path = $image->store('products', 'public');
-                // Salva l'immagine e associa al prodotto
-                $cigar->images()->create(['path' => $image->store('products', 'public')]);
-            }
+        foreach ($this->img as $image) {
+            //$path = $image->store('products', 'public');
+            // Salva l'immagine e associa al prodotto
+            $cigar->images()->create(['path' => $image->store('products', 'public')]);
+        }
 
         // FLASH MESSAGE DI SUCCESSO 
         session()->flash('success', 'Articolo Aggiunto');

@@ -1,12 +1,4 @@
 <x-layout :$titlePage>
-
-
-            {{-- @if (session()->has('success'))
-                <div class="alert alert-success">
-                    {{ session('success') }}
-                </div>
-            @endif --}}
-
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 bg-white vh-100 position-sticky top-0 p-0 d-flex flex-column justify-content-between">
@@ -79,4 +71,5 @@
             </div>
         </div>
     </div>
+
 </x-layout>
