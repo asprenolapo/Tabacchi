@@ -62,3 +62,41 @@ COMPLETATO
 3. Dettaglio Tab immagini fixed *ma a volte da problemi*
 4. MANDRAGATA per le foto senza
 **creata un'altra pagina admin supplementare.. se non piace la si cancella e si ripristina l'altra**
+
+
+## Fix del 11/12/2024 ##############################################################################
+1. sistemate immagini pagina welcome 
+2. inserita prima parte degli script 
+3. credo di aver sistemato anche la quesione delle card 
+
+
+
+## to do front #########################################################################
+
+1. sistemare foto della pagina
+
+2. sostituire posizione chi siamo con posizione best seller - completato
+
+3. possibile ulteriore sezione?
+
+4. script di tute le parti necessarie alle info riguardo il cliente - da completare con maggiori informazioni del committente
+
+5. swiper per best seller/luxury cigar e ulteriori sezioni di prodotto in mostra
+
+6. controllo dimensioni delle immagini delle card con resize - credo vada meglio dopo qualche modifica effettuta
+
+7. fixare il back to top button
+
+8. sort con modale o altro metodo per la pagina dei sigari
+
+9. completare front-end pagine di contattaci e mail con relativo messaggio
+
+## to do back ############################################################################
+
+1. testare definitivo funzionamento di inserimento pordotti
+
+2. test definitivo invio e ricezione mail del contattaci
+
+3. gestire logica completa per la ricerca per filtri da capirte come operare al meglio su questa logica
+
+4. completare logica inserimento max 3/4 immagini per prodotto 

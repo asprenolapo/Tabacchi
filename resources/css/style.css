@@ -17,15 +17,16 @@ body {
 /*wELCOME PAGE*/
 /*HEADER WELCOME PAGE*/
 .header-img {
+    object-fit: cover;
     width: 100%;
     max-height: 700px;
-    opacity: 0.5;
 }
 
 /*SECTION II IMG WELCOME PAGE*/
 .section2-img {
-    width: 100% !important;
-    min-height: fit-content;
+    object-fit: cover;
+    width: 100%;
+    max-height: 700px;
 }
 
 /*CARD WELCOME&SIGAR PAGE*/
