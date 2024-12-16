@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('intensity');
             $table->integer('smoketime');
             $table->longText('flavors');
+            $table->boolean('bestSellers');
             $table->longText('description');
             $table->timestamps();
         });

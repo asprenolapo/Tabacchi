@@ -18,8 +18,8 @@
 //   document.documentElement.scrollTop = 0;
 // }
 
-//ADMIN PAGE 
-//NOTIFICA SUCCESSO
+//! ADMIN PAGE 
+//? NOTIFICA SUCCESSO
 let msg = document.querySelector('#sessionMSG');
 
     setTimeout(() => {

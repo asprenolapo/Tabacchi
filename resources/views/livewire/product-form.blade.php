@@ -102,6 +102,16 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+                <div class="w-50">
+                    <label for="bestSellers" class="form-label">Best Sellers</label>
+                    <select wire:model="bestSellers" id="bestSellers" class="form-control @error('bestSellers') is-invalid @enderror">
+                        <option value=0 selected>No</option>
+                        <option value=1>Si</option>
+                    </select>
+                    @error('bestSellers')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
 
             </div>
             <div class="my-4">

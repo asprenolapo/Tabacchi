@@ -21,6 +21,7 @@ class ProductForm extends Component
     public $intensity;
     public $smoketime;
     public $flavors;
+    public $bestSellers;
     public $description;
     public $img = [];
 
@@ -84,6 +85,7 @@ class ProductForm extends Component
             'intensity' => $this->intensity,
             'smoketime' =>$this->smoketime,
             'flavors' =>$this->flavors,
+            'bestSellers' =>$this->bestSellers,
             'description' => $this->description,
             //'img'=>$this->image,
         ]);

@@ -18,6 +18,7 @@ class Cigar extends Model
         'intensity',
         'smoketime',
         'flavors',
+        'bestSellers',
         'description',
     ];
 
