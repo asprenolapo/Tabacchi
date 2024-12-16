@@ -89,14 +89,14 @@ COMPLETATO
 
 8. sort con modale o altro metodo per la pagina dei sigari
 
-9. completare front-end pagine di contattaci e mail con relativo messaggio
+9. completare front-end pagine di contattaci (sfoindo/foto) e mail con relativo messaggio
 
 ## to do back ############################################################################
 
-1. testare definitivo funzionamento di inserimento pordotti
+1. testare definitivo funzionamento di inserimento pordotti - done
 
 2. test definitivo invio e ricezione mail del contattaci
 
-3. gestire logica completa per la ricerca per filtri da capirte come operare al meglio su questa logica
+3. gestire logica completa per la ricerca per filtri da capirte come operare al meglio su questa logica - done 
 
 4. completare logica inserimento max 3/4 immagini per prodotto 

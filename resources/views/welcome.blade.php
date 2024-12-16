@@ -60,7 +60,6 @@
             <div class="card-img-overlay d-flex flex-column justify-content-center text-center">
                 <h5 class="card-title display-4">Luxury Cigar</h5>
                 <p class="card-text fs-5">Per chi Vuole solo il meglio!</p>
-                <a class="btn text-light" href="">Scopri di più</a>
             </div>
         </div>
     </section>
@@ -78,7 +77,7 @@
             @forelse ($cigars as $cigar)
                 <x-card :$cigar />
             @empty
-                <p>non si sono prodotti</p>
+                <p>non ci sono prodotti</p>
             @endforelse
         </div>
     </section>
