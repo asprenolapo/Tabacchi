@@ -1,21 +1,22 @@
 // BUTTON TO TOP CIGAR PAGE
 //GET BUTTON
-let mybutton = document.getElementById("myBtn");
+// let mybutton = document.querySelector('#myBtn');
 
-window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
+// window.onscroll = function() {scrollFunction()};
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.documentElement.scrollTop = 0;
-}
+// function scrollFunction() {
+//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+//     mybutton.style.display = "block";
+//   } else {
+//     mybutton.style.display = "none";
+//   }
+// }
+
+
+// function topFunction() {
+//   document.documentElement.scrollTop = 0;
+// }
 
 //ADMIN PAGE 
 //NOTIFICA SUCCESSO

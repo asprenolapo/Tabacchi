@@ -21,16 +21,19 @@
                 {{-- TODO Prima Lista Filtri  --}}
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item fs-5 my-2">
-                        <a class="nav-link" href="#">Top Rated</a>
+                        <button class="nav-link" wire:click='activate'>Best Sellers</button>
                     </li>
                     <li class="nav-item fs-5 my-2">
-                        <a class="nav-link" href="">Best Sellers</a>
+                        <a class="nav-link" href="">New Arrivals</a>
                     </li>
                     <li class="nav-item fs-5 my-2">
-                        <a class="nav-link" href="#">New Arrivals</a>
+                        <a class="nav-link" href="#">Luxury Cigars</a>
                     </li>
                     <li class="nav-item fs-5 my-2">
-                        <a class="nav-link" href="#">Accessories</a>
+                        <a class="nav-link" href="#">Price</a>
+                    </li>
+                    <li class="nav-item fs-5 my-2">
+                        <a class="nav-link" href="#">Made In</a>
                     </li>
                 </ul>
                 {{-- TODO seconda Lista Filtri  --}}
@@ -38,7 +41,6 @@
             {{-- TODO implementare e aggiustare la visione delle card --}}
                 <livewire:search/>
         </div>
-        <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </main>
     {{-- /MAIN --}}
 

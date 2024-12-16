@@ -63,7 +63,7 @@ body {
 }
 
 /*BTN SCROLL TO BACK CIGAR*/
-#myBtn {
+.myBtn {
     display: none;
     /* Hidden by default */
     position: fixed;
@@ -92,7 +92,7 @@ body {
     /* Increase font size */
 }
 
-#myBtn:hover {
+.myBtn:hover {
     background-color: #555;
     /* Add a dark-grey background on hover */
 }
@@ -129,7 +129,6 @@ body {
 @keyframes fade-right-custom {
     to {
         transform: translateX(100%);
-        /* display: none; */
     }
 }
 

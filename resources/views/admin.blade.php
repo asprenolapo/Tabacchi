@@ -50,7 +50,7 @@
                     </div>
                 </div>
 
-                <x-admin.hero :$countUser :$countCigar/>
+                <x-admin.hero :$countUser :$countCigar />
 
                 <div class="p-5">
                     <div class="tab-content" id="v-pills-tabContent">
