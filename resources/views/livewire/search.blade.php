@@ -43,6 +43,8 @@
                 </div>
                 {{-- Row Card --}}
                 <div class="row my-5 gap-5">
+                    <div class="swiper" id="cigarSwiper">
+                    <div class="swiper-wrapper" id="cigarSwiperWrapper">
                     @forelse ($cigars as $cigar)
                         <x-card :$cigar />
                     @empty
