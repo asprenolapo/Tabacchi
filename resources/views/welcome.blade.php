@@ -23,11 +23,38 @@
         </div>
         TROVARE SOLUZIONE SWIPER O CAROUSEL SU UN UNICA ROW IN AUTOPLAY
         <div class="row justify-content-center gap-4 my-5">
-            @forelse ($cigars as $cigar)
+            {{-- todo -------------------------------------------- --}}
+            <!-- Slider main container -->
+            <div class="swiper" data-swiper-autoplay="2000">
+                <!-- Additional required wrapper -->
+                <div class="swiper-wrapper">
+                    <!-- Slides -->
+                    @forelse ($bestSellers as $cigar)
+                        <x-card :$cigar />
+                        {{-- <div class="swiper-slide"><x-card :$cigar /></div> --}}
+
+                    @empty
+                        <p>non ci sono prodotti</p>
+                    @endforelse
+
+                    ...
+                </div>
+                <!-- If we need pagination -->
+                <div class="swiper-pagination"></div>
+
+                <!-- If we need navigation buttons -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+
+                <!-- If we need scrollbar -->
+                <div class="swiper-scrollbar"></div>
+            </div>
+            {{-- todo -------------------------------------- --}}
+            {{-- @forelse ($cigars as $cigar)
                 <x-card :$cigar />
             @empty
                 <p>non ci sono prodotti</p>
-            @endforelse
+            @endforelse --}}
         </div>
     </section>
     {{-- /SECTION I --}}
@@ -75,7 +102,7 @@
             </div>
         </div>
         <div class="row justify-content-center gap-4 my-5">
-            @forelse ($cigars as $cigar)
+            @forelse ($newArrivals as $cigar)
                 <x-card :$cigar />
             @empty
                 <p>non si sono prodotti</p>

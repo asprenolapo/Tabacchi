@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\contactAdmin;
-use App\Mail\contactUser;
-use App\Models\Cigar;
 use Exception;
+use Carbon\Carbon;
+use App\Models\Cigar;
+use App\Mail\contactUser;
+use App\Mail\contactAdmin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -16,9 +17,11 @@ class CigarController extends Controller
      */
     public function index()
     {
-        $cigars=Cigar::all();
+        $cigars = Cigar::all();
+        $bestSellers = Cigar::where('bestSellers',true)->get();
+        $newArrivals = Cigar::whereBetween('created_at', [Carbon::now()->subDays(20), Carbon::now()])->get();
 
-        return view('welcome', compact('cigars'));
+        return view('welcome', compact('cigars','bestSellers','newArrivals'));
 
     }
 

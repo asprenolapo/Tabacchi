@@ -97,6 +97,6 @@ COMPLETATO
 
 2. test definitivo invio e ricezione mail del contattaci
 
-3. gestire logica completa per la ricerca per filtri da capirte come operare al meglio su questa logica
+3. gestire logica completa per la ricerca per filtri da capirte come operare al meglio su questa logica **FATTO**
 
 4. completare logica inserimento max 3/4 immagini per prodotto 

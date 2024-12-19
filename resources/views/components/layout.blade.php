@@ -24,7 +24,7 @@
     <x-footer />
 
     <script src="https://kit.fontawesome.com/7d149bc2d8.js" crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
 
 </body>
 

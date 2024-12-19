@@ -1,4 +1,4 @@
-<a href="{{ route('dettaglio.sigari', compact('cigar')) }}" class="col-3 home-card shadow">
+<a href="{{ route('dettaglio.sigari', compact('cigar')) }}" class="col-3 home-card shadow swiper-slide">
     <div class="overflow-hidden">
         {{-- <img src="{{Storage::url($cigar->img)}}" class="img-fluid" height="300" alt=""> --}}
         <img src="{{ $cigar->images()->first()?->path ? Storage::url($cigar->images()->first()->path) : 'https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930' }}"
