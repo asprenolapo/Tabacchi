@@ -14,48 +14,28 @@
     {{-- /HEADER --}}
 
     {{-- SECTION I --}}
-    <section class="container">
+    <section class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 text-center my-5">
                 <h3 class="text-danger">Best Sellers</h3>
                 <p>I più venduti, i più apprezzati</p>
             </div>
         </div>
-        TROVARE SOLUZIONE SWIPER O CAROUSEL SU UN UNICA ROW IN AUTOPLAY
-        <div class="row justify-content-center gap-4 my-5">
-            {{-- todo -------------------------------------------- --}}
-            <!-- Slider main container -->
-            <div class="swiper" data-swiper-autoplay="2000">
-                <!-- Additional required wrapper -->
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    @forelse ($bestSellers as $cigar)
-                        <x-card :$cigar />
-                        {{-- <div class="swiper-slide"><x-card :$cigar /></div> --}}
-
-                    @empty
-                        <p>non ci sono prodotti</p>
-                    @endforelse
-
-                    ...
+        {{-- SWIPER BEST SELLER --}}
+            <div class="row justify-content-between gap-4 my-5">
+                <div class="col-12 col-md-2 d-flex swiper" id="cigarSwiper">
+                    <div class="swiper-wrapper" id="cigarSwiperWrapper">
+                        <!-- Slides -->
+                        @forelse ($bestSellers as $cigar)
+                            <x-card :$cigar />
+                            {{-- <div class="swiper-slide"><x-card :$cigar /></div> --}}
+                        @empty
+                            <p>non ci sono prodotti</p>
+                        @endforelse
+                    </div>
                 </div>
-                <!-- If we need pagination -->
-                <div class="swiper-pagination"></div>
-
-                <!-- If we need navigation buttons -->
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-
-                <!-- If we need scrollbar -->
-                <div class="swiper-scrollbar"></div>
             </div>
-            {{-- todo -------------------------------------- --}}
-            {{-- @forelse ($cigars as $cigar)
-                <x-card :$cigar />
-            @empty
-                <p>non ci sono prodotti</p>
-            @endforelse --}}
-        </div>
+            {{-- /SWIPER BEST SELLER --}}
     </section>
     {{-- /SECTION I --}}
 
@@ -93,20 +73,27 @@
     {{-- /SECTION II --}}
 
     {{-- SECTION III --}}
-    <section class="container">
+    <section class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-md-8 text-center my-5">
                 <h3 class="text-danger">New Arrivals</h3>
                 <p>I nuovi arrivi</p>
             </div>
         </div>
-        <div class="row justify-content-center gap-4 my-5">
-            @forelse ($newArrivals as $cigar)
+        {{-- SWIPER NEW ARRIVALS --}}
+            <div class="row justify-content-between gap-4 my-5">
+                <div class="col-12 col-md-2 d-flex swiper" id="cigarSwiper">
+                    <div class="swiper-wrapper" id="cigarSwiperWrapper">
+                        <!-- Slides -->
+                        @forelse ($newArrivals as $cigar)
                 <x-card :$cigar />
             @empty
                 <p>non ci sono prodotti</p>
             @endforelse
-        </div>
+                    </div>
+                </div>
+            </div>
+            {{-- /SWIPER NEW ARRIVALS --}}
     </section>
     {{-- /SECTION III --}}
 

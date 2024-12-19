@@ -81,13 +81,15 @@ COMPLETATO
 
 4. script di tute le parti necessarie alle info riguardo il cliente - da completare con maggiori informazioni del committente
 
-5. swiper per best seller/luxury cigar e ulteriori sezioni di prodotto in mostra
+5. swiper per best seller -**completato**  da rivedere parte responsive 
+
+6. luxury cigar e ulteriori sezioni di prodotto in mostra?
 
 6. controllo dimensioni delle immagini delle card con resize - credo vada meglio dopo qualche modifica effettuta
 
 7. fixare il back to top button
 
-8. sort con modale o altro metodo per la pagina dei sigari
+8. sort con modale o altro metodo per la pagina dei sigari - da rivedere ma credo lo abbiamo risolto 
 
 9. completare front-end pagine di contattaci (sfoindo/foto) e mail con relativo messaggio
 
@@ -97,10 +99,12 @@ COMPLETATO
 
 2. test definitivo invio e ricezione mail del contattaci
 
-<<<<<<< HEAD
 3. gestire logica completa per la ricerca per filtri da capirte come operare al meglio su questa logica **FATTO**
-=======
-3. gestire logica completa per la ricerca per filtri da capirte come operare al meglio su questa logica - done 
->>>>>>> b23cb37f1aaf7112c02ec4e771879352b3d900b6
 
 4. completare logica inserimento max 3/4 immagini per prodotto 
+
+## fix del 19-12-24 ############################################################################
+1. ho risolto il problema dello swiper con l'autoplay. putroppo non riesco a risolvere la parte responsive della pagina
+2. modificato parte del dettaglio sigari secondo le richieste di leonardo se vedi ho messo un commento a riga  85 per spiegarti 
+3. piccolo problema sorto nella pagina sigari invece dove il grid non funziona da schermo grande non riesco a capire onestamente vorrei si vedessero le card come prima e invece si vedono solo del card sfondate
+4. IMPORTANTE RISOLVERE PROBLEMA AL CLICK DELLA FOTO ALLA PRIMA RICARICA DELLA PAGINA DI DETTAGLIO IN MODO DA NON FARNE APPARIRE DUE UNA SOTTO L'ALTRA

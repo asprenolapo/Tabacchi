@@ -1,38 +1,20 @@
 import './bootstrap';
 import 'bootstrap';
 import './main.js';
-import Swiper from 'swiper';
+import Swiper from 'swiper/bundle';
 import 'swiper';
 
-const swiper = new Swiper('.swiper', {
-
-    speed: 400,
+const swiper = new Swiper("#cigarSwiper", {
+    slidesPerView: 6,
     spaceBetween: 20,
-    // autoplay: true,
-    autoplay: {
-        delay: 1000,
+    freeMode: true,
+    autoplay:
+    {
+        delay: 3000,
+        disableOnInteraction: false,
     },
-    freeMode: false,
-    effect: 'fade',
-    // navigation: true,
-
-    // Optional parameters
-    direction: 'horizontal',
-    loop: false,
-
-    // If we need pagination
     pagination: {
-        el: '.swiper-pagination',
-    },
-
-    // Navigation arrows
-    navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-    },
-
-    // And if we need scrollbar
-    scrollbar: {
-        el: '.swiper-scrollbar',
+        el: ".swiper-pagination",
     },
 });
+

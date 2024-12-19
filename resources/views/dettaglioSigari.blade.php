@@ -71,9 +71,6 @@
                 <h2 class="fw-bold display-5">{{ $cigar->name }}</h2>
                 <p class="fw-bold display-6">{{ $cigar->price }} euro</p>
                 <p class=""><span class="fw-bold">Provenienza:</span> {{ $cigar->madein }} </p>
-                <p class=""><span class="fw-bold">Vitola De Galera:</span> {{ $cigar->vitoladegalera }} </p>
-                <p class=""><span class="fw-bold">Cepo:</span> {{ $cigar->cepo }} "</p>
-                <p class=""><span class="fw-bold">Tripa:</span> {{ $cigar->tripa }} </p>
                 <p class=""><span class="fw-bold">Intensità:</span> {{ $cigar->intensity }} </p>
                 <p class=""><span class="fw-bold">Tempo di Fumata:</span> {{ $cigar->smoketime }} min. circa</p>
                 <p class=""><span class="fw-bold">Aroma:</span> {{ $cigar->flavors }} </p>
@@ -85,15 +82,27 @@
         </div>
     </div>
     {{-- AROMA E CARATTERISTICHE --}}
+      {{-- completare questa sezione in modo tale che la colonna caratteristiche appaia solo quando inserita dall'admin altriumenti rimane nascosta? --}}
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
+            <div class="col-6 col text-center">
                 <h2 class="fw-bold">Aroma</h2>
                 <p class=""><span class="fw-bold"></span> {{ $cigar->flavors }} </p>
-                <h2 class="fw-bold">Descrizione</h2>
-                <p class=""><span class="fw-bold"></span> <br> {{ $cigar->description }} </p>
+            </div>
+            <div class="col-6">
+                <h2 class="fw-bold">Caratteristiche</h2>
+                <p class=""><span class="fw-bold">Vitola De Galera:</span> {{ $cigar->vitoladegalera }} </p>
+                <p class=""><span class="fw-bold">Cepo:</span> {{ $cigar->cepo }} "</p>
+                <p class=""><span class="fw-bold">Tripa:</span> {{ $cigar->tripa }} </p>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold">Descrizione</h2>
+                    <p class=""><span class="fw-bold"></span> <br> {{ $cigar->description }} </p>
+                </div>
             </div>
         </div>
+    </div>
     </div>
 
 </x-layout>
