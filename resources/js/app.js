@@ -13,12 +13,12 @@ const swiper = new Swiper('.swiper', {
         delay: 1000,
     },
     freeMode: false,
-    // effect: 'fade',
+    effect: 'fade',
     // navigation: true,
 
     // Optional parameters
     direction: 'horizontal',
-    loop: true,
+    loop: false,
 
     // If we need pagination
     pagination: {
