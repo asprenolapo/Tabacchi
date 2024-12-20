@@ -19,8 +19,8 @@
                         </a>
                         <a class="tab-admin" id="v-pills-disabled-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-disabled" type="button" role="tab"
-                            aria-controls="v-pills-disabled" aria-selected="false" disabled>
-                            <i class="fa-regular fa-eye-slash me-2"></i>Disabled
+                            aria-controls="v-pills-disabled" aria-selected="false" >
+                            <i class="fa-solid fa-folder-open me-2"></i></i>Prodotti
                         </a>
                         <form action="{{ route('logout') }}" method="POST" style="display: inline;" class="mx-auto">
                             @csrf
@@ -35,8 +35,9 @@
             <div class="col-10 p-0" style="background-color: #F3F5FA">
                 <div class="bg-white" style="height: 70px">
                     <div class="dropdown float-end">
-                        <button class="btn btn-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-circle-user fs-1"></i>
+                        <button class="btn btn-white d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span>Amministratore</span>
+                            <i class="fa-solid fa-circle-user fs-1 ms-2"></i>
                         </button>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Aggiungi prodotto</a></li>
@@ -63,7 +64,8 @@
                             <x-admin.user :$users />
                         </div>
                         <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel"
-                            aria-labelledby="v-pills-disabled-tab" tabindex="0">
+                        aria-labelledby="v-pills-disabled-tab" tabindex="0">
+                            <x-admin.productsTable :$products/>
                         </div>
                     </div>
 

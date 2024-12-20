@@ -20,33 +20,35 @@ class AdminController extends Controller
         $countUser = User::count();
         $countCigar = Cigar::count();
 
-        return view('admin', compact('users', 'titlePage', 'countUser', 'countCigar'));
+        $products = Cigar::all();
+
+        return view('admin', compact('users', 'titlePage', 'countUser', 'countCigar','products'));
     }
 
-    public function store(CigarRequest $request)
-    {
+    // public function store(CigarRequest $request)
+    // {
 
-        try {
+    //     try {
 
-            Cigar::create([
-                'name' => $request->input('name'),
-                'price' => $request->input('price'),
-                'madein' => $request->input('madein'),
-                'tripa' => $request->input('tripa'),
-                'description' => $request->input('description'),
-                'img' => $request->has('img') ? $request->file('img')->store('products', 'public') : '/asset/default.jpg',
-            ]);
+    //         Cigar::create([
+    //             'name' => $request->input('name'),
+    //             'price' => $request->input('price'),
+    //             'madein' => $request->input('madein'),
+    //             'tripa' => $request->input('tripa'),
+    //             'description' => $request->input('description'),
+    //             'img' => $request->has('img') ? $request->file('img')->store('products', 'public') : '/asset/default.jpg',
+    //         ]);
 
-            return redirect()->back()->with('success', 'Prodotto creato con successo');
-        } catch (Exception $e) {
+    //         return redirect()->back()->with('success', 'Prodotto creato con successo');
+    //     } catch (Exception $e) {
 
-            return redirect()->back()->with('error', $e);
-        }
+    //         return redirect()->back()->with('error', $e);
+    //     }
         // if($request->has('img')){
         //     foreach ($request->file('img') as $img) {
         //         $img->store('products','public');
         //     }
         // }
 
-    }
+    // }
 }
