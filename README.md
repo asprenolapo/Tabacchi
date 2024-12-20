@@ -107,4 +107,4 @@ COMPLETATO
 1. ho risolto il problema dello swiper con l'autoplay. putroppo non riesco a risolvere la parte responsive della pagina
 2. modificato parte del dettaglio sigari secondo le richieste di leonardo se vedi ho messo un commento a riga  85 per spiegarti 
 3. piccolo problema sorto nella pagina sigari invece dove il grid non funziona da schermo grande non riesco a capire onestamente vorrei si vedessero le card come prima e invece si vedono solo del card sfondate
-4. IMPORTANTE RISOLVERE PROBLEMA AL CLICK DELLA FOTO ALLA PRIMA RICARICA DELLA PAGINA DI DETTAGLIO IN MODO DA NON FARNE APPARIRE DUE UNA SOTTO L'ALTRA
+4. IMPORTANTE RISOLVERE PROBLEMA AL CLICK DELLA FOTO ALLA PRIMA RICARICA DELLA PAGINA DI DETTAGLIO IN MODO DA NON FARNE APPARIRE DUE UNA SOTTO L'ALTRA - risolto

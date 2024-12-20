@@ -22,20 +22,20 @@
             </div>
         </div>
         {{-- SWIPER BEST SELLER --}}
-            <div class="row justify-content-between gap-4 my-5">
-                <div class="col-12 col-md-2 d-flex swiper" id="cigarSwiper">
-                    <div class="swiper-wrapper" id="cigarSwiperWrapper">
-                        <!-- Slides -->
-                        @forelse ($bestSellers as $cigar)
-                            <x-card :$cigar />
-                            {{-- <div class="swiper-slide"><x-card :$cigar /></div> --}}
-                        @empty
-                            <p>non ci sono prodotti</p>
-                        @endforelse
-                    </div>
+        <div class="row justify-content-between gap-4 my-5">
+            <div class="col-12 col-md-2 d-flex swiper" id="cigarSwiper">
+                <div class="swiper-wrapper" id="cigarSwiperWrapper">
+                    <!-- Slides -->
+                    @forelse ($bestSellers as $cigar)
+                        <x-card :$cigar />
+                        {{-- <div class="swiper-slide"><x-card :$cigar /></div> --}}
+                    @empty
+                        <p class="fw-bold mx-auto">Non ci sono prodotti</p>
+                    @endforelse
                 </div>
             </div>
-            {{-- /SWIPER BEST SELLER --}}
+        </div>
+        {{-- /SWIPER BEST SELLER --}}
     </section>
     {{-- /SECTION I --}}
 
@@ -81,23 +81,20 @@
             </div>
         </div>
         {{-- SWIPER NEW ARRIVALS --}}
-            <div class="row justify-content-between gap-4 my-5">
-                <div class="col-12 col-md-2 d-flex swiper" id="cigarSwiper">
-                    <div class="swiper-wrapper" id="cigarSwiperWrapper">
-                        <!-- Slides -->
-                        @forelse ($newArrivals as $cigar)
-                <x-card :$cigar />
-            @empty
-                <p>non ci sono prodotti</p>
-            @endforelse
-                    </div>
+        <div class="row justify-content-between gap-4 my-5">
+            <div class="col-12 col-md-2 d-flex swiper" id="cigarSwiper">
+                <div class="swiper-wrapper" id="cigarSwiperWrapper">
+                    <!-- Slides -->
+                    @forelse ($newArrivals as $cigar)
+                        <x-card :$cigar />
+                    @empty
+                        <p class="fw-bold mx-auto">Non ci sono prodotti</p>
+                    @endforelse
                 </div>
             </div>
-            {{-- /SWIPER NEW ARRIVALS --}}
+        </div>
+        {{-- /SWIPER NEW ARRIVALS --}}
     </section>
     {{-- /SECTION III --}}
-
-
-
 
 </x-layout>

@@ -2,7 +2,7 @@
     <main class="conatainer-fluid">
         <div class="row">
             <div class="col-md-3 d-none d-md-block d-none d-md-block p-5">
-                {{-- CATEGORIE --}}
+                {{-- FILTRO CATEGORIE --}}
                 <h3 class="fw-bold fs-3">Categorie</h3>
                 {{-- TODO Prima Lista Filtri  --}}
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
@@ -33,7 +33,7 @@
                         </div>
                     </div>
                     <div class="col-12 d-md-none d-flex my-3 gap-2">
-                        <button class="btn {{ $bestSellersBtn == '0' ? 'btn-secondary' : 'btn-dark' }}""
+                        <button class="btn {{ $bestSellersBtn == '0' ? 'btn-secondary' : 'btn-dark' }}"
                             wire:click="activateBestSellers">Best seller</button>
                         <button class="btn {{ $newArrivalsBtn == '0' ? 'btn-secondary' : 'btn-dark' }}"
                             wire:click='activatenewArrivals'>New Arrivals</button>
@@ -41,17 +41,15 @@
                             wire:click='activateLuxury'>Luxury</button>
                     </div>
                 </div>
-                {{-- Row Card --}}
-                <div class="row my-5 gap-5">
-                    <div class="swiper" id="cigarSwiper">
-                    <div class="swiper-wrapper" id="cigarSwiperWrapper">
+                {{-- ROW CARD --}}
+                <div class="row justify-content-center my-5 gap-5">
                     @forelse ($cigars as $cigar)
                         <x-card :$cigar />
                     @empty
                         <p>non ci sono prodotti</p>
                     @endforelse
                 </div>
+                {{-- /ROW CARD --}}
             </div>
-        </div>
     </main>
     {{-- /MAIN --}}

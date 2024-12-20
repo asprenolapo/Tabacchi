@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('name');
             $table->decimal('price', 6 , 2);
             $table->string('madein');
-            $table->string('vitoladegalera');
-            $table->string('cepo');
-            $table->string('tripa');
+            $table->string('vitoladegalera')->nullable();
+            $table->string('cepo')->nullable();
+            $table->string('tripa')->nullable();
             $table->string('intensity');
             $table->integer('smoketime');
             $table->longText('flavors');

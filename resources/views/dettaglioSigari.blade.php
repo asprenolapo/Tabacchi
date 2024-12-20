@@ -16,7 +16,7 @@
                                 </div>
                             @elseif ($cigar->images()->count() > 1)
                                 @foreach ($cigar->images as $img)
-                                    <div class="tab-pane fade show @if ($loop->first) active @endif"
+                                    <div class="tab-pane fade show @if ($loop->first) active @else fw-bold @endif"
                                         id="v-pills-{{ $img->id }}" role="tabpanel"
                                         aria-labelledby="v-pills-{{ $img->id }}-tab" tabindex="0">
                                         <img src="{{ Storage::url($img->path) }}" alt=""
@@ -68,13 +68,11 @@
 
             {{-- CARATTERISTICHE --}}
             <div class="col-12 col-md-6 p-5">
-                <h2 class="fw-bold display-5">{{ $cigar->name }}</h2>
-                <p class="fw-bold display-6">{{ $cigar->price }} euro</p>
+                <h2 class="fw-bold display-6">{{ $cigar->name }}</h2>
+                <p class="fw-bold display-6">{{ $cigar->price }} Euro</p>
                 <p class=""><span class="fw-bold">Provenienza:</span> {{ $cigar->madein }} </p>
                 <p class=""><span class="fw-bold">Intensità:</span> {{ $cigar->intensity }} </p>
                 <p class=""><span class="fw-bold">Tempo di Fumata:</span> {{ $cigar->smoketime }} min. circa</p>
-                <p class=""><span class="fw-bold">Aroma:</span> {{ $cigar->flavors }} </p>
-                <p class=""><span class="fw-bold">Descrizione:</span> <br> {{ $cigar->description }} </p>
                 <h3 class="text-danger mt-5">DISPONIBILE SOLO IN TABACCHERIA</h3>
                 <p class="text-danger">- la vendita online è vietata</p>
                 <p class="text-danger">- ai sensi della legge 19DL 6/2016</p>
@@ -84,20 +82,20 @@
     {{-- AROMA E CARATTERISTICHE --}}
       {{-- completare questa sezione in modo tale che la colonna caratteristiche appaia solo quando inserita dall'admin altriumenti rimane nascosta? --}}
     <div class="container">
-        <div class="row">
-            <div class="col-6 col text-center">
-                <h2 class="fw-bold">Aroma</h2>
+        <div class="row justify-content-between">
+            <div class="col-6 text-center">
+                <h2 class="fw-bold mt-3">Aroma</h2>
                 <p class=""><span class="fw-bold"></span> {{ $cigar->flavors }} </p>
             </div>
-            <div class="col-6">
-                <h2 class="fw-bold">Caratteristiche</h2>
+            <div class="col-6 text-center">
+                <h2 class="fw-bold mt-3">Caratteristiche</h2>
                 <p class=""><span class="fw-bold">Vitola De Galera:</span> {{ $cigar->vitoladegalera }} </p>
                 <p class=""><span class="fw-bold">Cepo:</span> {{ $cigar->cepo }} "</p>
                 <p class=""><span class="fw-bold">Tripa:</span> {{ $cigar->tripa }} </p>
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <h2 class="fw-bold">Descrizione</h2>
+                    <h2 class="fw-bold mt-3">Descrizione</h2>
                     <p class=""><span class="fw-bold"></span> <br> {{ $cigar->description }} </p>
                 </div>
             </div>

@@ -30,9 +30,6 @@ class ProductForm extends Component
         'name' => 'required|min:5|max:40',
         'price' => 'required|numeric|min:2',
         'madein' => 'required|min:3|max:30',
-        'vitoladegalera' => 'min:2|max:30',
-        'cepo' => 'min:2|max:30',
-        'tripa' => 'min:5',
         'intensity' => 'min:3|max:30',
         'smoketime' => 'min:2|max:30',
         'flavors'=>'min:3|max:300',
@@ -55,9 +52,15 @@ class ProductForm extends Component
         'madein.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
         'madein.max' => 'La provenienza non può essere più lunga di 30 caratteri',
 
-        'tripa.required' => 'Il campo tripa è obbligatorio',
-        'tripa.min' => 'La tripa deve essere almeno di 5 caratteri',
+        'intensity.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
+        'intensity.max' => 'La provenienza non può essere più lunga di 30 caratteri',
 
+        'smoketime.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
+        'smoketime.max' => 'La provenienza non può essere più lunga di 30 caratteri',
+
+        'flavors.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
+        'flavors.max' => 'La provenienza non può essere più lunga di 30 caratteri',
+        
         'description.required' => 'Il campo descrizione è obbligatorio',
         'description.min' => 'La descrizione deve essere lunga almeno 5 caratteri',
         'description.max' => 'La descrizione non può essere più lunga di 300 caratteri',
@@ -92,8 +95,6 @@ class ProductForm extends Component
 
         // ASSOCIA LE IMMAGINI SE PRESENTI 
         foreach ($this->img as $image) {
-            //$path = $image->store('products', 'public');
-            // Salva l'immagine e associa al prodotto
             $cigar->images()->create(['path' => $image->store('products', 'public')]);
         }
 

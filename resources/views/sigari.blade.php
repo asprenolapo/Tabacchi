@@ -11,9 +11,5 @@
         </div>
     </header>
     {{-- /HEADER --}}
-
-    <livewire:search/>
-
-
-
+    <livewire:search />
 </x-layout>
