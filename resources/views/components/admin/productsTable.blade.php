@@ -21,12 +21,12 @@
                             <td>{{$product->name}}</td>
                             <td>{{$product->price}}</td>
                             <td>{{$product->madein}}</td>
-                            <td>{{$product->images()->count()}}</td>
+                            <td class="{{$product->images()->count() == 0 ? 'text-danger fw-bold' : ''}}">{{$product->images()->count()}}</td>
                             <td>{{$product->created_at->format('d M Y')}}</td>
                             <td class="d-flex">
                                 <a href="{{route('cigar.edit', compact('product'))}}"><i class="fa-solid fa-pen-to-square text-warning me-4 fs-4"></i></a>
                                 {{-- <a href=""><i class="fa-solid fa-trash-can text-danger fs-4"></i></a> --}}
-                                <form method="POST" action="{{route('cigar.delete', compact('product'))}}">
+                                <form method="POST" action="{{route('cigar.delete', compact('product'))}}" onsubmit="return confirmDelete(event)">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class=" border-0 bg-transparent"><i class="fa-solid fa-trash-can text-danger fs-4"></i></button>
@@ -44,3 +44,16 @@
         </div>
     </div>
 </div>
+
+<script>
+        function confirmDelete(event) {
+        event.preventDefault(); // Previeni l'invio del form
+        if (confirm('Sei sicuro di voler cancellare questo prodotto ?')) {
+            // Se l'utente conferma, invia il form
+            event.target.submit();
+        } else {
+            // Altrimenti, annulla l'operazione
+            return false;
+        }
+    }
+</script>

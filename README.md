@@ -126,3 +126,9 @@ COMPLETATO
         - funzione destroy
 4. tabella prodotti aggiornata con counter immagini **per permettere di riaggiornare l'immagine se è 0 in un secondo momento**
 5. Aggiunte preview nel form di update di un prodotto *ma aggiustare l'aggiunta file*
+6. Aggiunto il messaggio bloccante, di conferma prima della cancellazione
+7. Aggiunta come active e primo tab la tabella prodotti per 2 motivi
+    1. dopo la modifica riporta direttamente al tab della tabella prodotti e non a inserimento
+    2. l'utente potrebbe voler vedere più volte la tabella prodotti rispetto a inserisci prodotto
+8. Aggiunto il tab "Da ordinare" con tabella prodotti e quantità
+    **SOTTOPORRE LA QUESTIONE QUANTITA' ANCHE NELL'AGGIUNTA PRODOTTI**

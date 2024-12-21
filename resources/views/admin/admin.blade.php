@@ -7,20 +7,20 @@
                 </a>
                 <div class="d-flex align-items-start p-0 position-sticky">
                     <div class=" flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                        <a class=" active tab-admin" id="v-pills-home-tab" data-bs-toggle="pill"
+                        <a class="active tab-admin" id="v-pills-disabled-tab" data-bs-toggle="pill"
+                            data-bs-target="#v-pills-disabled" type="button" role="tab"
+                            aria-controls="v-pills-disabled" aria-selected="true" >
+                            <i class="fa-solid fa-folder-open me-2"></i></i>Prodotti
+                        </a>
+                        <a class="tab-admin" id="v-pills-home-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
-                            aria-selected="true">
+                            aria-selected="false">
                             <i class="fa-solid fa-smoking me-2"></i>Aggiungi prodotto
                         </a>
                         <a class="tab-admin" id="v-pills-profile-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-profile" type="button" role="tab"
                             aria-controls="v-pills-profile" aria-selected="false">
-                            <i class="fa-solid fa-users me-2"></i>Utenti
-                        </a>
-                        <a class="tab-admin" id="v-pills-disabled-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-disabled" type="button" role="tab"
-                            aria-controls="v-pills-disabled" aria-selected="false" >
-                            <i class="fa-solid fa-folder-open me-2"></i></i>Prodotti
+                            <i class="fa-solid fa-truck-fast me-2"></i>da ordinare
                         </a>
                         <form action="{{ route('logout') }}" method="POST" style="display: inline;" class="mx-auto">
                             @csrf
@@ -55,17 +55,17 @@
 
                 <div class="p-5">
                     <div class="tab-content" id="v-pills-tabContent">
-                        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                        <div class="tab-pane fade show active" id="v-pills-disabled" role="tabpanel"
+                        aria-labelledby="v-pills-disabled-tab" tabindex="0">
+                            <x-admin.productsTable :$products/>
+                        </div>
+                        <div class="tab-pane fade" id="v-pills-home" role="tabpanel"
                             aria-labelledby="v-pills-home-tab" tabindex="0">
                             <x-admin.products :$countUser :$countCigar />
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"
                             aria-labelledby="v-pills-profile-tab" tabindex="0">
-                            <x-admin.user :$users />
-                        </div>
-                        <div class="tab-pane fade" id="v-pills-disabled" role="tabpanel"
-                        aria-labelledby="v-pills-disabled-tab" tabindex="0">
-                            <x-admin.productsTable :$products/>
+                            <x-admin.user :$products />
                         </div>
                     </div>
 
