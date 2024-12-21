@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CigarController;
+use App\Livewire\UpdateCigar;
 use Illuminate\Support\Facades\Route;
 
 //HOME
@@ -21,6 +22,8 @@ Route::post('/contactus/submit', [CigarController::class, 'contactusSubmit'] ) -
 Route::middleware(['auth'])->group(function(){
 
     Route::get('/admin', [AdminController::class, 'admin'])->name('admin');
-    Route::post('/admin/store', [AdminController::class, 'store'])->name('admin.store');
+    Route::get('admin/{product}', [AdminController::class, 'edit'])->name('cigar.edit');
+    Route::put('/admin/{product}/update', [AdminController::class, 'update'])->name('cigar.update');
+    Route::delete('admin/destroy/{product}',[AdminController::class,'destroy'])->name('cigar.delete');
 
 });

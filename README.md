@@ -108,3 +108,21 @@ COMPLETATO
 2. modificato parte del dettaglio sigari secondo le richieste di leonardo se vedi ho messo un commento a riga  85 per spiegarti 
 3. piccolo problema sorto nella pagina sigari invece dove il grid non funziona da schermo grande non riesco a capire onestamente vorrei si vedessero le card come prima e invece si vedono solo del card sfondate
 4. IMPORTANTE RISOLVERE PROBLEMA AL CLICK DELLA FOTO ALLA PRIMA RICARICA DELLA PAGINA DI DETTAGLIO IN MODO DA NON FARNE APPARIRE DUE UNA SOTTO L'ALTRA - risolto
+
+
+## 20/12/2024 ############################################à
+1. Pagina dettaglio: 
+    - risolto bug immagini
+    - Frontend migliorato con sezione caratteristiche  
+2. Sezione Prodotti 
+    - Tabella prodotti + logica
+    - Tab sezione Prodotti
+    - elimina + modifica
+3. Azioni prodotti:
+    - Modifica
+        - Form vista **da valutare nuovo form se metterlo anche in aggiungi**
+        - funzione edit + update
+    - Eliminazione:
+        - funzione destroy
+4. tabella prodotti aggiornata con counter immagini **per permettere di riaggiornare l'immagine se è 0 in un secondo momento**
+5. Aggiunte preview nel form di update di un prodotto *ma aggiustare l'aggiunta file*
