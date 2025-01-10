@@ -80,21 +80,25 @@
         </div>
     </div>
     {{-- AROMA E CARATTERISTICHE --}}
-    {{-- completare questa sezione in modo tale che la colonna caratteristiche appaia solo quando inserita dall'admin altriumenti rimane nascosta? --}}
     <div class="container">
-        <div class="row justify-content-between">            
+        <div class="row justify-content-between">
             <div class="col-12 d-flex flex-column justify-content-center align-items-center my-4">
                 <h3 class="fw-bold ">Caratteristiche</h3>
                 <div class="row justify-content-between w-100">
                     <div class="col-6 p-4 text-center">
-                        <p class=""><span class="fw-bold">Aroma:</span> {{ $cigar->flavors}} </p>
-                        <p class=""><span class="fw-bold">Vitola De Galera:</span> {{ $cigar->vitoladegalera != NULL ? $cigar->vitoladegalera : 'n/a'}} </p>
-                        <p class=""><span class="fw-bold">da decidere:</span> <span class="text-danger">se aggiungere o no</span> </p>
+                        <p class=""><span class="fw-bold">Aroma:</span> {{ $cigar->flavors }} </p>
+                        <p class=""><span class="fw-bold">Vitola De Galera:</span>
+                            {{ $cigar->vitoladegalera != null ? $cigar->vitoladegalera : 'n/a' }} </p>
+                        <p class=""><span class="fw-bold">da decidere:</span> <span class="text-danger">se
+                                aggiungere o no</span> </p>
                     </div>
                     <div class="col-6 p-4 text-center">
-                        <p class=""><span class="fw-bold">Cepo:</span> {{ $cigar->cepo != NULL ? $cigar->cepo : 'n/a'}} </p>
-                        <p class=""><span class="fw-bold">Tripa:</span> {{ $cigar->tripa != NULL ? $cigar->tripa : 'n/a'}}</p>
-                        <p class=""><span class="fw-bold">da decidere:</span> <span class="text-danger">se aggiungere o no</span> </p>
+                        <p class=""><span class="fw-bold">Cepo:</span>
+                            {{ $cigar->cepo != null ? $cigar->cepo : 'n/a' }} </p>
+                        <p class=""><span class="fw-bold">Tripa:</span>
+                            {{ $cigar->tripa != null ? $cigar->tripa : 'n/a' }}</p>
+                        <p class=""><span class="fw-bold">da decidere:</span> <span class="text-danger">se
+                                aggiungere o no</span> </p>
                     </div>
                 </div>
             </div>

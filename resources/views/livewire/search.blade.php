@@ -4,7 +4,6 @@
             <div class="col-md-3 d-none d-md-block d-none d-md-block p-5">
                 {{-- FILTRO CATEGORIE --}}
                 <h3 class="fw-bold fs-3">Categorie</h3>
-                {{-- TODO Prima Lista Filtri  --}}
                 <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
                     <li class="nav-item fs-5 my-2">
                         <button class="nav-link {{ $bestSellersBtn == '0' ? '' : 'fw-bold text-decoration-underline' }}"
@@ -19,9 +18,8 @@
                             wire:click='activateLuxury'>Luxury Cigars</button>
                     </li>
                 </ul>
-                {{-- TODO seconda Lista Filtri  --}}
+                {{-- /FILTRO CATEGORIE --}}
             </div>
-            {{-- TODO implementare e aggiustare la visione delle card --}}
             <div class="col-12 col-md-9 p-5">
                 <div class="row">
                     <div class="col-12 d-flex">
@@ -41,15 +39,15 @@
                             wire:click='activateLuxury'>Luxury</button>
                     </div>
                 </div>
-                {{-- ROW CARD --}}
+                {{-- SHOW CARD --}}
                 <div class="row justify-content-center my-5 gap-5">
                     @forelse ($cigars as $cigar)
                         <x-card :$cigar />
                     @empty
-                        <p>non ci sono prodotti</p>
+                        <p>Non ci sono prodotti!</p>
                     @endforelse
                 </div>
-                {{-- /ROW CARD --}}
+                {{-- /SHOW CARD --}}
             </div>
     </main>
     {{-- /MAIN --}}

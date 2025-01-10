@@ -1,14 +1,11 @@
-<!-- Footer -->
-<footer class="text-center text-lg-start bg-body-tertiary text-muted {{Route::currentRouteName() == 'admin' ? 'd-none' : ''}}">
-    <!-- Section: Social media -->
+<!-- FOOTER -->
+<footer
+    class="text-center text-lg-start bg-body-tertiary text-muted {{ Route::currentRouteName() == 'admin' ? 'd-none' : '' }}">
+    <!-- SECTION:SOCIAL MEDIA -->
     <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
-        <!-- Left -->
-        <div class="me-5 d-none d-lg-block">
+        {{-- <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
         </div>
-        <!-- Left -->
-
-        <!-- Right -->
         <div>
             <a href="" class="me-4 text-reset">
                 <i class="fab fa-facebook-f"></i>
@@ -28,53 +25,40 @@
             <a href="" class="me-4 text-reset">
                 <i class="fab fa-github"></i>
             </a>
-        </div>
-        <!-- Right -->
+        </div> --}}
     </section>
-    <!-- Section: Social media -->
+    <!-- /SECTION:SOCIAL MEDIA -->
 
-    <!-- Section: Links  -->
+    <!-- SECTION:LINKS  -->
     <section class="">
         <div class="container text-center text-md-start mt-5">
-            <!-- Grid row -->
             <div class="row mt-3">
-                <!-- Grid column -->
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        Tabaccheria 195
+                        Tabaccheria 195, Bari
                     </h6>
                     <p>
-                        Here you can use rows and columns to organize your footer content. Lorem ipsum
-                        dolor sit amet, consectetur adipisicing elit.
+                        Al vostro servizio dal 1985
                     </p>
                 </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">
                         Products
                     </h6>
                     <p>
-                        <a href="#!" class="text-reset">Angular</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">React</a>
-                    </p>
-                    <p>
-                        <a href="#!" class="text-reset">Vue</a>
-                    </p>
-                    <p>
                         <a href="#!" class="text-reset">Laravel</a>
                     </p>
+                    <p>
+                        <a href="#!" class="text-reset">LiveWire</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Javascript</a>
+                    </p>
+                    <p>
+                        <a href="#!" class="text-reset">Bootstrap</a>
+                    </p>
                 </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                    <!-- Links -->
                     <h6 class="text-uppercase fw-bold mb-4">
                         Useful links
                     </h6>
@@ -91,11 +75,8 @@
                         <a href="#!" class="text-reset">Help</a>
                     </p>
                 </div>
-                <!-- Grid column -->
-
-                <!-- Grid column -->
                 <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                    <!-- Links -->
+
                     <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                     <p> <i class="fas fa-home me-3"></i> Via Giovanni Amendola, 145/E </p>
                     <p><i class="fa-solid fa-location-pin me-3"></i> Bari, BA 70126, IT </p>
@@ -106,18 +87,13 @@
                     <p><i class="fas fa-phone me-3"></i> + 39 080 554 11 70</p>
                     <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
                 </div>
-                <!-- Grid column -->
             </div>
-            <!-- Grid row -->
         </div>
     </section>
-    <!-- Section: Links  -->
-
-    <!-- Copyright -->
+    <!-- /SECTION:LINKS  -->
     <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-        © 2021 Copyright:
-        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+        © 2025 Copyright:AsprenoStack
+        <a class="text-reset fw-bold" href="https://mdbootstrap.com/">info@example.com</a>
     </div>
-    <!-- Copyright -->
 </footer>
-<!-- Footer -->
+<!-- /FOOTER -->
