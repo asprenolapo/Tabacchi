@@ -45,6 +45,14 @@
                         @enderror
                     </div>
                     <div class="my-4">
+                        <label for="surname" class="form-label">Cognome</label>
+                        <input name="surname" type="text" class="form-control @error('surname') is-invalid @enderror"
+                            id="surname" value="{{ old('surname') }}">
+                        @error('surname')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    <div class="my-4">
                         <label for="email" class="form-label">Email</label>
                         <input name="email" type="email" class="form-control @error('email') is-invalid @enderror"
                             id="email" value="{{ old('email') }}">

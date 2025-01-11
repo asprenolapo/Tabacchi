@@ -23,12 +23,11 @@
         </div>
         {{-- SWIPER BEST SELLER --}}
         <div class="row justify-content-between gap-4 my-5">
-            <div class="col-12 col-md-2 d-flex swiper" id="cigarSwiper">
+            <div class="col-12 d-flex swiper" id="cigarSwiper">
                 <div class="swiper-wrapper" id="cigarSwiperWrapper">
                     <!-- Slides -->
                     @forelse ($bestSellers as $cigar)
                         <x-card :$cigar />
-                        {{-- <div class="swiper-slide"><x-card :$cigar /></div> --}}
                     @empty
                         <p class="fw-bold mx-auto">Non ci sono prodotti</p>
                     @endforelse

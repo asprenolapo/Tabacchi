@@ -1,9 +1,10 @@
 <x-layout :$titlePage>
     <div class="container my-5">
-        <a href="{{ route('admin') }}" class=" text-decoration-none"><i class="fa-solid fa-circle-chevron-left fs-4 me-2"></i> <span class="fs-4">back</span></a>
+        <a href="{{ route('admin') }}" class=" text-decoration-none"><i
+                class="fa-solid fa-circle-chevron-left fs-4 me-2"></i> <span class="fs-4">back</span></a>
         <div class="row justify-content-center">
             <div class="col-7 p-5 rounded-4 shadow-lg">
-                <form method="POST" action="{{route('cigar.update', $product)}}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('cigar.update', $product) }}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="d-flex gap-4">
@@ -68,10 +69,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-
-
                     </div>
-
 
                     <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
                         <div class="w-50">
@@ -125,21 +123,25 @@
                         @enderror
                     </div>
 
+                    <!-- SELEZIONE IMMAGINI -->
                     <div class="mb-3">
                         <label for="img" class="form-label">Foto</label>
                         <div class="d-flex gap-3 mb-3">
-                            @forelse ($product->images as $image)
+                            @foreach ($product->images as $image)
                                 <div class="d-flex w-25">
-                                    <img src="{{ Storage::url($image->path) }}" width="100%" height="100px">
+                                    <img src="{{ Storage::url($image->path) }}" width="100px" height="100px">
+                                    <div>
+                                        <label>
+                                            <input type="checkbox" class="form-check-input rounded-circle border-black" name="delete_images[]"
+                                                value="{{ $image->id }}">
+                                            Rimuovi
+                                        </label>
+                                    </div>
                                 </div>
-                            @empty
-                                <div>
-                                    <p class="text-danger">No image uploaded</p>
-                                </div>
-                            @endforelse
+                            @endforeach
                         </div>
-                        <input class="form-control @error('img') is-invalid @enderror" multiple type="file"
-                            id="img" name="img">
+                        <input class="form-control @error('img') is-invalid @enderror" type="file" name="img[]"
+                            multiple>
                         @error('img')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror

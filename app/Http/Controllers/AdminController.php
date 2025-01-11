@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Cigar;
 use Illuminate\Http\Request;
 use App\Http\Requests\CigarRequest;
+use Illuminate\Support\Facades\Storage;
 
 
 class AdminController extends Controller
@@ -22,7 +23,7 @@ class AdminController extends Controller
 
         $products = Cigar::all();
 
-        return view('admin.admin', compact('users', 'titlePage', 'countUser', 'countCigar','products'));
+        return view('admin.admin', compact('users', 'titlePage', 'countUser', 'countCigar', 'products'));
     }
 
     public function edit(Cigar $product)
@@ -35,13 +36,13 @@ class AdminController extends Controller
 
         $products = Cigar::all();
 
-        return view('admin.edit', compact('product', 'titlePage','countUser','countCigar','users','products'));
+        return view('admin.edit', compact('product', 'titlePage', 'countUser', 'countCigar', 'users', 'products'));
     }
 
 
     public function update(Request $request, Cigar $product)
     {
-        
+
         $product->update([
             'name' => $request->input('name'),
             'price' => $request->input('price'),
@@ -55,9 +56,41 @@ class AdminController extends Controller
             'bestSellers' => $request->input('bestSellers'),
             'description' => $request->input('description'),
         ]);
-        
+        // AGGGIUNGE IMMAGINI, SE PRESENTI
+        $images = $request->file('img');
+        if ($images) {
+            // SE è UN SIGOLO FILE LO METTIAMO IN UN ARRAY
+            if (!is_array($images)) {
+                $images = [$images];
+            }
 
-        return redirect()->route('admin', compact('product'))->with('success','Prodotto Modificato');
+            // VERIFICA CHE NON CI SIANO PIù DI 4 IMMAGINI
+            if (count($images) + $product->images->count() > 4) {
+                return back()->withErrors(['img' => 'Puoi caricare un massimo di 4 immagini, comprese quelle già caricate.']);
+            }
+
+            // SALVA LE NUOVE IMMAGINI MODIFICATE
+            foreach ($images as $image) {
+                $path = $image->store('products', 'public'); // SALVA IMMAGINE
+                $product->images()->create(['path' => $path]); // COLLEGA IMMAGINE A PRODOTTO
+            }
+        }
+
+        // RIMUOVE LE IMMAGINI SELEZIONATE 
+        if ($request->has('delete_images')) {
+            foreach ($request->input('delete_images') as $imageId) {
+                $image = $product->images()->find($imageId);
+                if ($image) {
+                    // ELIMINA DA DISCO
+                    Storage::disk('public')->delete($image->path);
+
+                    // ELIMINA DA DB
+                    $image->delete();
+                }
+            }
+        }
+
+        return redirect()->route('admin', compact('product'))->with('success', 'Prodotto Modificato');
     }
 
 
@@ -65,6 +98,6 @@ class AdminController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('admin')->with('success','Prodotto Eliminato');
+        return redirect()->route('admin')->with('success', 'Prodotto Eliminato');
     }
 }

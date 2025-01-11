@@ -16,5 +16,19 @@ const swiper = new Swiper("#cigarSwiper", {
     pagination: {
         el: ".swiper-pagination",
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 1,
+        },
+        576: {
+            slidesPerView: 3,
+        },
+        768: {
+            slidesPerView: 4,
+        },
+        1024: {
+            slidesPerView: 6,
+        }
+    }
 });
 

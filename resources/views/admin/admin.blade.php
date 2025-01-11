@@ -9,18 +9,17 @@
                     <div class=" flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                         <a class="active tab-admin" id="v-pills-disabled-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-disabled" type="button" role="tab"
-                            aria-controls="v-pills-disabled" aria-selected="true" >
+                            aria-controls="v-pills-disabled" aria-selected="true">
                             <i class="fa-solid fa-folder-open me-2"></i></i>Prodotti
                         </a>
-                        <a class="tab-admin" id="v-pills-home-tab" data-bs-toggle="pill"
-                            data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
-                            aria-selected="false">
+                        <a class="tab-admin" id="v-pills-home-tab" data-bs-toggle="pill" data-bs-target="#v-pills-home"
+                            type="button" role="tab" aria-controls="v-pills-home" aria-selected="false">
                             <i class="fa-solid fa-smoking me-2"></i>Aggiungi prodotto
                         </a>
-                        <a class="tab-admin" id="v-pills-profile-tab" data-bs-toggle="pill"
+                        <a class="tab-admin disabled" id="v-pills-profile-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-profile" type="button" role="tab"
                             aria-controls="v-pills-profile" aria-selected="false">
-                            <i class="fa-solid fa-truck-fast me-2"></i>da ordinare
+                            <i class="fa-solid fa-truck-fast me-2"></i>Da ordinare(disabilitato)
                         </a>
                         <form action="{{ route('logout') }}" method="POST" style="display: inline;" class="mx-auto">
                             @csrf
@@ -33,21 +32,10 @@
                 <a href="" class="tab-admin">powered by Aspreno</a>
             </div>
             <div class="col-10 p-0" style="background-color: #F3F5FA">
-                <div class="bg-white" style="height: 70px">
-                    <div class="dropdown float-end">
-                        <button class="btn btn-white d-flex align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span>Amministratore</span>
-                            <i class="fa-solid fa-circle-user fs-1 ms-2"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Aggiungi prodotto</a></li>
-                            <li><a class="dropdown-item" href="#">Utenti</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item text-danger" href="#">Logout</a></li>
-
-                        </ul>
+                <div class="bg-white d-flex justify-content-end" style="height: 70px">
+                    <div class="d-flex justify-content-center align-items-center text-primary me-3">
+                        <span>Amministratore</span>
+                        <i class="fa-solid fa-circle-user fs-1 ms-3"></i>
                     </div>
                 </div>
 
@@ -56,11 +44,11 @@
                 <div class="p-5">
                     <div class="tab-content" id="v-pills-tabContent">
                         <div class="tab-pane fade show active" id="v-pills-disabled" role="tabpanel"
-                        aria-labelledby="v-pills-disabled-tab" tabindex="0">
-                            <x-admin.productsTable :$products/>
+                            aria-labelledby="v-pills-disabled-tab" tabindex="0">
+                            <x-admin.productsTable :$products />
                         </div>
-                        <div class="tab-pane fade" id="v-pills-home" role="tabpanel"
-                            aria-labelledby="v-pills-home-tab" tabindex="0">
+                        <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab"
+                            tabindex="0">
                             <x-admin.products :$countUser :$countCigar />
                         </div>
                         <div class="tab-pane fade" id="v-pills-profile" role="tabpanel"

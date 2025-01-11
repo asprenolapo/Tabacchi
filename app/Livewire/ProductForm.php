@@ -6,6 +6,7 @@ use App\Models\Cigar;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 class ProductForm extends Component
 {
@@ -24,6 +25,7 @@ class ProductForm extends Component
     public $bestSellers;
     public $description;
     public $img = [];
+    public $delete_images = []; //Per memorizzare gli ID delle immagini da eliminare
 
     // REGOLE DI VALIDAZIONE
     protected $rules = [
@@ -32,10 +34,10 @@ class ProductForm extends Component
         'madein' => 'required|min:3|max:30',
         'intensity' => 'min:3|max:30',
         'smoketime' => 'min:2|max:30',
-        'flavors'=>'min:3|max:300',
+        'flavors' => 'min:3|max:300',
         'description' => 'required|min:5|max:300',
-        'img' => 'array', // Per supportare array di file immagine
-        'img.*' => 'image|max:2048|', // Ogni file deve essere un'immagine e non superare i 2MB
+        'img' => 'array|max:4',
+        'img.*' => 'image|max:2048|',
     ];
 
     // MESSAGGI DI ERRORE PERSONALIZZATI
@@ -52,7 +54,7 @@ class ProductForm extends Component
         'madein.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
         'madein.max' => 'La provenienza non può essere più lunga di 30 caratteri',
 
-        'intensity.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
+        'intensity.min' => 'La deve essere lunga almeno 3 caratteri',
         'intensity.max' => 'La provenienza non può essere più lunga di 30 caratteri',
 
         'smoketime.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
@@ -60,14 +62,15 @@ class ProductForm extends Component
 
         'flavors.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
         'flavors.max' => 'La provenienza non può essere più lunga di 30 caratteri',
-        
+
         'description.required' => 'Il campo descrizione è obbligatorio',
         'description.min' => 'La descrizione deve essere lunga almeno 5 caratteri',
         'description.max' => 'La descrizione non può essere più lunga di 300 caratteri',
 
         'img.*.image' => 'Il file caricato non è un\'immagine',
         'img.*.max' => 'La dimensione massima del file caricato è 2MB',
-        
+        'img.max' => 'Puoi caricare un massimo di 4 immagini.',
+
     ];
 
     // FUNZIONE PER SALVARE IL PRODOTTO
@@ -86,20 +89,21 @@ class ProductForm extends Component
             'cepo' => $this->cepo,
             'tripa' => $this->tripa,
             'intensity' => $this->intensity,
-            'smoketime' =>$this->smoketime,
-            'flavors' =>$this->flavors,
-            'bestSellers' =>$this->bestSellers,
+            'smoketime' => $this->smoketime,
+            'flavors' => $this->flavors,
+            'bestSellers' => $this->bestSellers,
             'description' => $this->description,
-            //'img'=>$this->image,
         ]);
 
-        // ASSOCIA LE IMMAGINI SE PRESENTI 
-        foreach ($this->img as $image) {
-            $cigar->images()->create(['path' => $image->store('products', 'public')]);
+        //COUNTER DEL MAX IMG-ASSOCIA LE IMMAGINI SE PRESENTI 
+        if (count($this->img) < 5) {
+            foreach ($this->img as $image) {
+                $cigar->images()->create(['path' => $image->store('products', 'public')]);
+            }
         }
 
         // FLASH MESSAGE DI SUCCESSO 
-        session()->flash('success', 'Articolo Aggiunto');
+        session()->flash('success', 'Articolo Aggiunto Con Successo');
 
         // RESETTA IL FORM 
         $this->reset();

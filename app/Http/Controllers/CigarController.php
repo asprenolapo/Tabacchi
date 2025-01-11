@@ -52,8 +52,6 @@ class CigarController extends Controller
      */
     public function show(Cigar $cigar)
     {
-        // $im1 = $cigar->images->id;
-        // dd($im1);
         return view('dettaglioSigari',compact('cigar'));
     }
 

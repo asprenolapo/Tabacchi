@@ -7,4 +7,3 @@ let msg = document.querySelector('#sessionMSG');
         msg.classList.add('notification');
     }, 3000);
 
-
