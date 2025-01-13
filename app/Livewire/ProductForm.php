@@ -27,6 +27,8 @@ class ProductForm extends Component
     public $img = [];
     public $delete_images = []; //Per memorizzare gli ID delle immagini da eliminare
 
+    public $packaging;
+
     // REGOLE DI VALIDAZIONE
     protected $rules = [
         'name' => 'required|min:5|max:40',
@@ -35,6 +37,7 @@ class ProductForm extends Component
         'intensity' => 'min:3|max:30',
         'smoketime' => 'min:2|max:30',
         'flavors' => 'min:3|max:300',
+        // 'packaging'=>'required|min:1|max:100',
         'description' => 'required|min:5|max:300',
         'img' => 'array|max:4',
         'img.*' => 'image|max:2048|',
@@ -54,14 +57,18 @@ class ProductForm extends Component
         'madein.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
         'madein.max' => 'La provenienza non può essere più lunga di 30 caratteri',
 
-        'intensity.min' => 'La deve essere lunga almeno 3 caratteri',
-        'intensity.max' => 'La provenienza non può essere più lunga di 30 caratteri',
+        'intensity.min' => 'Intensità deve essere lunga almeno 3 caratteri',
+        'intensity.max' => 'Intensità non può essere più lunga di 30 caratteri',
 
-        'smoketime.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
-        'smoketime.max' => 'La provenienza non può essere più lunga di 30 caratteri',
+        'smoketime.min' => 'Il tempo di fumata deve essere almeno 2 numeri',
+        'smoketime.max' => 'Il tempo di fumata non può essere più lungo di 30 numeri',
 
-        'flavors.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
-        'flavors.max' => 'La provenienza non può essere più lunga di 30 caratteri',
+        // 'packaging.required' => 'La quantità della confezione è richiesta',
+        // 'packaging.min' => 'La confezione deve essere minimo di un sigaro',
+        // 'packaging.max' => 'La confezione non può contenere piu di 99 sigari',
+
+        'flavors.min' => 'Aroma deve essere lunga almeno 3 caratteri',
+        'flavors.max' => 'Aroma non può essere più lunga di 30 caratteri',
 
         'description.required' => 'Il campo descrizione è obbligatorio',
         'description.min' => 'La descrizione deve essere lunga almeno 5 caratteri',
@@ -93,6 +100,7 @@ class ProductForm extends Component
             'flavors' => $this->flavors,
             'bestSellers' => $this->bestSellers,
             'description' => $this->description,
+            'packaging' => $this->packaging,
         ]);
 
         //COUNTER DEL MAX IMG-ASSOCIA LE IMMAGINI SE PRESENTI 

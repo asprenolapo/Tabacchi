@@ -1,4 +1,7 @@
 <x-layout>
+
+<livewire:age-check/>
+
     {{-- HEADER --}}
     <header class="container-fluid p-0 overflow-hidden">
         <div class="card text-bg-dark overflow-hidden">
@@ -7,7 +10,6 @@
             <div class="card-img-overlay d-flex flex-column justify-content-center">
                 <h5 class="card-title display-4">Tabaccheria 195</h5>
                 <p class="card-text fs-5">Tabaccai dal 1985</p>
-                <p class="card-text"><small>Last updated 3 mins ago</small></p>
             </div>
         </div>
     </header>

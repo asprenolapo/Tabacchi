@@ -20,6 +20,7 @@ class Cigar extends Model
         'flavors',
         'bestSellers',
         'description',
+        'packaging',
     ];
 
 

@@ -70,6 +70,7 @@
                             @enderror
                         </div>
                     </div>
+                    
 
                     <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
                         <div class="w-50">
@@ -101,6 +102,8 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
+
+                        
                         <div class="w-50">
                             <label for="bestSellers" class="form-label">Best Sellers</label>
                             <select name="bestSellers" id="bestSellers"
@@ -113,6 +116,19 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
+                    </div>
+
+                    <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
+                        <div class="w-10">
+                            <label for="packaging" class="form-label">Packaging</label>
+                            <input wire:model="packaging" type="number"
+                                class="form-control @error('packaging') is-invalid @enderror" id="packaging"
+                                value="{{ $product->packaging }}">
+                            @error('packaging')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+        
                     </div>
                     <div class="my-4">
                         <label for="description" class="form-label">Descrizione</label>

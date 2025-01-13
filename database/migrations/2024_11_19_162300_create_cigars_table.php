@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('vitoladegalera')->nullable();
             $table->string('cepo')->nullable();
             $table->string('tripa')->nullable();
+            $table->integer('packaging')->nullable()->change();
             $table->string('intensity');
             $table->integer('smoketime');
             $table->longText('flavors');

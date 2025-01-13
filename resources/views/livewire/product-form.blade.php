@@ -13,6 +13,20 @@
             </div>
         </div>
     @endif
+    @if (session()->has('successremove'))
+    <div class="alert alert-dismissible fade show w-25 ms-auto my-3 shadow-lg z-1 bg-white"
+        style="border-left: 6px solid green; transition: all 0.5s ease-out; position:absolute; top: 430px; right:0"
+        id="sessionMSG">
+        <div class="d-flex align-items-center">
+            <i class="fa-solid fa-circle-check display-6 me-4 text-success"></i>
+            <div>
+                <p class="text-success fw-bold m-0">Rimosso</p>
+                <p class="text-muted m-0">{{ session('successremove') }}</p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+@endif
     <div class="col-md-12 shadow p-5 bg-white rounded-4">
         <h2>Aggiungi prodotto</h2>
         <form method="POST" wire:submit.prevent="save" enctype="multipart/form-data">
@@ -26,7 +40,7 @@
                 @enderror
             </div>
 
-            <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                 <div class="w-50">
                     <label for="price" class="form-label">Prezzo</label>
                     <input wire:model="price" type="number" class="form-control @error('price') is-invalid @enderror"
@@ -54,7 +68,9 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+            </div>
 
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                 <div class="w-50">
                     <label for="cepo" class="form-label">Cepo</label>
                     <input wire:model="cepo" type="text" class="form-control @error('cepo') is-invalid @enderror"
@@ -92,7 +108,9 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+            </div>
 
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                 <div class="w-50">
                     <label for="flavors" class="form-label">Aroma</label>
                     <input wire:model="flavors" type="text"
@@ -102,6 +120,17 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+
+                <div class="w-50">
+                    <label for="packaging" class="form-label">Packaging</label>
+                    <input wire:model="packaging" type="number"
+                        class="form-control @error('packaging') is-invalid @enderror" id="packaging"
+                        value="{{ old('packaging') }}">
+                    @error('packaging')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="w-50">
                     <label for="bestSellers" class="form-label">Best Sellers</label>
                     <select wire:model="bestSellers" id="bestSellers" class="form-control @error('bestSellers') is-invalid @enderror">
@@ -112,7 +141,6 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-
             </div>
             <div class="my-4">
                 <label for="description" class="form-label">Descrizione</label>

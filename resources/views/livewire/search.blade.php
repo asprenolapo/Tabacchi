@@ -20,6 +20,7 @@
                 </ul>
                 {{-- /FILTRO CATEGORIE --}}
             </div>
+            {{-- INPUT RICERCA LIVEWIRE --}}
             <div class="col-12 col-md-9 p-5">
                 <div class="row">
                     <div class="col-12 d-flex">
@@ -39,6 +40,7 @@
                             wire:click='activateLuxury'>Luxury</button>
                     </div>
                 </div>
+                {{-- /INPUT RICERCA LIVEWIRE --}}
                 {{-- SHOW CARD --}}
                 <div class="row justify-content-center my-5 gap-5">
                     @forelse ($cigars as $cigar)

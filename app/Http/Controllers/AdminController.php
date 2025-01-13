@@ -54,6 +54,7 @@ class AdminController extends Controller
             'smoketime' => $request->input('smoketime'),
             'flavors' => $request->input('flavors'),
             'bestSellers' => $request->input('bestSellers'),
+            'packaging' => $request->input('packaging'),
             'description' => $request->input('description'),
         ]);
         // AGGGIUNGE IMMAGINI, SE PRESENTI
@@ -98,6 +99,6 @@ class AdminController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('admin')->with('success', 'Prodotto Eliminato');
+        return redirect()->route('admin')->with('successremove', 'Prodotto Eliminato');
     }
 }

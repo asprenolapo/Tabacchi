@@ -13,6 +13,5 @@
             <x-admin.widget title='Nessuno' data='-' icon='fa-solid fa-truck-fast text-info' />
             <x-admin.widget title='Nessuno' data='-' icon='fa-solid fa-triangle-exclamation text-danger' />
         </div>
-        {{-- <livewire:product-form /> --}}
     </div>
 </div>

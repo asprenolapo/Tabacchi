@@ -31,6 +31,5 @@
 
         <livewire:product-form />
 
-
     </div>
 </div>
