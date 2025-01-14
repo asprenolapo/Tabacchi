@@ -1,7 +1,5 @@
 <x-layout>
 
-<livewire:age-check/>
-
     {{-- HEADER --}}
     <header class="container-fluid p-0 overflow-hidden">
         <div class="card text-bg-dark overflow-hidden">

@@ -12,7 +12,7 @@ class ProductForm extends Component
 {
     use WithFileUploads;
 
-    // PROPIETà DA VALIDARE
+    // PROPRIETÀ DA VALIDARE
     public $name;
     public $price;
     public $madein;
@@ -25,7 +25,7 @@ class ProductForm extends Component
     public $bestSellers;
     public $description;
     public $img = [];
-    public $delete_images = []; //Per memorizzare gli ID delle immagini da eliminare
+    public $delete_images = []; // Per memorizzare gli ID delle immagini da eliminare
 
     public $packaging;
 
@@ -37,7 +37,7 @@ class ProductForm extends Component
         'intensity' => 'min:3|max:30',
         'smoketime' => 'min:2|max:30',
         'flavors' => 'min:3|max:300',
-        // 'packaging'=>'required|min:1|max:100',
+        'packaging' => 'nullable|integer|min:1|max:99',  // Gestione packaging
         'description' => 'required|min:5|max:300',
         'img' => 'array|max:4',
         'img.*' => 'image|max:2048|',
@@ -45,45 +45,44 @@ class ProductForm extends Component
 
     // MESSAGGI DI ERRORE PERSONALIZZATI
     protected $messages = [
-        'name.required' => 'Il campo nome è obbligatorio',
-        'name.min' => 'Il nome deve essere lungo almeno 5 caratteri',
-        'name.max' => 'Il nome non può essere più lungo di 40 caratteri',
+        'name.required' => 'Il campo nome è obbligatorio.',
+        'name.min' => 'Il nome deve essere lungo almeno 5 caratteri.',
+        'name.max' => 'Il nome non può essere più lungo di 40 caratteri.',
 
-        'price.required' => 'Il campo prezzo è obbligatorio',
-        'price.numeric' => 'Il prezzo deve essere un numero',
-        'price.min' => 'Il prezzo deve essere almeno 2',
+        'price.required' => 'Il campo prezzo è obbligatorio.',
+        'price.numeric' => 'Il prezzo deve essere un numero.',
+        'price.min' => 'Il prezzo deve essere almeno 2.',
 
-        'madein.required' => 'Il campo provenienza è obbligatorio',
-        'madein.min' => 'La provenienza deve essere lunga almeno 3 caratteri',
-        'madein.max' => 'La provenienza non può essere più lunga di 30 caratteri',
+        'madein.required' => 'Il campo provenienza è obbligatorio.',
+        'madein.min' => 'La provenienza deve essere lunga almeno 3 caratteri.',
+        'madein.max' => 'La provenienza non può essere più lunga di 30 caratteri.',
 
-        'intensity.min' => 'Intensità deve essere lunga almeno 3 caratteri',
-        'intensity.max' => 'Intensità non può essere più lunga di 30 caratteri',
+        'intensity.min' => 'L\'intensità deve essere lunga almeno 3 caratteri.',
+        'intensity.max' => 'L\'intensità non può essere più lunga di 30 caratteri.',
 
-        'smoketime.min' => 'Il tempo di fumata deve essere almeno 2 numeri',
-        'smoketime.max' => 'Il tempo di fumata non può essere più lungo di 30 numeri',
+        'smoketime.min' => 'Il tempo di fumata deve essere almeno 2.',
+        'smoketime.max' => 'Il tempo di fumata non può essere più lungo di 30 caratteri.',
 
-        // 'packaging.required' => 'La quantità della confezione è richiesta',
-        // 'packaging.min' => 'La confezione deve essere minimo di un sigaro',
-        // 'packaging.max' => 'La confezione non può contenere piu di 99 sigari',
+        'flavors.min' => 'Il campo aroma deve essere lungo almeno 3 caratteri.',
+        'flavors.max' => 'Il campo aroma non può essere più lungo di 300 caratteri.',
 
-        'flavors.min' => 'Aroma deve essere lunga almeno 3 caratteri',
-        'flavors.max' => 'Aroma non può essere più lunga di 30 caratteri',
+        'packaging.min' => 'La confezione deve contenere almeno un sigaro.',
+        'packaging.max' => 'La confezione non può contenere più di 99 sigari.',
 
-        'description.required' => 'Il campo descrizione è obbligatorio',
-        'description.min' => 'La descrizione deve essere lunga almeno 5 caratteri',
-        'description.max' => 'La descrizione non può essere più lunga di 300 caratteri',
+        'description.required' => 'Il campo descrizione è obbligatorio.',
+        'description.min' => 'La descrizione deve essere lunga almeno 5 caratteri.',
+        'description.max' => 'La descrizione non può essere più lunga di 300 caratteri.',
 
-        'img.*.image' => 'Il file caricato non è un\'immagine',
-        'img.*.max' => 'La dimensione massima del file caricato è 2MB',
+        'img.array' => 'Devi caricare una serie di immagini.',
         'img.max' => 'Puoi caricare un massimo di 4 immagini.',
 
+        'img.*.image' => 'Il file caricato deve essere un\'immagine.',
+        'img.*.max' => 'Ogni immagine non può superare i 2MB.',
     ];
 
     // FUNZIONE PER SALVARE IL PRODOTTO
     public function save()
     {
-
         // VALIDAZIONE DEI DATI
         $this->validate();
 
@@ -103,21 +102,21 @@ class ProductForm extends Component
             'packaging' => $this->packaging,
         ]);
 
-        //COUNTER DEL MAX IMG-ASSOCIA LE IMMAGINI SE PRESENTI 
+        // COUNTER DEL MAX IMG - ASSOCIA LE IMMAGINI SE PRESENTI
         if (count($this->img) < 5) {
             foreach ($this->img as $image) {
                 $cigar->images()->create(['path' => $image->store('products', 'public')]);
             }
         }
 
-        // FLASH MESSAGE DI SUCCESSO 
+        // FLASH MESSAGE DI SUCCESSO
         session()->flash('success', 'Articolo Aggiunto Con Successo');
 
-        // RESETTA IL FORM 
+        // RESETTA IL FORM
         $this->reset();
     }
 
-    // REINDERIZZA LA VISTA LIVEWIRE
+    // RENDERIZZA LA VISTA LIVEWIRE
     public function render()
     {
         return view('livewire.product-form');

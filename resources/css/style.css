@@ -89,14 +89,43 @@ body {
 /*ADMIN PAGE*/
 
 /*NOTIFICA SUCCESSO*/
-.notification {
-    animation: fade-right-custom 0.5s ease-in-out forwards;
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-out;
 }
 
-@keyframes fade-right-custom {
-    to {
-        transform: translateX(100%);
-    }
+/* Classe generica per il messaggio di notifica */
+.custom-alert {
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 16px;
+    position: fixed;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease-out, top 0.5s ease-out;
+}
+
+/* Classe per il messaggio di successo */
+.custom-alert-success {
+    border-left: 6px solid #28a745; /* Verde per il successo */
+    background-color: #f8f9fa;
+    color: #495057;
+}
+
+.custom-alert-success .btn-close {
+    background-color: transparent;
+    border: none;
+    color: #495057;
+}
+
+.custom-alert-success .fa-circle-check {
+    color: #28a745;
+}
+
+/* Animazione di uscita del messaggio */
+.custom-alert.notification {
+    opacity: 0;
+    top: -100px;
 }
 
 /* ACTIVE GESTIONE IMMAGINI DETTAGLIO SIGARI */

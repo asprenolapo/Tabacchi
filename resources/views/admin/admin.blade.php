@@ -1,4 +1,18 @@
 <x-layout :$titlePage>
+
+    @if (session()->has('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Successo!</strong> {{ session('success') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @elseif (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Eliminato</strong> {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-2 bg-white vh-100 position-sticky top-0 p-0 d-flex flex-column justify-content-between">
@@ -6,7 +20,8 @@
                     <h1 class="fs-3 text-center">Tabaccheria 195</h1>
                 </a>
                 <div class="d-flex align-items-start p-0 position-sticky">
-                    <div class=" flex-column nav-pills w-100" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                    <div class=" flex-column nav-pills w-100" id="v-pills-tab" role="tablist"
+                        aria-orientation="vertical">
                         <a class="active tab-admin" id="v-pills-disabled-tab" data-bs-toggle="pill"
                             data-bs-target="#v-pills-disabled" type="button" role="tab"
                             aria-controls="v-pills-disabled" aria-selected="true">
@@ -63,3 +78,16 @@
     </div>
 
 </x-layout>
+<script>
+    let msg = document.querySelector('.alert');
+    if (msg) {
+        setTimeout(() => {
+            msg.classList.add('fade-out'); // Classe CSS per l'animazione di uscita
+        }, 3000);  // Tempo di attesa prima che inizi l'animazione (3 secondi)
+
+        // Dopo l'animazione, rimuoviamo il messaggio
+        setTimeout(() => {
+            msg.remove();
+        }, 3500);  // Dopo 1 secondo dalla fine dell'animazione di scomparsa
+    }
+</script>

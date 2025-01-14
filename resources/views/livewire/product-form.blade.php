@@ -1,32 +1,16 @@
 <div class="row justify-content-center">
     @if (session()->has('success'))
-        <div class="alert alert-dismissible fade show w-25 ms-auto my-3 shadow-lg z-1 bg-white"
-            style="border-left: 6px solid green; transition: all 0.5s ease-out; position:absolute; top: 430px; right:0"
-            id="sessionMSG">
-            <div class="d-flex align-items-center">
-                <i class="fa-solid fa-circle-check display-6 me-4 text-success"></i>
-                <div>
-                    <p class="text-success fw-bold m-0">Aggiunto</p>
-                    <p class="text-muted m-0">{{ session('success') }}</p>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-        </div>
-    @endif
-    @if (session()->has('successremove'))
-    <div class="alert alert-dismissible fade show w-25 ms-auto my-3 shadow-lg z-1 bg-white"
-        style="border-left: 6px solid green; transition: all 0.5s ease-out; position:absolute; top: 430px; right:0"
-        id="sessionMSG">
-        <div class="d-flex align-items-center">
-            <i class="fa-solid fa-circle-check display-6 me-4 text-success"></i>
-            <div>
-                <p class="text-success fw-bold m-0">Rimosso</p>
-                <p class="text-muted m-0">{{ session('successremove') }}</p>
-            </div>
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Successo!</strong> {{ session('success') }}
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
-    </div>
-@endif
+    @elseif (session()->has('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Eliminato</strong> {{ session('error') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
     <div class="col-md-12 shadow p-5 bg-white rounded-4">
         <h2>Aggiungi prodotto</h2>
         <form method="POST" wire:submit.prevent="save" enctype="multipart/form-data">
@@ -133,7 +117,8 @@
 
                 <div class="w-50">
                     <label for="bestSellers" class="form-label">Best Sellers</label>
-                    <select wire:model="bestSellers" id="bestSellers" class="form-control @error('bestSellers') is-invalid @enderror">
+                    <select wire:model="bestSellers" id="bestSellers"
+                        class="form-control @error('bestSellers') is-invalid @enderror">
                         <option value=0 selected>No</option>
                         <option value=1>Si</option>
                     </select>
@@ -166,3 +151,16 @@
         </form>
     </div>
 </div>
+<script>
+    let msg = document.querySelector('.alert');
+    if (msg) {
+        setTimeout(() => {
+            msg.classList.add('fade-out'); // Classe CSS per l'animazione di uscita
+        }, 3000);  // Tempo di attesa prima che inizi l'animazione (3 secondi)
+
+        // Dopo l'animazione, rimuoviamo il messaggio
+        setTimeout(() => {
+            msg.remove();
+        }, 3500);  // Dopo 1 secondo dalla fine dell'animazione di scomparsa
+    }
+</script>

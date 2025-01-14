@@ -2,103 +2,111 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
-use App\Models\User;
 use App\Models\Cigar;
+use App\Models\User;
 use Illuminate\Http\Request;
-use App\Http\Requests\CigarRequest;
 use Illuminate\Support\Facades\Storage;
-
 
 class AdminController extends Controller
 {
+    // Metodo per visualizzare la dashboard dell'amministratore
     public function admin()
     {
-
         $titlePage = 'Tabaccheria 195 - Admin Area';
         $users = User::all();
-
         $countUser = User::count();
         $countCigar = Cigar::count();
-
         $products = Cigar::all();
 
         return view('admin.admin', compact('users', 'titlePage', 'countUser', 'countCigar', 'products'));
     }
 
+    // Metodo per visualizzare il form di modifica
     public function edit(Cigar $product)
     {
         $titlePage = 'Tabaccheria 195 - Admin Area';
         $users = User::all();
-
         $countUser = User::count();
         $countCigar = Cigar::count();
-
         $products = Cigar::all();
 
         return view('admin.edit', compact('product', 'titlePage', 'countUser', 'countCigar', 'users', 'products'));
     }
 
-
+    // Metodo per aggiornare un prodotto
     public function update(Request $request, Cigar $product)
     {
-
-        $product->update([
-            'name' => $request->input('name'),
-            'price' => $request->input('price'),
-            'madein' => $request->input('madein'),
-            'vitoladegalera' => $request->input('vitoladegalera'),
-            'cepo' => $request->input('cepo'),
-            'tripa' => $request->input('tripa'),
-            'intensity' => $request->input('intensity'),
-            'smoketime' => $request->input('smoketime'),
-            'flavors' => $request->input('flavors'),
-            'bestSellers' => $request->input('bestSellers'),
-            'packaging' => $request->input('packaging'),
-            'description' => $request->input('description'),
+        // Validazione dei dati
+        $validatedData = $request->validate([
+            'name' => 'required|min:5|max:40',
+            'price' => 'required|numeric|min:2',
+            'madein' => 'required|min:3|max:30',
+            'vitoladegalera' => 'nullable|string|max:100',
+            'cepo' => 'nullable|string|max:50',
+            'tripa' => 'nullable|string|max:50',
+            'intensity' => 'nullable|string|max:50',
+            'smoketime' => 'nullable|integer|min:1',
+            'flavors' => 'nullable|string|max:300',
+            'bestSellers' => 'nullable|boolean',
+            'description' => 'required|min:5|max:300',
+            'packaging' => 'nullable|integer|min:0|max:99',
+            'img' => 'nullable|array|max:4',
+            'img.*' => 'image|max:2048',
         ]);
-        // AGGGIUNGE IMMAGINI, SE PRESENTI
-        $images = $request->file('img');
-        if ($images) {
-            // SE è UN SIGOLO FILE LO METTIAMO IN UN ARRAY
-            if (!is_array($images)) {
-                $images = [$images];
-            }
 
-            // VERIFICA CHE NON CI SIANO PIù DI 4 IMMAGINI
+        // Aggiornamento del prodotto
+        $product->update([
+            'name' => $validatedData['name'],
+            'price' => $validatedData['price'],
+            'madein' => $validatedData['madein'],
+            'vitoladegalera' => $validatedData['vitoladegalera'] ?? null,
+            'cepo' => $validatedData['cepo'] ?? null,
+            'tripa' => $validatedData['tripa'] ?? null,
+            'intensity' => $validatedData['intensity'] ?? null,
+            'smoketime' => $validatedData['smoketime'] ?? null,
+            'flavors' => $validatedData['flavors'] ?? null,
+            'bestSellers' => $validatedData['bestSellers'] ?? false,
+            'description' => $validatedData['description'],
+            'packaging' => $validatedData['packaging'] ?? 0,
+        ]);
+
+        // Gestione delle immagini
+        if ($request->hasFile('img')) {
+            $images = $request->file('img');
             if (count($images) + $product->images->count() > 4) {
                 return back()->withErrors(['img' => 'Puoi caricare un massimo di 4 immagini, comprese quelle già caricate.']);
             }
-
-            // SALVA LE NUOVE IMMAGINI MODIFICATE
             foreach ($images as $image) {
-                $path = $image->store('products', 'public'); // SALVA IMMAGINE
-                $product->images()->create(['path' => $path]); // COLLEGA IMMAGINE A PRODOTTO
+                $path = $image->store('products', 'public');
+                $product->images()->create(['path' => $path]);
             }
         }
 
-        // RIMUOVE LE IMMAGINI SELEZIONATE 
+        // Eliminazione delle immagini selezionate
         if ($request->has('delete_images')) {
             foreach ($request->input('delete_images') as $imageId) {
                 $image = $product->images()->find($imageId);
                 if ($image) {
-                    // ELIMINA DA DISCO
+                    // Elimina immagine da disco e dal database
                     Storage::disk('public')->delete($image->path);
-
-                    // ELIMINA DA DB
                     $image->delete();
                 }
             }
         }
 
-        return redirect()->route('admin', compact('product'))->with('success', 'Prodotto Modificato');
+        return redirect()->route('admin')->with('success', 'Prodotto Modificato Con Successo');
     }
 
-
+    // Metodo per eliminare un prodotto
     public function destroy(Cigar $product)
     {
+        // Elimina le immagini e il prodotto
+        foreach ($product->images as $image) {
+            Storage::disk('public')->delete($image->path);
+        }
+
         $product->delete();
 
-        return redirect()->route('admin')->with('successremove', 'Prodotto Eliminato');
+        return redirect()->route('admin')->with('error', 'Prodotto Eliminato Con Successo');
     }
 }
