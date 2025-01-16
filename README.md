@@ -132,3 +132,4 @@ COMPLETATO
     2. l'utente potrebbe voler vedere più volte la tabella prodotti rispetto a inserisci prodotto
 8. Aggiunto il tab "Da ordinare" con tabella prodotti e quantità
     **SOTTOPORRE LA QUESTIONE QUANTITA' ANCHE NELL'AGGIUNTA PRODOTTI**
+    push per prova
