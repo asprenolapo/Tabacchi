@@ -11,6 +11,12 @@
     <title>
         {{$titlePage ?? 'Tabaccheria 195'}}
     </title>
+    <script type="text/javascript">
+        var _iub = _iub || [];
+        _iub.csConfiguration = {"siteId":3897938,"cookiePolicyId":51478506,"lang":"it","storage":{"useSiteId":true}};
+        </script>
+        <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3897938.js"></script>
+        <script type="text/javascript" src="//cdn.iubenda.com/cs/stable/iubenda_cs.js" charset="UTF-8" async></script>
 </head>
 
 <body>
@@ -23,8 +29,7 @@
 
     <x-footer />
 
-    <script src="https://kit.fontawesome.com/7d149bc2d8.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"></script>
+
 
 </body>
 
