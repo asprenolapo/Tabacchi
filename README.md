@@ -133,3 +133,4 @@ COMPLETATO
 8. Aggiunto il tab "Da ordinare" con tabella prodotti e quantità
     **SOTTOPORRE LA QUESTIONE QUANTITA' ANCHE NELL'AGGIUNTA PRODOTTI**
     push per prova 3
+ commentare la resgistrazione

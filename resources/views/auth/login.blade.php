@@ -27,10 +27,10 @@
                     <button type="submit" class="btn btn-primary float-end w-100 my-4">Accedi</button>
                 </form>
 
-                <div>
+                {{-- <div>
                     <hr>
                     <a href="{{route('register')}}">Registra Utente</a>
-                </div>
+                </div> --}}
 
             </div>
         </div>
