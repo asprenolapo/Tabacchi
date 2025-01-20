@@ -95,11 +95,11 @@ class CigarController extends Controller
             Mail::to($email)->send(new contactUser($userData));
             Mail::to('admin@tabaccheria195.it')->send(new contactAdmin($userData));
 
-            return redirect()->back()->with('success','Richiesta inviata con successo.. controlla la tua mail');
+            return redirect()->back()->with('success','Richiesta inviata con successo... controlla la tua mail');
 
         } catch (Exception $e) {
             
-            return redirect()->back()->with('error','errore durante l\'invio mail.. riprova più tardi');
+            return redirect()->back()->with('error','Errore durante l\'invio mail.. riprova più tardi');
         }
     }
 }
