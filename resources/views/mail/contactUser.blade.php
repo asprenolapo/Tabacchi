@@ -16,7 +16,7 @@
     <header class="container-fluid p-0 overflow-hidden">
         <div class="card text-bg-dark overflow-hidden">
             <img src="https://images.unsplash.com/photo-1724436281331-68ae2a523d22?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                class="card-img header-img" alt="..." style="height: 250px; object-fit: cover;">
+                class="card-img header-img" alt="usercontact-img" style="height: 250px; object-fit: cover;">
             <div class="card-img-overlay d-flex flex-column justify-content-center">
                 <h1>Tabaccheria 195</h1>
             </div>

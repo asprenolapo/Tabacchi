@@ -143,7 +143,7 @@
                         <div class="d-flex gap-3 mb-3">
                             @foreach ($product->images as $image)
                                 <div class="d-flex w-25">
-                                    <img src="{{ Storage::url($image->path) }}" width="100px" height="100px">
+                                    <img src="{{ Storage::url($image->path) }}" width="100px" height="100px" alt="modified-img">
                                     <div>
                                         <label>
                                             <input type="checkbox"

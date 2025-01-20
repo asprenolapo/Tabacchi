@@ -11,7 +11,7 @@
                                 <div class="tab-pane fade show active" id="v-pills-{{ $cigar->images()->first()->id }}"
                                     role="tabpanel" aria-labelledby="v-pills-{{ $cigar->images()->first()->id }}-tab"
                                     tabindex="0">
-                                    <img src="{{ Storage::url($cigar->images()->first()->path) }}" alt=""
+                                    <img src="{{ Storage::url($cigar->images()->first()->path) }}" alt="detsigari-img"
                                         class="img-fluid w-100">
                                 </div>
                             @elseif ($cigar->images()->count() > 1)
@@ -27,7 +27,7 @@
                                 <div class="tab-pane fade show active" id="v-pills-empty" role="tabpanel"
                                     aria-labelledby="v-pills-empty-tab" tabindex="0">
                                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/No_Image_Available.jpg?20200913095930"
-                                        alt="" class="img-fluid w-100">
+                                        alt="noaveilable-img" class="img-fluid w-100">
                                 </div>
                             @endif
                         </div>
