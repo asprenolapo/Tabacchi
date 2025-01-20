@@ -33,14 +33,21 @@
 
 <body>
 
-    <x-navbar />
+    <div> 
 
-    <div class="min-vh-100">
-        {{ $slot }}
+        {{-- Aggiungi una condizione per escludere il controllo dell'età nelle pagine di login e admin --}}
+        @unless(Route::is('login') || Route::is('admin') || Route::is('cigar.edit') || Route::is('cigar.update') || Route::is('cigar.delete'))
+            <livewire:age-verification />
+        @endunless
+        
+        <x-navbar />
+
+        <div class="min-vh-100">
+            {{ $slot }}
+        </div>
+
+        <x-footer />
     </div>
-
-    <x-footer />
-
 
 
 </body>
