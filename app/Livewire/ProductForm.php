@@ -31,14 +31,14 @@ class ProductForm extends Component
 
     // REGOLE DI VALIDAZIONE
     protected $rules = [
-        'name' => 'required|min:5|max:40',
-        'price' => 'required|numeric|min:2',
+        'name' => 'required|min:3|max:40',
+        'price' => 'required|numeric|min:1',
         'madein' => 'required|min:3|max:30',
         'intensity' => 'min:3|max:30',
-        'smoketime' => 'min:2|max:30',
+        'smoketime' => 'numeric|min:1|max:999',
         'flavors' => 'min:3|max:300',
         'packaging' => 'nullable|integer|min:1|max:99',  // Gestione packaging
-        'description' => 'required|min:5|max:300',
+        'description' => 'required|min:5|max:1000',
         'img' => 'array|max:4',
         'img.*' => 'image|max:2048|',
     ];
@@ -46,12 +46,12 @@ class ProductForm extends Component
     // MESSAGGI DI ERRORE PERSONALIZZATI
     protected $messages = [
         'name.required' => 'Il campo nome è obbligatorio.',
-        'name.min' => 'Il nome deve essere lungo almeno 5 caratteri.',
+        'name.min' => 'Il nome deve essere lungo almeno 3 caratteri.',
         'name.max' => 'Il nome non può essere più lungo di 40 caratteri.',
 
         'price.required' => 'Il campo prezzo è obbligatorio.',
         'price.numeric' => 'Il prezzo deve essere un numero.',
-        'price.min' => 'Il prezzo deve essere almeno 2.',
+        'price.min' => 'Il prezzo deve essere almeno 1.00',
 
         'madein.required' => 'Il campo provenienza è obbligatorio.',
         'madein.min' => 'La provenienza deve essere lunga almeno 3 caratteri.',
@@ -60,18 +60,19 @@ class ProductForm extends Component
         'intensity.min' => 'L\'intensità deve essere lunga almeno 3 caratteri.',
         'intensity.max' => 'L\'intensità non può essere più lunga di 30 caratteri.',
 
-        'smoketime.min' => 'Il tempo di fumata deve essere almeno 2.',
-        'smoketime.max' => 'Il tempo di fumata non può essere più lungo di 30 caratteri.',
+        'smoketime.numeric' => 'Il tempo di fumata deve essere un numero',
+        'smoketime.min' => 'Il tempo di fumata deve essere almeno 1 minuto.',
+        'smoketime.max' => 'Il tempo di fumata non può essere più di 999 minuti.',
 
         'flavors.min' => 'Il campo aroma deve essere lungo almeno 3 caratteri.',
         'flavors.max' => 'Il campo aroma non può essere più lungo di 300 caratteri.',
 
-        'packaging.min' => 'La confezione deve contenere almeno un sigaro.',
+        'packaging.min' => 'La confezione deve contenere almeno 1 sigaro.',
         'packaging.max' => 'La confezione non può contenere più di 99 sigari.',
 
         'description.required' => 'Il campo descrizione è obbligatorio.',
         'description.min' => 'La descrizione deve essere lunga almeno 5 caratteri.',
-        'description.max' => 'La descrizione non può essere più lunga di 300 caratteri.',
+        'description.max' => 'La descrizione non può essere più lunga di 1000 caratteri.',
 
         'img.array' => 'Devi caricare una serie di immagini.',
         'img.max' => 'Puoi caricare un massimo di 4 immagini.',

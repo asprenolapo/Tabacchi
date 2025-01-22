@@ -11,7 +11,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="shortcut icon" href="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/11357.png" type="">
     <title>
-        {{ $titlePage ?? 'Tabaccheria 195' }}
+        {{ $titlePage ?? 'Tabaccheria N.195 Bari' }}
     </title>
     {{-- IUBENDA --}}
     <script type="text/javascript">
@@ -27,7 +27,6 @@
     </script>
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3897938.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/stable/iubenda_cs.js" charset="UTF-8" async></script>
-
     {{-- FONT AWESOME --}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -52,6 +51,7 @@
         </div>
 
         <x-footer />
+        
     </div>
 
 

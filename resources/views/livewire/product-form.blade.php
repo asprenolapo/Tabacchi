@@ -27,7 +27,7 @@
             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                 <div class="w-50">
                     <label for="price" class="form-label">Prezzo</label>
-                    <input wire:model="price" type="number" class="form-control @error('price') is-invalid @enderror"
+                    <input wire:model="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror"
                         id="price" value="{{ old('price') }}">
                     @error('price')
                         <p class="text-danger">{{ $message }}</p>
