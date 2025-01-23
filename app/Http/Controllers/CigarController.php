@@ -93,7 +93,7 @@ class CigarController extends Controller
 
         try {
             Mail::to($email)->send(new contactUser($userData));
-            Mail::to('aslape.lapo@gmail.com')->send(new contactAdmin($userData));
+            Mail::to('leonardoferrieri@gmail.com')->send(new contactAdmin($userData));
 
             return redirect()->back()->with('success','Richiesta inviata con successo... controlla la tua mail');
 
