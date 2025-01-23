@@ -38,18 +38,18 @@ class AdminController extends Controller
     {
         // Validazione dei dati
         $validatedData = $request->validate([
-            'name' => 'required|min:5|max:40',
-            'price' => 'required|numeric|min:2',
+            'name' => 'required|min:3|max:40',
+            'price' => 'required|numeric|min:1',
             'madein' => 'required|min:3|max:30',
-            'vitoladegalera' => 'nullable|string|max:100',
-            'cepo' => 'nullable|string|max:50',
-            'tripa' => 'nullable|string|max:50',
-            'intensity' => 'nullable|string|max:50',
-            'smoketime' => 'nullable|integer|min:1',
+            'vitoladegalera' => 'nullable|string|max:30',
+            'cepo' => 'nullable|string|max:30',
+            'tripa' => 'nullable|string|max:30',
+            'intensity' => 'nullable|string|max:30',
+            'smoketime' => 'nullable|integer|min:1|max:99',
             'flavors' => 'nullable|string|max:300',
             'bestSellers' => 'nullable|boolean',
-            'description' => 'required|min:5|max:300',
-            'packaging' => 'nullable|integer|min:0|max:99',
+            'description' => 'required|min:5|max:5000',
+            'packaging' => 'nullable|integer|min:1|max:99',
             'img' => 'nullable|array|max:4',
             'img.*' => 'image|max:2048',
         ]);

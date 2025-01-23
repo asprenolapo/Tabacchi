@@ -38,7 +38,7 @@ class ProductForm extends Component
         'smoketime' => 'numeric|min:1|max:999',
         'flavors' => 'min:3|max:300',
         'packaging' => 'nullable|integer|min:1|max:99',  // Gestione packaging
-        'description' => 'required|min:5|max:1000',
+        'description' => 'required|min:5|max:5000',
         'img' => 'array|max:4',
         'img.*' => 'image|max:2048|',
     ];
@@ -72,7 +72,7 @@ class ProductForm extends Component
 
         'description.required' => 'Il campo descrizione è obbligatorio.',
         'description.min' => 'La descrizione deve essere lunga almeno 5 caratteri.',
-        'description.max' => 'La descrizione non può essere più lunga di 1000 caratteri.',
+        'description.max' => 'La descrizione non può essere più lunga di 5000 caratteri.',
 
         'img.array' => 'Devi caricare una serie di immagini.',
         'img.max' => 'Puoi caricare un massimo di 4 immagini.',
