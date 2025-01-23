@@ -100,7 +100,7 @@ class ProductForm extends Component
             'flavors' => $this->flavors,
             'bestSellers' => $this->bestSellers,
             'description' => $this->description,
-            'packaging' => $this->packaging,
+            'packaging' => $this->packaging == null ? '0' : $this->packaging,
         ]);
 
         // COUNTER DEL MAX IMG - ASSOCIA LE IMMAGINI SE PRESENTI
