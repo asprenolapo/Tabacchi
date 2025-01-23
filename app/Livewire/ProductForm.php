@@ -98,7 +98,7 @@ class ProductForm extends Component
             'intensity' => $this->intensity,
             'smoketime' => $this->smoketime,
             'flavors' => $this->flavors,
-            'bestSellers' => $this->bestSellers,
+            'bestSellers' => $this->bestSellers == null ? '0' : $this->bestSellers,
             'description' => $this->description,
             'packaging' => $this->packaging == null ? '0' : $this->packaging,
         ]);

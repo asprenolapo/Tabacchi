@@ -8,7 +8,6 @@
     {{-- Vite --}}
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="shortcut icon" href="https://dbdzm869oupei.cloudfront.net/img/sticker/preview/11357.png" type="">
-    <title>Document</title>
 </head>
 
 <body class="bg-body-secondary">
