@@ -88,13 +88,13 @@
                 <div class="row justify-content-between w-100">
                     <div class="col-6 p-4 text-center">
                         <p class=""><span class="fw-bold">Aroma:</span> {{ $cigar->flavors }} </p>
-                        <p class=""><span class="fw-bold">Vitola De Galera:</span>
+                        <p class=""><span class="fw-bold">Lunghezza:</span>
                             {{ $cigar->vitoladegalera != null ? $cigar->vitoladegalera : 'n/a' }} </p>
                     </div>
                     <div class="col-6 p-4 text-center">
-                        <p class=""><span class="fw-bold">Cepo:</span>
+                        <p class=""><span class="fw-bold">Diametro:</span>
                             {{ $cigar->cepo != null ? $cigar->cepo : 'n/a' }} </p>
-                        <p class=""><span class="fw-bold">Tripa:</span>
+                        <p class=""><span class="fw-bold">Ripieno:</span>
                             {{ $cigar->tripa != null ? $cigar->tripa : 'n/a' }}</p>
                     </div>
                 </div>

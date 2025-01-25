@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="w-50">
-                    <label for="vitoladegalera" class="form-label">Vitola De Galera</label>
+                    <label for="vitoladegalera" class="form-label">Lunghezza</label>
                     <input wire:model="vitoladegalera" type="text"
                         class="form-control @error('vitoladegalera') is-invalid @enderror" id="vitoladegalera"
                         value="{{ old('vitoladegalera') }}">
@@ -56,7 +56,7 @@
 
             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                 <div class="w-50">
-                    <label for="cepo" class="form-label">Cepo</label>
+                    <label for="cepo" class="form-label">Diametro</label>
                     <input wire:model="cepo" type="text" class="form-control @error('cepo') is-invalid @enderror"
                         id="cepo" value="{{ old('cepo') }}">
                     @error('cepo')
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="w-50">
-                    <label for="tripa" class="form-label">Tripa</label>
+                    <label for="tripa" class="form-label">Ripieno</label>
                     <input wire:model="tripa" type="text" class="form-control @error('tripa') is-invalid @enderror"
                         id="tripa" value="{{ old('tripa') }}">
                     @error('tripa')

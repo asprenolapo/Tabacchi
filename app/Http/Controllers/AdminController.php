@@ -45,7 +45,7 @@ class AdminController extends Controller
             'cepo' => 'nullable|string|max:30',
             'tripa' => 'nullable|string|max:30',
             'intensity' => 'nullable|string|max:30',
-            'smoketime' => 'nullable|integer|min:1|max:99',
+            'smoketime' => 'nullable|integer|min:1|max:999',
             'flavors' => 'nullable|string|max:300',
             'bestSellers' => 'nullable|boolean',
             'description' => 'required|min:5|max:5000',
