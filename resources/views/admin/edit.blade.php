@@ -93,7 +93,7 @@
                             @enderror
                         </div>
                         <div class="w-50">
-                            <label for="flavors" class="form-label">Aroma</label>
+                            <label for="flavors" class="form-label">Forma</label>
                             <input name="flavors" type="text"
                                 class="form-control @error('flavors') is-invalid @enderror" id="flavors"
                                 value="{{ old('flavors', $product->flavors) }}">

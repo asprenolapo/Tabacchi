@@ -96,7 +96,7 @@
 
             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                 <div class="w-50">
-                    <label for="flavors" class="form-label">Aroma</label>
+                    <label for="flavors" class="form-label">Forma</label>
                     <input wire:model="flavors" type="text"
                         class="form-control @error('flavors') is-invalid @enderror" id="flavors"
                         value="{{ old('flavors') }}">

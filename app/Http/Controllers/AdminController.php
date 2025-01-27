@@ -46,7 +46,7 @@ class AdminController extends Controller
             'tripa' => 'nullable|string|max:30',
             'intensity' => 'nullable|string|max:30',
             'smoketime' => 'nullable|integer|min:1|max:999',
-            'flavors' => 'nullable|string|max:300',
+            'flavors' => 'nullable|string|max:50',
             'bestSellers' => 'nullable|boolean',
             'description' => 'required|min:5|max:5000',
             'packaging' => 'nullable|integer|min:1|max:99',

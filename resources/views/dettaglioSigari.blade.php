@@ -87,7 +87,7 @@
                 <h3 class="fw-bold ">Caratteristiche</h3>
                 <div class="row justify-content-between w-100">
                     <div class="col-6 p-4 text-center">
-                        <p class=""><span class="fw-bold">Aroma:</span> {{ $cigar->flavors }} </p>
+                        <p class=""><span class="fw-bold">Forma:</span> {{ $cigar->flavors }} </p>
                         <p class=""><span class="fw-bold">Lunghezza:</span>
                             {{ $cigar->vitoladegalera != null ? $cigar->vitoladegalera : 'n/a' }} </p>
                     </div>

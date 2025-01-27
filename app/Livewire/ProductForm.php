@@ -36,7 +36,7 @@ class ProductForm extends Component
         'madein' => 'required|min:3|max:30',
         'intensity' => 'min:3|max:30',
         'smoketime' => 'numeric|min:1|max:999',
-        'flavors' => 'min:3|max:300',
+        'flavors' => 'min:3|max:50',
         'packaging' => 'nullable|integer|min:1|max:99',  // Gestione packaging
         'description' => 'required|min:5|max:5000',
         'img' => 'array|max:4',
@@ -64,8 +64,8 @@ class ProductForm extends Component
         'smoketime.min' => 'Il tempo di fumata deve essere almeno 1 minuto.',
         'smoketime.max' => 'Il tempo di fumata non può essere più di 999 minuti.',
 
-        'flavors.min' => 'Il campo aroma deve essere lungo almeno 3 caratteri.',
-        'flavors.max' => 'Il campo aroma non può essere più lungo di 300 caratteri.',
+        'flavors.min' => 'Il campo forma deve essere lungo almeno 3 caratteri.',
+        'flavors.max' => 'Il campo forma non può essere più lungo di 50 caratteri.',
 
         'packaging.min' => 'La confezione deve contenere almeno 1 sigaro.',
         'packaging.max' => 'La confezione non può contenere più di 99 sigari.',
