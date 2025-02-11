@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->decimal('price', 6 , 2);
-            $table->string('madein');
+            $table->enum('madein', ['Italia','Estero','Altro']);
+            $table->string('origin_description')->nullable(); 
+            $table->string('manufacturing')->nullable();
             $table->string('vitoladegalera')->nullable();
             $table->string('cepo')->nullable();
             $table->string('tripa')->nullable();

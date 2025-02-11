@@ -14,7 +14,6 @@
     <div class="col-md-12 shadow p-5 bg-white rounded-4">
         <h2>Aggiungi prodotto</h2>
         <form method="POST" wire:submit.prevent="save" enctype="multipart/form-data">
-            @csrf
             <div class="my-4">
                 <label for="name" class="form-label">Nome</label>
                 <input wire:model="name" type="text" class="form-control @error('name') is-invalid @enderror"
@@ -24,25 +23,52 @@
                 @enderror
             </div>
 
-            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-2 my-4">
                 <div class="w-50">
                     <label for="price" class="form-label">Prezzo</label>
-                    <input wire:model="price" type="number" step="0.01" class="form-control @error('price') is-invalid @enderror"
-                        id="price" value="{{ old('price') }}">
+                    <input wire:model="price" type="number" step="0.01"
+                        class="form-control @error('price') is-invalid @enderror" id="price"
+                        value="{{ old('price') }}">
                     @error('price')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
 
                 <div class="w-50">
-                    <label for="madein" class="form-label">Provenienza</label>
-                    <input wire:model="madein" type="text" class="form-control @error('madein') is-invalid @enderror"
-                        id="madein" value="{{ old('madein') }}">
-                    @error('madein')
+                    <fieldset>
+                        <label class="form-label">Origine</label>
+                        <div class="mb-3">
+                            <select wire:model="madein" class="form-select">
+                                <option value="Altro" selected>Altro</option>
+                                <option value="Italia">Italia </option>
+                                <option value="Estero">Estero</option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="w-50">
+                    <label for="origin-description" class="form-label">Provenienza</label>
+                    <input wire:model="origin_description" type="text"
+                        class="form-control @error('origin_description') is-invalid @enderror" id="origin-description"
+                        placeholder="Descrivi la provenienza..." />
+                    @error('origin_description')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+            </div>
 
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
+                
+                <div class="w-50">
+                    <label for="manufacturing" class="form-label">Manifattura</label>
+                    <input wire:model="manufacturing" type="text" class="form-control @error('manufacturing') is-invalid @enderror"
+                        id="manufacturing" value="{{ old('manufacturing') }}">
+                    @error('manufacturing')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                
                 <div class="w-50">
                     <label for="vitoladegalera" class="form-label">Lunghezza</label>
                     <input wire:model="vitoladegalera" type="text"
@@ -52,9 +78,7 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-            </div>
 
-            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                 <div class="w-50">
                     <label for="cepo" class="form-label">Diametro</label>
                     <input wire:model="cepo" type="text" class="form-control @error('cepo') is-invalid @enderror"
@@ -63,6 +87,10 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+            </div>
+
+
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
 
                 <div class="w-50">
                     <label for="tripa" class="form-label">Ripieno</label>
@@ -87,7 +115,7 @@
                     <label for="smoketime" class="form-label">Tempo Di Fumata</label>
                     <input wire:model="smoketime" type="number"
                         class="form-control @error('smoketime') is-invalid @enderror" id="smoketime"
-                        value="{{ old('smoketime') }}">
+                        value="{{ old('smoketime') }}" placeholder="Solo numeri da 0 a 999">
                     @error('smoketime')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -95,6 +123,7 @@
             </div>
 
             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
+
                 <div class="w-50">
                     <label for="flavors" class="form-label">Forma</label>
                     <input wire:model="flavors" type="text"
@@ -127,6 +156,7 @@
                     @enderror
                 </div>
             </div>
+
             <div class="my-4">
                 <label for="description" class="form-label">Descrizione</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" wire:model="description" id="description"
@@ -156,11 +186,11 @@
     if (msg) {
         setTimeout(() => {
             msg.classList.add('fade-out'); // Classe CSS per l'animazione di uscita
-        }, 3000);  // Tempo di attesa prima che inizi l'animazione (3 secondi)
+        }, 3000); // Tempo di attesa prima che inizi l'animazione (3 secondi)
 
         // Dopo l'animazione, rimuoviamo il messaggio
         setTimeout(() => {
             msg.remove();
-        }, 3500);  // Dopo 1 secondo dalla fine dell'animazione di scomparsa
+        }, 3500); // Dopo 1 secondo dalla fine dell'animazione di scomparsa
     }
 </script>

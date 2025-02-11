@@ -23,14 +23,15 @@ class CigarController extends Controller
 
         return view('welcome', compact('cigars','bestSellers','newArrivals'));
 
+
+
     }
 
     public function sigaripage()
     {
         return view('sigari');       
-    }
-
-
+    } 
+    
     /**
      * Show the form for creating a new resource.
      */

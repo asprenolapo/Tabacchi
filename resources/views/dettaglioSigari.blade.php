@@ -70,11 +70,12 @@
             <div class="col-12 col-md-6 p-5">
                 <h2 class="fw-bold display-6">{{ $cigar->name }}</h2>
                 <p class="fw-bold display-6">{{ $cigar->price }} Euro</p>
-                <p class=""><span class="fw-bold">Provenienza:</span> {{ $cigar->madein }} </p>
-                <p class=""><span class="fw-bold">Intensità:</span> {{ $cigar->intensity }} </p>
-                <p class=""><span class="fw-bold">Tempo di Fumata:</span> {{ $cigar->smoketime }} min. circa</p>
-                <p class=""><span class="fw-bold">Confezione:</span> Da {{ $cigar->packaging }} {{$cigar->packaging == 1 ? "sigaro" : "sigari"}}</p>
-                <h3 class="text-danger mt-5">DISPONIBILE SOLO IN TABACCHERIA</h3>
+                <p class=""><span class="fw-bold">Origine:</span> {{ $cigar->madein }} </p>
+                <p class=""><span class="fw-bold">Provenienza:</span> {{ $cigar->origin_description }} </p>
+                <p class=""><span class="fw-bold">Manifattura:</span> {{ !empty($cigar->manufacturing) ? $cigar->manufacturing : 'N/D' }} </p>
+                <p class=""><span class="fw-bold">Confezione:</span> Da {{ $cigar->packaging }}
+                    {{ $cigar->packaging == 1 ? 'sigaro' : 'sigari' }}</p>
+                <h3 class="text-danger fw-bold mt-5">DISPONIBILE SOLO IN TABACCHERIA</h3>
                 <p class="text-danger">- la vendita online è vietata</p>
                 <p class="text-danger">- ai sensi della legge 19DL 6/2016</p>
             </div>
@@ -87,15 +88,24 @@
                 <h3 class="fw-bold ">Caratteristiche</h3>
                 <div class="row justify-content-between w-100">
                     <div class="col-6 p-4 text-center">
-                        <p class=""><span class="fw-bold">Forma:</span> {{ $cigar->flavors }} </p>
+                        <p class=""><span class="fw-bold">Forma:</span>
+                            {{ !empty($cigar->flavors) ? $cigar->flavors : 'N/D' }} </p>
+
                         <p class=""><span class="fw-bold">Lunghezza:</span>
-                            {{ $cigar->vitoladegalera != null ? $cigar->vitoladegalera : 'n/a' }} </p>
+                            {{ $cigar->vitoladegalera != null ? $cigar->vitoladegalera : 'N/D' }} </p>
+
+                        <p class=""><span class="fw-bold">Diametro:</span>
+                            {{ $cigar->cepo != null ? $cigar->cepo : 'N/D' }} </p>
                     </div>
                     <div class="col-6 p-4 text-center">
-                        <p class=""><span class="fw-bold">Diametro:</span>
-                            {{ $cigar->cepo != null ? $cigar->cepo : 'n/a' }} </p>
+                        <p class=""><span class="fw-bold">Intensità:</span>
+                            {{ !empty($cigar->intensity) ? $cigar->flavors : 'N/D' }} </p>
+
                         <p class=""><span class="fw-bold">Ripieno:</span>
-                            {{ $cigar->tripa != null ? $cigar->tripa : 'n/a' }}</p>
+                            {{ $cigar->tripa != null ? $cigar->tripa : 'N/D' }}</p>
+                        
+                            <p class=""><span class="fw-bold">Tempo di Fumata:</span> {{ $cigar->smoketime }} min.
+                            circa</p>
                     </div>
                 </div>
             </div>

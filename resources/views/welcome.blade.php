@@ -22,7 +22,7 @@
             </div>
         </div>
         {{-- SWIPER BEST SELLER --}}
-        <div class="row justify-content-between gap-4 my-5">
+        <div class="row justify-content-between gap-4 my-2">
             <div class="col-12 d-flex swiper" id="cigarSwiper">
                 <div class="swiper-wrapper" id="cigarSwiperWrapper">
                     <!-- Slides -->
@@ -62,13 +62,76 @@
     <section class="container-fluid p-0 overflow-hidden">
         <div class="card text-bg-dark overflow-hidden">
             <img class="section2-img img-fluid"
-                src="https://images.unsplash.com/photo-1501786387846-a18210d6e024?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"alt="...">
-            <div class="card-img-overlay d-flex flex-column justify-content-center text-center">
-                <h5 class="card-title display-4">Luxury Cigar</h5>
-                <p class="card-text fs-5">Per chi Vuole solo il meglio!</p>
+                src="https://images.unsplash.com/photo-1553433342-956cde1d7646?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"alt="...">
+            <div class="card-img-overlay d-flex flex-column justify-content-center text-center p-4"
+                style="background: rgba(0, 0, 0, 0.5);">
+                <h5 class="card-title display-5">Come Scegliere</h5>
+                <p class="card-text fs-5 text-white">Consigli utili per la scelta</p>
+                <div class="overflow-auto" style="max-height: 60vh;">
+                    <div class="container py-5">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">1. Scegliere prima il tabaccaio</h6>
+                                <p>i sigari, a differenza delle sigarette, richiedono cura in fase di conservazione per
+                                    poter dare il meglio in fumata. Scegliete quindi un tabaccaio competente, che
+                                    conservi i
+                                    prodotti in maniera adeguata...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">2. Dare un “target” alla fumata</h6>
+                                <p>In fase neofita occorre senz’altro affidarsi all’esperienza di un tabaccaio o di un
+                                    amico
+                                    più esperto, ma andare in tabaccheria avendo un’idea di massima della tipologia di
+                                    prodotto che volete fumare...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">3. Cercare un formato congeniale</h6>
+                                <p>Cercate moduli che si adattano alla vostra esperienza di fumata, se siete neofiti
+                                    orientatevi verso formati medio-piccoli, ma non troppo sottili...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">4. “Giudicare il libro dalla copertina”</h6>
+                                <p>La fascia del sigaro è importante. Fermatevi a osservare e preferite sigari con fasce
+                                    uniformi, e ben tese...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">5. Annusare il prodotto</h6>
+                                <p>I sigari di qualità sono aromaticamente intensi anche a crudo, e sono esenti da odori
+                                    di
+                                    muffa...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">6. “Ascoltare” il sigaro</h6>
+                                <p>Passate il sigaro vicino all’orecchio ruotandolo leggermente tra le dita esercitando
+                                    una
+                                    lievissima pressione...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">7. Toccare il sigaro</h6>
+                                <p>Saggiate con una delicata pressione delle dita il grado di riempimento del “cannone”,
+                                    zone con riempimento troppo lasco o troppo serrato...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">8. Cercare sigari invecchiati</h6>
+                                <p>Cercate box di sigari con qualche anno di invecchiamento, facendo attenzione al loro
+                                    grado di conservazione...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">9. Valutare il prezzo</h6>
+                                <p>In base all’occasione, al vostro grado di esperienza e alla disponibilità economica
+                                    avrete in mente un range di prezzo...</p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="fs-4">10. Non è tutto oro quello che luccica</h6>
+                                <p>Quanto detto sinora va valutato nel complesso, diffidate ad esempio di sigari dalla
+                                    fascia scura ed oleosa che non presentano aromi intensi...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+   </section>
     {{-- /SECTION II --}}
 
     {{-- SECTION III --}}

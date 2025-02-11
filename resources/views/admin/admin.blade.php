@@ -44,7 +44,7 @@
                     </div>
                 </div>
 
-                <a href="" class="tab-admin">powered by Aspreno</a>
+                <a href="" class="tab-admin">powered by ALP</a>
             </div>
             <div class="col-10 p-0" style="background-color: #F3F5FA">
                 <div class="bg-white d-flex justify-content-end" style="height: 70px">
@@ -83,11 +83,11 @@
     if (msg) {
         setTimeout(() => {
             msg.classList.add('fade-out'); // Classe CSS per l'animazione di uscita
-        }, 3000);  // Tempo di attesa prima che inizi l'animazione (3 secondi)
+        }, 3000); // Tempo di attesa prima che inizi l'animazione (3 secondi)
 
         // Dopo l'animazione, rimuoviamo il messaggio
         setTimeout(() => {
             msg.remove();
-        }, 3500);  // Dopo 1 secondo dalla fine dell'animazione di scomparsa
+        }, 3500); // Dopo 1 secondo dalla fine dell'animazione di scomparsa
     }
 </script>

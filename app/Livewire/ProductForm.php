@@ -16,6 +16,8 @@ class ProductForm extends Component
     public $name;
     public $price;
     public $madein;
+    public $origin_description;
+    public $manufacturing;
     public $vitoladegalera;
     public $cepo;
     public $tripa;
@@ -33,9 +35,11 @@ class ProductForm extends Component
     protected $rules = [
         'name' => 'required|min:3|max:40',
         'price' => 'required|numeric|min:1',
-        'madein' => 'required|min:3|max:30',
+        'madein' => 'required|in:Italia,Estero,Altro',
+        'origin_description'=>'min:3|max:50',
+        'manufacturing'=>'min:3|max:50',
         'intensity' => 'min:3|max:30',
-        'smoketime' => 'numeric|min:1|max:999',
+        'smoketime' => 'numeric|min:0|max:999',
         'flavors' => 'min:3|max:50',
         'packaging' => 'nullable|integer|min:1|max:99',  // Gestione packaging
         'description' => 'required|min:5|max:5000',
@@ -54,14 +58,17 @@ class ProductForm extends Component
         'price.min' => 'Il prezzo deve essere almeno 1.00',
 
         'madein.required' => 'Il campo provenienza è obbligatorio.',
-        'madein.min' => 'La provenienza deve essere lunga almeno 3 caratteri.',
-        'madein.max' => 'La provenienza non può essere più lunga di 30 caratteri.',
+        'origin_description.min' => 'La  descrizione della provenienza deve essere lunga almeno 3 caratteri.',
+        'origin_description.max' => 'La  descrizione della provenienza non può essere più lunga di 50 caratteri.',
+
+        'manufacturing.min' => 'La manifattura deve essere lunga almeno 3 caratteri',
+        'manufacturing.max' => 'La manifattura non può essere più lunga di 50 caratteri',
 
         'intensity.min' => 'L\'intensità deve essere lunga almeno 3 caratteri.',
         'intensity.max' => 'L\'intensità non può essere più lunga di 30 caratteri.',
 
         'smoketime.numeric' => 'Il tempo di fumata deve essere un numero',
-        'smoketime.min' => 'Il tempo di fumata deve essere almeno 1 minuto.',
+        'smoketime.min' => 'Il tempo di fumata deve essere almeno 0 minuto.',
         'smoketime.max' => 'Il tempo di fumata non può essere più di 999 minuti.',
 
         'flavors.min' => 'Il campo forma deve essere lungo almeno 3 caratteri.',
@@ -92,6 +99,8 @@ class ProductForm extends Component
             'name' => $this->name,
             'price' => $this->price,
             'madein' => $this->madein,
+            'origin_description'=> $this->origin_description,
+            'manufacturing' => $this->manufacturing,
             'vitoladegalera' => $this->vitoladegalera,
             'cepo' => $this->cepo,
             'tripa' => $this->tripa,
@@ -116,7 +125,6 @@ class ProductForm extends Component
         // RESETTA IL FORM
         $this->reset();
     }
-
     // RENDERIZZA LA VISTA LIVEWIRE
     public function render()
     {

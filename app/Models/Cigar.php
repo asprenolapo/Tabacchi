@@ -12,6 +12,8 @@ class Cigar extends Model
         'name',
         'price',
         'madein',
+        'origin_description',
+        'manufacturing',
         'vitoladegalera',
         'cepo',
         'tripa',
