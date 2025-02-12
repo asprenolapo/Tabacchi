@@ -182,15 +182,15 @@
     </div>
 </div>
 <script>
-    let msg = document.querySelector('.alert');
-    if (msg) {
+    let livewireMsg = document.querySelector('.alert');
+    if (livewireMsg) {
         setTimeout(() => {
-            msg.classList.add('fade-out'); // Classe CSS per l'animazione di uscita
+            livewireMsg.classList.add('fade-out'); // Classe CSS per l'animazione di uscita
         }, 3000); // Tempo di attesa prima che inizi l'animazione (3 secondi)
 
         // Dopo l'animazione, rimuoviamo il messaggio
         setTimeout(() => {
-            msg.remove();
+            livewireMsg.remove();
         }, 3500); // Dopo 1 secondo dalla fine dell'animazione di scomparsa
     }
 </script>

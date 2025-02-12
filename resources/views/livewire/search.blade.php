@@ -66,8 +66,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-12 d-flex justify-content-center align-items-center">
-                        <button class="btn btn-secondary dropdown-toggle p-3" type="button" data-bs-toggle="dropdown"
+                    <div class="col-12 d-md-none d-flex my-3 gap-3 justify-content-center">
+                        <button class="btn btn-secondary dropdown-toggle p-3 ms-3" type="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Orgine
                         </button>

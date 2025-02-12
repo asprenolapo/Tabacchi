@@ -79,15 +79,15 @@
 
 </x-layout>
 <script>
-    let msg = document.querySelector('.alert');
-    if (msg) {
+    let adminMsg = document.querySelector('.alert');
+    if (adminMsg) {
         setTimeout(() => {
-            msg.classList.add('fade-out'); // Classe CSS per l'animazione di uscita
+            adminMsg.classList.add('fade-out'); // Classe CSS per l'animazione di uscita
         }, 3000); // Tempo di attesa prima che inizi l'animazione (3 secondi)
 
         // Dopo l'animazione, rimuoviamo il messaggio
         setTimeout(() => {
-            msg.remove();
+            adminMsg.remove();
         }, 3500); // Dopo 1 secondo dalla fine dell'animazione di scomparsa
     }
 </script>

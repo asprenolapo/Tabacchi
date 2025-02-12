@@ -4,11 +4,6 @@
             
             <h2 class="mb-4">Prodotti ({{ $products->count() }})</h2>
 
-            {{-- <div class="border w-100 border-1 border-dark rounded-pill d-flex ms-auto justify-content-center align-items-center p-2"
-                id="div-search">
-                <input class="input-search w-100" type="text" placeholder="Ricerca per tutti i campi" wire:model.live="search">
-                <i class="fa-solid fa-magnifying-glass fs-3 ms-2"></i>
-            </div> --}}
         </div>
     </div>
     <div class="col-12">

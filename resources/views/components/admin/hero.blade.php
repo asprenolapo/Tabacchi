@@ -1,5 +1,5 @@
 <div class="card text-bg-dark">
-    <img src="https://templates.iqonic.design/hope-ui/pro/vue/img/top-header.92604be0.png" class="card-img" alt="...">
+    <img src="https://templates.iqonic.design/hope-ui/pro/vue/img/top-header.92604be0.png" class="card-img" alt="admin-bg-img">
     <div class="card-img-overlay">
         <h5 class="card-title">Admin Area</h5>
     </div>
