@@ -23,7 +23,7 @@
                         </div>
                         <div class="w-25">
                             <label for="price" class="form-label">Prezzo</label>
-                            <input name="price" type="number"
+                            <input name="price" type="text"
                                 class="form-control @error('price') is-invalid @enderror" id="price"
                                 value="{{ old('price', $product->price) }}">
                             @error('price')

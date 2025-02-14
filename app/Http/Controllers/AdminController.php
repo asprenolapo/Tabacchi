@@ -36,10 +36,23 @@ class AdminController extends Controller
     // Metodo per aggiornare un prodotto
     public function update(Request $request, Cigar $product)
     {
+
+        // Sostituire la virgola con il punto nel campo price
+        $price = str_replace(',', '.', $request->input('price'));
+
+        // Convalidiamo se il prezzo è valido (numerico e nel range corretto)
+        if (!is_numeric($price) || $price < 0.01 || $price > 9999.99) {
+            return back()->withErrors(['price' => 'Il prezzo deve essere compreso tra 0.01 e 9999.99.']);
+        }
+
+        // Formattiamo il prezzo (ad esempio 1.00 o 0.02)
+        $price = number_format($price, 2, '.', '');
+
+
         // Validazione dei dati
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:40',
-            'price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/|min:1',
+            'price' => 'required|min:0.01|max:9999.99',  // Limite per decimal(6, 2)
             'madein' => 'required|in:Italia,Estero,Altro',
             'origin_description' => 'min:3|max:50',
             'manufacturing' => 'min:3|max:50',
@@ -55,10 +68,12 @@ class AdminController extends Controller
             'img.*' => 'image|max:2048',
         ]);
 
+
+
         // Aggiornamento del prodotto
         $product->update([
             'name' => $validatedData['name'],
-            'price' => $validatedData['price'],
+            'price' => $price,
             'madein' => $validatedData['madein'],
             'origin_description' => $validatedData['origin_description'],
             'manufacturing' => $validatedData['manufacturing'],

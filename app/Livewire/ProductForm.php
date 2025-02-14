@@ -34,7 +34,7 @@ class ProductForm extends Component
     // REGOLE DI VALIDAZIONE
     protected $rules = [
         'name' => 'required|min:3|max:40',
-        'price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/|min:1',
+        'price' => 'required|numeric|min:0.01|max:9999.99',  // Limite per decimal(6, 2)
         'madein' => 'required|in:Italia,Estero,Altro',
         'origin_description' => 'min:3|max:50',
         'manufacturing' => 'min:3|max:50',
@@ -55,7 +55,8 @@ class ProductForm extends Component
 
         'price.required' => 'Il campo prezzo è obbligatorio.',
         'price.numeric' => 'Il prezzo deve essere un numero.',
-        'price.min' => 'Il prezzo deve essere almeno 1.00',
+        'price.min' => 'Il prezzo deve essere almeno 0.01',
+        'price.max' => 'Il prezzo non può essere maggiore di 9999.99',
 
         'madein.required' => 'Il campo provenienza è obbligatorio.',
         'origin_description.min' => 'La  descrizione della provenienza deve essere lunga almeno 3 caratteri.',
@@ -88,9 +89,31 @@ class ProductForm extends Component
         'img.*.max' => 'Ogni immagine non può superare i 2MB.',
     ];
 
+    // FUNZIONE PER FORMATTARE IL PREZZO
+    public function formatPrice($price)
+    {
+        // Sostituisce la virgola con il punto
+        $price = str_replace(',', '.', $price);
+
+        // Assicura che il prezzo sia valido come numero decimale
+        if (!is_numeric($price)) {
+            session()->flash('error', 'Il prezzo non è valido. Deve essere un numero.');
+            return false;
+        }
+
+        // Ritorna il prezzo con due decimali
+        return number_format($price, 2, '.', '');
+    }
+
     // FUNZIONE PER SALVARE IL PRODOTTO
     public function save()
     {
+        // Assicuriamoci che il prezzo sia nel formato corretto (decimale)
+        $this->price = $this->formatPrice($this->price);
+
+        if ($this->price === false) {
+            return; // Se il prezzo non è valido, fermiamo l'esecuzione
+        }
         // VALIDAZIONE DEI DATI
         $this->validate();
 
