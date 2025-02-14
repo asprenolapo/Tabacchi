@@ -34,10 +34,10 @@ class ProductForm extends Component
     // REGOLE DI VALIDAZIONE
     protected $rules = [
         'name' => 'required|min:3|max:40',
-        'price' => 'required|numeric|min:1',
+        'price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/|min:1',
         'madein' => 'required|in:Italia,Estero,Altro',
-        'origin_description'=>'min:3|max:50',
-        'manufacturing'=>'min:3|max:50',
+        'origin_description' => 'min:3|max:50',
+        'manufacturing' => 'min:3|max:50',
         'intensity' => 'min:3|max:30',
         'smoketime' => 'numeric|min:0|max:999',
         'flavors' => 'min:3|max:50',
@@ -99,7 +99,7 @@ class ProductForm extends Component
             'name' => $this->name,
             'price' => $this->price,
             'madein' => $this->madein,
-            'origin_description'=> $this->origin_description,
+            'origin_description' => $this->origin_description,
             'manufacturing' => $this->manufacturing,
             'vitoladegalera' => $this->vitoladegalera,
             'cepo' => $this->cepo,

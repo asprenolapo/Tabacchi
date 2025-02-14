@@ -39,7 +39,7 @@ class AdminController extends Controller
         // Validazione dei dati
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:40',
-            'price' => 'required|numeric|min:1',
+            'price' => 'required|numeric|regex:/^\d+(\.\d{1,2})?$/|min:1',
             'madein' => 'required|in:Italia,Estero,Altro',
             'origin_description' => 'min:3|max:50',
             'manufacturing' => 'min:3|max:50',
