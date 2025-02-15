@@ -33,7 +33,7 @@ class ProductForm extends Component
 
     // REGOLE DI VALIDAZIONE
     protected $rules = [
-        'name' => 'required|min:3|max:40',
+        'name' => 'required|min:3|max:80',
         'price' => 'required|numeric|min:0.01|max:9999.99',  // Limite per decimal(6, 2)
         'madein' => 'required|in:Italia,Estero,Altro',
         'origin_description' => 'min:3|max:50',
@@ -51,7 +51,7 @@ class ProductForm extends Component
     protected $messages = [
         'name.required' => 'Il campo nome è obbligatorio.',
         'name.min' => 'Il nome deve essere lungo almeno 3 caratteri.',
-        'name.max' => 'Il nome non può essere più lungo di 40 caratteri.',
+        'name.max' => 'Il nome non può essere più lungo di 80 caratteri.',
 
         'price.required' => 'Il campo prezzo è obbligatorio.',
         'price.numeric' => 'Il prezzo deve essere un numero.',
