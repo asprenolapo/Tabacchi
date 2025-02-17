@@ -56,6 +56,7 @@ class AdminController extends Controller
             'madein' => 'required|in:Italia,Estero,Altro',
             'origin_description' => 'min:3|max:50',
             'manufacturing' => 'min:3|max:50',
+            'vitoladegalera' => 'nullable|string|max:30',
             'cepo' => 'nullable|string|max:30',
             'tripa' => 'nullable|string|max:30',
             'intensity' => 'nullable|string|max:30',
