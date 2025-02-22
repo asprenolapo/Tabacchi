@@ -99,7 +99,7 @@
                     </div>
                     <div class="col-6 p-4 text-center">
                         <p class=""><span class="fw-bold">Intensità:</span>
-                            {{ !empty($cigar->intensity) ? $cigar->flavors : 'N/D' }} </p>
+                            {{ !empty($cigar->intensity) ? $cigar->intensity : 'N/D' }} </p>
 
                         <p class=""><span class="fw-bold">Ripieno:</span>
                             {{ $cigar->tripa != null ? $cigar->tripa : 'N/D' }}</p>
