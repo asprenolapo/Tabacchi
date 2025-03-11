@@ -13,7 +13,9 @@ class Search extends Component
     public $newArrivalsBtn = '0';
     public $luxuryBtn = '0';
     public $madein = '';
+    public $brand = '';
     public $priceOrder = 'desc';  // Variabile per l'ordinamento dei prezzi
+
 
     // Attiva il filtro "Best Sellers"
     public function activateBestSellers()
@@ -40,7 +42,7 @@ class Search extends Component
         $this->priceOrder = $this->priceOrder == 'desc' ? 'asc' : 'desc';
         $this->bestSellersBtn = '0';
         $this->newArrivalsBtn = '0';
-        $this->luxuryBtn = '1';
+        $this->luxuryBtn = $this->luxuryBtn == '0' ? '1' : '0';
         $this->madein = '';  // Resetta il filtro 'madein' quando cambiano i filtri
     }
 
@@ -49,7 +51,7 @@ class Search extends Component
     {
         $this->madein = $madein;
     }
-
+    
     // Rendering dei sigari filtrati
     public function render()
     {
@@ -59,10 +61,12 @@ class Search extends Component
         if (!empty($this->search)) {
             $query->where(function ($q) {
                 $q->where('name', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('brand', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('price', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('madein', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('origin_description', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('manufacturing', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('band', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('vitoladegalera', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('cepo', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('tripa', 'LIKE', '%' . $this->search . '%')
@@ -71,6 +75,11 @@ class Search extends Component
                     ->orWhere('flavors', 'LIKE', '%' . $this->search . '%')
                     ->orWhere('description', 'LIKE', '%' . $this->search . '%');
             });
+        }
+
+        // Filtro per "Marca"
+        if (!empty($this->brand)) {
+            $query->where('brand', $this->brand);
         }
 
         // Filtro per "Best Sellers"
@@ -94,8 +103,11 @@ class Search extends Component
         }
 
         // Recupera i sigari con i filtri applicati
-        $cigars = $query->orderBy('updated_at', 'desc')->paginate(16);
+        $cigars = $query->orderBy('updated_at', 'desc')->paginate(36);
 
-        return view('livewire.search', compact('cigars'));
+        // Recupera i brand
+        $brands = Cigar::distinct()->pluck('brand');
+
+        return view('livewire.search', compact('cigars', 'brands' ));
     }
 }

@@ -10,10 +10,12 @@ class Cigar extends Model
 {
     protected $fillable = [
         'name',
+        'brand',
         'price',
         'madein',
         'origin_description',
         'manufacturing',
+        'band',
         'vitoladegalera',
         'cepo',
         'tripa',

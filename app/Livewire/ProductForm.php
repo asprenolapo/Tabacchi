@@ -14,10 +14,12 @@ class ProductForm extends Component
 
     // PROPRIETÀ DA VALIDARE
     public $name;
+    public $brand;
     public $price;
     public $madein;
     public $origin_description;
     public $manufacturing;
+    public $band;
     public $vitoladegalera;
     public $cepo;
     public $tripa;
@@ -34,15 +36,16 @@ class ProductForm extends Component
     // REGOLE DI VALIDAZIONE
     protected $rules = [
         'name' => 'required|min:3|max:80',
+        'brand' => 'min:3|max:80',
         'price' => 'required|numeric|min:0.01|max:9999.99',  // Limite per decimal(6, 2)
         'madein' => 'required|in:Italia,Estero,Altro',
-        'origin_description' => 'min:3|max:50',
-        'manufacturing' => 'min:3|max:50',
-        'intensity' => 'min:3|max:30',
+        'origin_description' => 'min:3|max:80',
+        'manufacturing' => 'min:3|max:80',
+        'intensity' => 'min:3|max:80',
         'smoketime' => 'numeric|min:0|max:999',
-        'flavors' => 'min:3|max:50',
+        'flavors' => 'min:3|max:80',
         'packaging' => 'nullable|integer|min:1|max:99',  // Gestione packaging
-        'description' => 'required|min:5|max:5000',
+        'description' => 'required|min:5|max:6000',
         'img' => 'array|max:4',
         'img.*' => 'image|max:2048|',
     ];
@@ -53,6 +56,9 @@ class ProductForm extends Component
         'name.min' => 'Il nome deve essere lungo almeno 3 caratteri.',
         'name.max' => 'Il nome non può essere più lungo di 80 caratteri.',
 
+        'brand.min' => 'Il brand non può essere più lungo di 80 caratteri.',
+        'brand.max' => 'Il brand non può essere più lungo di 80 caratteri.',
+
         'price.required' => 'Il campo prezzo è obbligatorio.',
         'price.numeric' => 'Il prezzo deve essere un numero.',
         'price.min' => 'Il prezzo deve essere almeno 0.01',
@@ -60,27 +66,27 @@ class ProductForm extends Component
 
         'madein.required' => 'Il campo provenienza è obbligatorio.',
         'origin_description.min' => 'La  descrizione della provenienza deve essere lunga almeno 3 caratteri.',
-        'origin_description.max' => 'La  descrizione della provenienza non può essere più lunga di 50 caratteri.',
+        'origin_description.max' => 'La  descrizione della provenienza non può essere più lunga di 80 caratteri.',
 
         'manufacturing.min' => 'La manifattura deve essere lunga almeno 3 caratteri',
-        'manufacturing.max' => 'La manifattura non può essere più lunga di 50 caratteri',
+        'manufacturing.max' => 'La manifattura non può essere più lunga di 80 caratteri',
 
         'intensity.min' => 'L\'intensità deve essere lunga almeno 3 caratteri.',
-        'intensity.max' => 'L\'intensità non può essere più lunga di 30 caratteri.',
+        'intensity.max' => 'L\'intensità non può essere più lunga di 80 caratteri.',
 
         'smoketime.numeric' => 'Il tempo di fumata deve essere un numero',
         'smoketime.min' => 'Il tempo di fumata deve essere almeno 0 minuto.',
         'smoketime.max' => 'Il tempo di fumata non può essere più di 999 minuti.',
 
         'flavors.min' => 'Il campo forma deve essere lungo almeno 3 caratteri.',
-        'flavors.max' => 'Il campo forma non può essere più lungo di 50 caratteri.',
+        'flavors.max' => 'Il campo forma non può essere più lungo di 80 caratteri.',
 
         'packaging.min' => 'La confezione deve contenere almeno 1 sigaro.',
         'packaging.max' => 'La confezione non può contenere più di 99 sigari.',
 
         'description.required' => 'Il campo descrizione è obbligatorio.',
         'description.min' => 'La descrizione deve essere lunga almeno 5 caratteri.',
-        'description.max' => 'La descrizione non può essere più lunga di 5000 caratteri.',
+        'description.max' => 'La descrizione non può essere più lunga di 6000 caratteri.',
 
         'img.array' => 'Devi caricare una serie di immagini.',
         'img.max' => 'Puoi caricare un massimo di 4 immagini.',
@@ -120,10 +126,12 @@ class ProductForm extends Component
         // CREA UN NUOVO CIGAR
         $cigar = Cigar::create([
             'name' => $this->name,
+            'brand' => $this->brand,
             'price' => $this->price,
             'madein' => $this->madein,
             'origin_description' => $this->origin_description,
             'manufacturing' => $this->manufacturing,
+            'band' => $this->band,
             'vitoladegalera' => $this->vitoladegalera,
             'cepo' => $this->cepo,
             'tripa' => $this->tripa,

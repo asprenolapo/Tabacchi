@@ -4,20 +4,29 @@
             <i class="fa-solid fa-circle-chevron-left fs-4 me-2"></i> <span class="fs-4">back</span>
         </a>
         <div class="row justify-content-center">
-            <div class="col-7 p-5 rounded-4 shadow-lg">
+            <div class="col-9 p-5 rounded-4 shadow-lg">
                 <!-- Form di modifica prodotto -->
                 <form method="POST" action="{{ route('cigar.update', $product) }}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
 
-                    <!-- Nome e Prezzo -->
-                    <div class="d-flex gap-4">
+                    <!-- Nome , Marca e Prezzo -->
+                    <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                         <div class="w-75">
                             <label for="name" class="form-label">Nome</label>
                             <input name="name" type="text"
-                                class="form-control text-muted @error('name') is-invalid @enderror" id="name"
+                                class="form-control @error('name') is-invalid @enderror" id="name"
                                 value="{{ old('name', $product->name) }}">
                             @error('name')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
+                        <div class="w-75">
+                            <label for="brand" class="form-label">Marca</label>
+                            <input name="brand" type="text"
+                                class="form-control @error('brand') is-invalid @enderror" id="brand"
+                                value="{{ old('brand', $product->brand) }}">
+                            @error('brand')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
@@ -31,7 +40,7 @@
                             @enderror
                         </div>
                     </div>
-                    <!-- Provenienza e Descrizione della Provenienza -->
+                    <!-- Provenienza, Descrizione della Provenienza e Manifattura -->
                     <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
                         <div class="w-50">
                             <fieldset>
@@ -49,16 +58,12 @@
                             <label for="origin_description" class="form-label">Descrizione Della Provenienza</label>
                             <input name="origin_description" type="text"
                                 class="form-control @error('origin_description') is-invalid @enderror"
-                                placeholder="Descrivi la provenienza..." />
+                                id="origin_description"
+                                value="{{ old('origin_description', $product->origin_description) }}" />
                             @error('origin_description')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                    </div>
-
-                    <!-- Manifattura, Vitola e Cepo -->
-                    <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
-                        
                         <div class="w-50">
                             <label for="manufacturing" class="form-label">Manifattura</label>
                             <input name="manufacturing" type="text"
@@ -68,7 +73,19 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+                    </div>
+
+                    <!-- Fascia, Vitola e Cepo -->
+                    <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
+                        <div class="w-50">
+                            <label for="band" class="form-label">Fascia</label>
+                            <input name="band" type="text"
+                                class="form-control @error('band') is-invalid @enderror" id="band"
+                                value="{{ old('band', $product->band) }}" />
+                            @error('band')
+                                <p class="text-danger">{{ $message }}</p>
+                            @enderror
+                        </div>
                         <div class="w-50">
                             <label for="vitoladegalera" class="form-label">Lunghezza</label>
                             <input name="vitoladegalera" type="text"
@@ -78,7 +95,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="w-50">
                             <label for="cepo" class="form-label">Diametro</label>
                             <input name="cepo" type="text"
@@ -88,12 +105,12 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                     </div>
 
                     <!-- Ripieno, Intensità e Tempo di fumata-->
                     <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
-                        
+
                         <div class="w-50">
                             <label for="tripa" class="form-label">Ripieno</label>
                             <input name="tripa" type="text"
@@ -103,7 +120,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="w-50">
                             <label for="intensity" class="form-label">Intensità</label>
                             <input name="intensity" type="text"
@@ -113,7 +130,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="w-50">
                             <label for="smoketime" class="form-label">Tempo Di Fumata</label>
                             <input name="smoketime" type="number"
@@ -137,7 +154,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="w-50">
                             <label for="bestSellers" class="form-label">Best Sellers</label>
                             <select name="bestSellers" id="bestSellers"
@@ -149,7 +166,7 @@
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror
                         </div>
-                        
+
                         <div class="w-50">
                             <label for="packaging" class="form-label">Packaging</label>
                             <input name="packaging" type="number"

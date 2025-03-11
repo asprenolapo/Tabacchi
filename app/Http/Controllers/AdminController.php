@@ -52,18 +52,20 @@ class AdminController extends Controller
         // Validazione dei dati
         $validatedData = $request->validate([
             'name' => 'required|min:3|max:80',
+            'brand' => 'min:3|max:80',
             'price' => 'required|min:0.01|max:9999.99',  // Limite per decimal(6, 2)
             'madein' => 'required|in:Italia,Estero,Altro',
-            'origin_description' => 'min:3|max:50',
-            'manufacturing' => 'min:3|max:50',
+            'origin_description' => 'min:3|max:80',
+            'manufacturing' => 'min:3|max:80',
+            'band' => 'min:3|max:80',
             'vitoladegalera' => 'nullable|string|max:30',
             'cepo' => 'nullable|string|max:30',
             'tripa' => 'nullable|string|max:30',
-            'intensity' => 'nullable|string|max:30',
+            'intensity' => 'nullable|string|max:80',
             'smoketime' => 'nullable|integer|min:0|max:999',
-            'flavors' => 'nullable|string|max:50',
+            'flavors' => 'nullable|string|max:80',
             'bestSellers' => 'nullable|boolean',
-            'description' => 'required|min:5|max:5000',
+            'description' => 'required|min:5|max:6000',
             'packaging' => 'nullable|integer|min:1|max:99',
             'img' => 'nullable|array|max:4',
             'img.*' => 'image|max:2048',
@@ -74,10 +76,12 @@ class AdminController extends Controller
         // Aggiornamento del prodotto
         $product->update([
             'name' => $validatedData['name'],
+            'brand' => $validatedData['brand'],
             'price' => $price,
             'madein' => $validatedData['madein'],
             'origin_description' => $validatedData['origin_description'],
             'manufacturing' => $validatedData['manufacturing'],
+            'band' => $validatedData['band'],
             'vitoladegalera' => $validatedData['vitoladegalera'] ?? null,
             'cepo' => $validatedData['cepo'] ?? null,
             'tripa' => $validatedData['tripa'] ?? null,

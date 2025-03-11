@@ -1,179 +1,101 @@
-FORM BASE SENZA LIVEWIRE
- {{-- <div class="row justify-content-center mt-5">
-            <div class="col-md-12 shadow p-5">
-                <h2>Aggiungi prodotto</h2>
-                <form method="POST" action="{{ route('admin.store') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="my-4">
-                        <label for="name" class="form-label">Nome</label>
-                        <input name="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                            id="name" value="{{ old('name') }}">
-                        @error('name')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
+<?php
 
-                    <div class="d-flex flex-column flex-md-row justify-content-between gap-3">
-                        <div class="w-50">
-                            <label for="price" class="form-label">Prezzo</label>
-                            <input name="price" type="text"
-                                class="form-control @error('price') is-invalid @enderror" id="price"
-                                value="{{ old('price') }}">
-                            @error('price')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="w-50">
-                            <label for="tripa" class="form-label">Tripa</label>
-                            <input name="tripa" type="text"
-                                class="form-control @error('tripa') is-invalid @enderror" id="tripa"
-                                value="{{ old('tripa') }}">
-                            @error('tripa')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                        <div class="w-50">
-                            <label for="madein" class="form-label">Provenienza</label>
-                            <input name="madein" type="text"
-                                class="form-control @error('madein') is-invalid @enderror" id="madein"
-                                value="{{ old('madein') }}">
-                            @error('madein')
-                                <p class="text-danger">{{ $message }}</p>
-                            @enderror
-                        </div>
-                    </div>
-                    <div class="my-4">
-                        <label for="description" class="form-label">Descrizione</label>
-                        <textarea class="form-control @error('description') is-invalid @enderror" name="description" id="description"
-                            cols="30" rows="10">{{ old('description') }}</textarea>
-                        @error('description')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
+namespace App\Livewire;
 
-                    <div class="mb-3">
-                        <label for="img" class="form-label">Foto</label>
-                        <input class="form-control @error('img') is-invalid @enderror" multiple type="file"
-                            id="img" name="img">
-                        @error('img')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <button type="submit" class="btn btn-primary float-end w-25 my-4">Aggiungi</button>
-                </form>
-            </div>
-        </div> --}}
-
-
-
-
-
-
-
-
-admin copntroller
-        <?php
-
-namespace App\Http\Controllers;
-
-use Exception;
-use App\Models\User;
 use App\Models\Cigar;
-use Illuminate\Http\Request;
-use App\Http\Requests\CigarRequest;
-use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
+use Livewire\Component;
 
-
-class AdminController extends Controller
+class Search extends Component
 {
-    public function admin()
+    public $search = '';
+    public $bestSellersBtn = '0';
+    public $newArrivalsBtn = '0';
+    public $luxuryBtn = '0';
+    public $madein = '';
+    public $priceOrder = 'desc';  // Variabile per l'ordinamento dei prezzi
+
+    // Attiva il filtro "Best Sellers"
+    public function activateBestSellers()
     {
-
-        $titlePage = 'Tabaccheria 195 - Admin Area';
-        $users = User::all();
-
-        $countUser = User::count();
-        $countCigar = Cigar::count();
-
-        $products = Cigar::all();
-
-        return view('admin.admin', compact('users', 'titlePage', 'countUser', 'countCigar', 'products'));
+        $this->bestSellersBtn = $this->bestSellersBtn == '0' ? '1' : '0';
+        $this->newArrivalsBtn = '0';
+        $this->luxuryBtn = '0';
+        $this->madein = '';  // Resetta il filtro 'madein' quando cambiano i filtri
     }
 
-    public function edit(Cigar $product)
+    // Attiva il filtro "New Arrivals"
+    public function activatenewArrivals()
     {
-        $titlePage = 'Tabaccheria 195 - Admin Area';
-        $users = User::all();
-
-        $countUser = User::count();
-        $countCigar = Cigar::count();
-
-        $products = Cigar::all();
-
-        return view('admin.edit', compact('product', 'titlePage', 'countUser', 'countCigar', 'users', 'products'));
+        $this->bestSellersBtn = '0';
+        $this->newArrivalsBtn = $this->newArrivalsBtn == '0' ? '1' : '0';
+        $this->luxuryBtn = '0';
+        $this->madein = '';  // Resetta il filtro 'madein' quando cambiano i filtri
     }
 
-
-    public function update(Request $request, Cigar $product)
+    // Attiva il filtro "Luxury" o "Prezzo"
+    public function activateLuxury()
     {
+        // Alterna l'ordine di prezzo
+        $this->priceOrder = $this->priceOrder == 'desc' ? 'asc' : 'desc';
+        $this->bestSellersBtn = '0';
+        $this->newArrivalsBtn = '0';
+        $this->luxuryBtn = '1';
+        $this->madein = '';  // Resetta il filtro 'madein' quando cambiano i filtri
+    }
 
-        $product->update([
-            'name' => $request->input('name'),
-            'price' => $request->input('price'),
-            'madein' => $request->input('madein'),
-            'vitoladegalera' => $request->input('vitoladegalera'),
-            'cepo' => $request->input('cepo'),
-            'tripa' => $request->input('tripa'),
-            'intensity' => $request->input('intensity'),
-            'smoketime' => $request->input('smoketime'),
-            'flavors' => $request->input('flavors'),
-            'bestSellers' => $request->input('bestSellers'),
-            'packaging' => $request->input('packaging'),
-            'description' => $request->input('description'),
-        ]);
-        // AGGGIUNGE IMMAGINI, SE PRESENTI
-        $images = $request->file('img');
-        if ($images) {
-            // SE è UN SIGOLO FILE LO METTIAMO IN UN ARRAY
-            if (!is_array($images)) {
-                $images = [$images];
-            }
+    // Imposta il filtro "Provenienza"
+    public function setMadein($madein)
+    {
+        $this->madein = $madein;
+    }
 
-            // VERIFICA CHE NON CI SIANO PIù DI 4 IMMAGINI
-            if (count($images) + $product->images->count() > 4) {
-                return back()->withErrors(['img' => 'Puoi caricare un massimo di 4 immagini, comprese quelle già caricate.']);
-            }
+    // Rendering dei sigari filtrati
+    public function render()
+    {
+        $query = Cigar::query();
 
-            // SALVA LE NUOVE IMMAGINI MODIFICATE
-            foreach ($images as $image) {
-                $path = $image->store('products', 'public'); // SALVA IMMAGINE
-                $product->images()->create(['path' => $path]); // COLLEGA IMMAGINE A PRODOTTO
-            }
+        // Filtro per ricerca
+        if (!empty($this->search)) {
+            $query->where(function ($q) {
+                $q->where('name', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('price', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('madein', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('origin_description', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('manufacturing', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('vitoladegalera', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('cepo', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('tripa', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('intensity', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('smoketime', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('flavors', 'LIKE', '%' . $this->search . '%')
+                    ->orWhere('description', 'LIKE', '%' . $this->search . '%');
+            });
         }
 
-        // RIMUOVE LE IMMAGINI SELEZIONATE 
-        if ($request->has('delete_images')) {
-            foreach ($request->input('delete_images') as $imageId) {
-                $image = $product->images()->find($imageId);
-                if ($image) {
-                    // ELIMINA DA DISCO
-                    Storage::disk('public')->delete($image->path);
-
-                    // ELIMINA DA DB
-                    $image->delete();
-                }
-            }
+        // Filtro per "Best Sellers"
+        if ($this->bestSellersBtn == '1') {
+            $query->where('bestSellers', true);
         }
 
-        return redirect()->route('admin', compact('product'))->with('success', 'Prodotto Modificato');
-    }
+        // Filtro per "Nuovi Arrivi"
+        if ($this->newArrivalsBtn == '1') {
+            $query->whereBetween('created_at', [Carbon::now()->subDays(20), Carbon::now()]);
+        }
 
+        // Filtro per "Luxury" (ordinamento per prezzo)
+        if ($this->luxuryBtn == '1') {
+            $query->orderBy('price', $this->priceOrder);
+        }
 
-    public function destroy(Cigar $product)
-    {
-        $product->delete();
+        // Filtro per "Provenienza"
+        if (!empty($this->madein)) {
+            $query->where('madein', $this->madein);
+        }
 
-        return redirect()->route('admin')->with('successremove', 'Prodotto Eliminato');
+        // Recupera i sigari con i filtri applicati
+        $cigars = $query->orderBy('updated_at', 'desc')->paginate(16);
+
+        return view('livewire.search', compact('cigars'));
     }
 }

@@ -15,13 +15,24 @@
                     </li>
                     <li class="nav-item fs-5 my-2">
                         <button class="nav-link {{ $luxuryBtn == '0' ? '' : 'fw-bold text-decoration-underline' }}"
-                            wire:click='activateLuxury'>Prezzo<i class="ms-2 fa-solid fa-sort"
-                                style="font-size: 0.7em;"></i></button>
+                            wire:click='activateLuxury'>Prezzo<i
+                                class="ms-2 fa-solid fa-angle-{{ $luxuryBtn == '0' ? 'down' : 'up' }}"
+                                style="font-size: 12px; font-weight: bold"></i></button>
                     </li>
                     <li class="nav-item fs-5 my-2">
-                        <button class="nav-link dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Origine
+                        <div class="form-group">
+                            <select wire:model.change="brand" class="nav-link" style="margin-left: -5px" id="brand">
+                                <option class="text-start" value="">Marche</option>
+                                @foreach ($brands as $brand)
+                                    <option class="text-capitalize" value="{{ $brand }}">{{ $brand }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </li>
+                    <li class="nav-item fs-5 my-2">
+                        <button class="nav-link" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Origine<i class="ms-2 fa-solid fa-angle-down"
+                                style="font-size: 12px; font-weight: bold;"></i>
                         </button>
                         <ul class="dropdown-menu">
                             <li><button class="nav-link dropdown-item text-center"
@@ -61,30 +72,40 @@
                         <button class="btn {{ $newArrivalsBtn == '0' ? 'btn-secondary' : 'btn-dark' }}"
                             wire:click='activatenewArrivals'>Nuovi Arrivi</button>
                         <button class="btn {{ $luxuryBtn == '0' ? 'btn-secondary' : 'btn-dark' }}"
-                            wire:click='activateLuxury'>Prezzo<i class="me-2 fa-solid fa-sort"
-                                style="font-size: 0.7em;"></i></button>
+                            wire:click='activateLuxury'>Prezzo<i
+                            class="ms-2 fa-solid fa-angle-{{ $luxuryBtn == '0' ? 'down' : 'up' }}"
+                            style="font-size: 12px; font-weight: bold"></i></button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-12 d-md-none d-flex my-3 gap-3 justify-content-center">
-                        <button class="btn btn-secondary dropdown-toggle p-3 ms-3" type="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
-                            Orgine
+                <div class="row"> 
+                    <div class="col-6 d-md-none d-flex my-3 justify-content-center">
+                        <select wire:model.change="brand" class="bg-secondary rounded p-2 text-white">
+                            <option class="" value="">Marche</option>
+                            @foreach ($brands as $brand)
+                                <option value="{{ $brand }}">{{ $brand }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="col-6 d-md-none d-flex my-3 justify-content-center">
+                        <button class="btn btn-secondary p-3 ms-3" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Orgine<i class="ms-2 fa-solid fa-angle-down"
+                            style="font-size: 12px; font-weight: bold;"></i>
                         </button>
-                        <ul class="dropdown-menu position-absolute mb-5 mt-5">
-                            <li><button class="btn dropdown-item text-center"
+                        <ul class="dropdown-menu bg-secondary">
+                            <li><button class="dropdown-item text-center text-white"
                                     wire:click="setMadein('Italia')">Italia</button>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><button class="btn dropdown-item text-center"
+                            <li><button class="dropdown-item text-center text-white"
                                     wire:click="setMadein('Estero')">Estero</button>
                             </li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><button class="btn dropdown-item text-center"
+                            <li><button class="dropdown-item text-center text-white"
                                     wire:click="setMadein('Altro')">Altro</button>
                             </li>
                         </ul>

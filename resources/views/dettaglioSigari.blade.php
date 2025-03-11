@@ -70,9 +70,11 @@
             <div class="col-12 col-md-6 p-5">
                 <h2 class="fw-bold display-6">{{ $cigar->name }}</h2>
                 <p class="fw-bold display-6">{{ $cigar->price }} Euro</p>
+                <p class=""><span class="fw-bold">Marca:</span><span class="text-capitalize">{{ !empty($cigar->brand) ? $cigar->brand : 'N/D'}}</span></p>
                 <p class=""><span class="fw-bold">Origine:</span> {{ $cigar->madein }} </p>
                 <p class=""><span class="fw-bold">Provenienza:</span> {{ $cigar->origin_description }} </p>
                 <p class=""><span class="fw-bold">Manifattura:</span> {{ !empty($cigar->manufacturing) ? $cigar->manufacturing : 'N/D' }} </p>
+                <p class=""><span class="fw-bold">Fascia:</span> {{ !empty($cigar->band) ? $cigar->band : 'N/D' }} </p>
                 <p class=""><span class="fw-bold">Confezione:</span> Da {{ $cigar->packaging }}
                     {{ $cigar->packaging == 1 ? 'sigaro' : 'sigari' }}</p>
                 <h3 class="text-danger fw-bold mt-5">DISPONIBILE SOLO IN TABACCHERIA</h3>

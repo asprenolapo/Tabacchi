@@ -14,16 +14,27 @@
     <div class="col-md-12 shadow p-5 bg-white rounded-4">
         <h2>Aggiungi prodotto</h2>
         <form method="POST" wire:submit.prevent="save" enctype="multipart/form-data">
-            <div class="my-4">
-                <label for="name" class="form-label">Nome</label>
-                <input wire:model="name" type="text" class="form-control @error('name') is-invalid @enderror"
-                    id="name" value="{{ old('name') }}">
-                @error('name')
-                    <p class="text-danger">{{ $message }}</p>
-                @enderror
-            </div>
-
+            {{-- Nome, Marca e Prezzo --}}
             <div class="d-flex flex-column flex-md-row justify-content-between gap-2 my-4">
+
+                <div class="w-50">
+                    <label for="name" class="form-label">Nome</label>
+                    <input wire:model="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                        id="name" value="{{ old('name') }}">
+                    @error('name')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+
+                <div class="w-50">
+                    <label for="brand" class="form-label">Marca</label>
+                    <input wire:model="brand" type="text" class="form-control @error('brand') is-invalid @enderror"
+                        id="brand" value="{{ old('brand') }}">
+                    @error('brand')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="w-50">
                     <label for="price" class="form-label">Prezzo</label>
                     <input wire:model="price" type="number" step="0.01"
@@ -33,6 +44,9 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
+            </div>
+            {{-- Origine, Provenienza e Manifattura --}}
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-2 my-4">
 
                 <div class="w-50">
                     <fieldset>
@@ -56,19 +70,30 @@
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-            </div>
 
-            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
-                
                 <div class="w-50">
                     <label for="manufacturing" class="form-label">Manifattura</label>
-                    <input wire:model="manufacturing" type="text" class="form-control @error('manufacturing') is-invalid @enderror"
-                        id="manufacturing" value="{{ old('manufacturing') }}">
+                    <input wire:model="manufacturing" type="text"
+                        class="form-control @error('manufacturing') is-invalid @enderror" id="manufacturing"
+                        value="{{ old('manufacturing') }}">
                     @error('manufacturing')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
                 </div>
-                
+
+            </div>
+            {{-- Fascia, Lunghezza e Diametro --}}
+            <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
+
+                <div class="w-50">
+                    <label for="band" class="form-label">Fascia</label>
+                    <input wire:model="band" type="text" class="form-control @error('band') is-invalid @enderror"
+                        id="band" value="{{ old('band') }}">
+                    @error('band')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+
                 <div class="w-50">
                     <label for="vitoladegalera" class="form-label">Lunghezza</label>
                     <input wire:model="vitoladegalera" type="text"
@@ -88,14 +113,14 @@
                     @enderror
                 </div>
             </div>
-
-
+            {{-- Ripieno, Intensità e Tempo di fumata --}}
             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
 
                 <div class="w-50">
                     <label for="tripa" class="form-label">Ripieno</label>
-                    <input wire:model="tripa" type="text" class="form-control @error('tripa') is-invalid @enderror"
-                        id="tripa" value="{{ old('tripa') }}">
+                    <input wire:model="tripa" type="text"
+                        class="form-control @error('tripa') is-invalid @enderror" id="tripa"
+                        value="{{ old('tripa') }}">
                     @error('tripa')
                         <p class="text-danger">{{ $message }}</p>
                     @enderror
@@ -121,7 +146,7 @@
                     @enderror
                 </div>
             </div>
-
+            {{-- Forma, Packaging e Best Sellers --}}
             <div class="d-flex flex-column flex-md-row justify-content-between gap-3 my-4">
 
                 <div class="w-50">
@@ -156,7 +181,7 @@
                     @enderror
                 </div>
             </div>
-
+            {{-- Descrizione --}}
             <div class="my-4">
                 <label for="description" class="form-label">Descrizione</label>
                 <textarea class="form-control @error('description') is-invalid @enderror" wire:model="description" id="description"
@@ -165,7 +190,7 @@
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>
-
+            {{-- Foto --}}
             <div class="mb-3">
                 <label for="img" class="form-label">Foto</label>
                 <input class="form-control @error('img') is-invalid @enderror" multiple type="file"

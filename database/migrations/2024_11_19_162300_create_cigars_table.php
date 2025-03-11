@@ -13,11 +13,13 @@ return new class extends Migration
     {
         Schema::create('cigars', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name');           
+            $table->string('brand')->nullable();           
             $table->decimal('price', 6 , 2);
             $table->enum('madein', ['Italia','Estero','Altro']);
             $table->string('origin_description')->nullable(); 
             $table->string('manufacturing')->nullable();
+            $table->string('band')->nullable();
             $table->string('vitoladegalera')->nullable();
             $table->string('cepo')->nullable();
             $table->string('tripa')->nullable();
