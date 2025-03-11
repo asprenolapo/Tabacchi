@@ -4,7 +4,7 @@
     <h1 class="display-2">Pagina non autorizzata</h1>
 </div>
 {{--! commento registrazione --}}
-    <div class="container-fluid">
+    {{-- <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12 col-md-4 shadow-lg p-5 my-5 rounded-4 bg-body-tertiary bg-dark-subtle">
                 <div class="text-center mb-5">
@@ -53,5 +53,5 @@
 
             </div>
         </div>
-    </div>
+    </div> --}}
 </x-layout>
