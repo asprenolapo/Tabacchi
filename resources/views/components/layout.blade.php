@@ -13,6 +13,8 @@
     <title>
         {{ $titlePage ?? 'Tabaccheria N.195 Bari' }}
     </title>
+    {{-- FONT AWESOME --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     {{-- IUBENDA --}}
     <script type="text/javascript">
         var _iub = _iub || [];
@@ -27,15 +29,13 @@
     </script>
     <script type="text/javascript" src="https://cs.iubenda.com/autoblocking/3897938.js"></script>
     <script type="text/javascript" src="//cdn.iubenda.com/cs/stable/iubenda_cs.js" charset="UTF-8" async></script>
-    {{-- FONT AWESOME --}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 
 <body>
 
     <div>
 
-        {{-- Aggiungi una condizione per escludere il controllo dell'età nelle pagine di login e admin --}}
+        {{-- Condizione per escludere il controllo dell'età nelle pagine di login e admin --}}
         @unless (Route::is('login') ||
                 Route::is('admin') ||
                 Route::is('cigar.edit') ||
