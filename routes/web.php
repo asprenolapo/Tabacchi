@@ -27,3 +27,10 @@ Route::middleware(['auth'])->group(function(){
     Route::delete('admin/destroy/{product}',[AdminController::class,'destroy'])->name('cigar.delete');
 
 });
+
+// Rotta di emergenza (Bypass Iubenda) 
+Route::post('/force-age-verify', function () { 
+// Imposta la stessa sessione che usava il tuo componente Livewire 
+session(['age_verified' => true]); 
+// Ricarica la pagina precedente 
+return back(); })->name('force.age.verify');
