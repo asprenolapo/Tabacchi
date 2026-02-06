@@ -9,18 +9,19 @@
                 
                 <h3 style="color: white; margin-bottom: 20px;">Per entrare nel sito devi essere maggiorenne</h3>
                 
-                <div class="form-group" style="display: flex; justify-content: center; gap: 10px;">
+
+                <div class="form-group" style="display: flex; justify-content: center; align-items: center; gap: 15px;">
                     
-                    <form method="POST" action="{{ route('force.age.verify') }}">
+                    <form method="POST" action="{{ route('force.age.verify') }}" style="display: inline-block; margin: 0;">
                         @csrf
                         <button type="submit" class="btn btn-success" 
-                            style="position: relative; z-index: 2147483649 !important; pointer-events: auto !important; cursor: pointer !important;">
+                            style="min-width: 100px; position: relative; z-index: 2147483649 !important; pointer-events: auto !important; cursor: pointer !important;">
                             Sì
                         </button>
                     </form>
 
                     <a href="https://www.google.it" class="btn btn-danger" 
-                        style="position: relative; z-index: 2147483649 !important; pointer-events: auto !important; cursor: pointer !important; text-decoration: none;">
+                        style="min-width: 100px; display: inline-flex; align-items: center; justify-content: center; position: relative; z-index: 2147483649 !important; pointer-events: auto !important; cursor: pointer !important; text-decoration: none;">
                         No
                     </a>
 
