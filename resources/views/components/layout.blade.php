@@ -33,16 +33,16 @@
 
 <body>
 
-    <div>
+    {{-- Condizione per escludere il controllo dell'età nelle pagine di login e admin --}}
+    @unless (Route::is('login') ||
+            Route::is('admin') ||
+            Route::is('cigar.edit') ||
+            Route::is('cigar.update') ||
+            Route::is('cigar.delete'))
+        <livewire:age-verification />
+    @endunless
 
-        {{-- Condizione per escludere il controllo dell'età nelle pagine di login e admin --}}
-        @unless (Route::is('login') ||
-                Route::is('admin') ||
-                Route::is('cigar.edit') ||
-                Route::is('cigar.update') ||
-                Route::is('cigar.delete'))
-            <livewire:age-verification />
-        @endunless
+    <div>
 
         <x-navbar />
 
@@ -51,7 +51,7 @@
         </div>
 
         <x-footer />
-        
+
     </div>
 
 
